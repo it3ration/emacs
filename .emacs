@@ -17,6 +17,7 @@
    (cons 'auto-complete melpa)
    (cons 'yasnippet melpa)
    (cons 'multi-term melpa)
+   (cons 'diminish melpa)
    (cons 'p4 marmalade)))
 
 (condition-case nil
@@ -43,6 +44,7 @@
 (require 'setup-yasnippet)
 (require 'setup-xcode)
 (require 'setup-p4)
+(require 'setup-diminish)
 
 ;; map file extensions to modes
 (require 'mode-mappings)

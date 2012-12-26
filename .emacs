@@ -5,6 +5,7 @@
 
 ;; load path
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/repos/project/")
 
 ;; setup package
 (require 'setup-package)
@@ -33,6 +34,7 @@
 (eval-after-load 'org '(require 'setup-org))
 (require 'setup-ido)
 (require 'setup-uniquify)
+(require 'setup-multi-term)
 (require 'setup-ffip)
 (require 'setup-rebuilder)
 (require 'setup-clipboard)

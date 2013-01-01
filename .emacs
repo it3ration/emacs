@@ -43,7 +43,6 @@
 (require 'setup-auto-complete)
 (require 'setup-yasnippet)
 (require 'setup-xcode)
-(require 'setup-p4)
 (require 'setup-diminish)
 
 ;; map file extensions to modes

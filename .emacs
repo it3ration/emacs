@@ -5,7 +5,6 @@
 
 ;; load path
 (add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/repos/project/")
 
 ;; setup package
 (require 'setup-package)
@@ -18,8 +17,7 @@
    (cons 'auto-complete melpa)
    (cons 'yasnippet melpa)
    (cons 'multi-term melpa)
-   (cons 'diminish melpa)
-   (cons 'p4 marmalade)))
+   (cons 'diminish melpa)))
 
 (condition-case nil
     (init--install-packages)

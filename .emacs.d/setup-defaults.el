@@ -42,6 +42,6 @@
 (setq-default fill-column 80)
 
 ;; bind align-regex to a key
-(global-set-key (kbd "C-c n") 'align-regexp)
+(global-set-key (kbd "C-c h") 'align-regexp)
 
 (provide 'setup-defaults)

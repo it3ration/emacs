@@ -17,7 +17,8 @@
    (cons 'auto-complete melpa)
    (cons 'yasnippet melpa)
    (cons 'multi-term melpa)
-   (cons 'diminish melpa)))
+   (cons 'diminish melpa)
+   (cons 'magit melpa)))
 
 (condition-case nil
     (init--install-packages)

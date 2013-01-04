@@ -18,7 +18,8 @@
    (cons 'yasnippet melpa)
    (cons 'multi-term melpa)
    (cons 'diminish melpa)
-   (cons 'magit melpa)))
+   (cons 'magit melpa)
+   (cons 'monky melpa)))
 
 (condition-case nil
     (init--install-packages)
@@ -48,3 +49,4 @@
 
 ;; map file extensions to modes
 (require 'mode-mappings)
+

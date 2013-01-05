@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: serclass
+# key: serclass
+# --
+SERIALIZE_CLASS( ${1:namespace}, ${2:class} );

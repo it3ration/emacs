@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: bfmessage
+# key: bfmessage
+# expand-env: ((yas-indent-line 'fixed))
+# --
+//
+// $1
+//
+
+struct ${1:child} : public ${2:parent}
+{
+    DECLARE_MESSAGE( $1, $2 );
+};

@@ -47,6 +47,7 @@
 (require 'setup-xcode)
 (require 'setup-diminish)
 
-;; map file extensions to modes
-(require 'mode-mappings)
+;; final tweaks
+(require 'setup-mappings)
+(require 'setup-aliases)
 

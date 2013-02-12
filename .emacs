@@ -18,6 +18,7 @@
    (cons 'yasnippet melpa)
    (cons 'multi-term melpa)
    (cons 'diminish melpa)
+   (cons 'smex melpa)
    (cons 'magit melpa)
    (cons 'monky melpa)))
 

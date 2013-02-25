@@ -19,6 +19,7 @@
    (cons 'multi-term melpa)
    (cons 'diminish melpa)
    (cons 'smex melpa)
+   (cons 'csharp-mode melpa)
    (cons 'magit melpa)
    (cons 'monky melpa)))
 

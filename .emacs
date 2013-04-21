@@ -5,6 +5,7 @@
 
 ;; load path
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/packages/")
 
 ;; setup package
 (require 'setup-package)
@@ -48,6 +49,7 @@
 (require 'setup-yasnippet)
 (require 'setup-xcode)
 (require 'setup-diminish)
+(require 'setup-breadcrumb)
 
 ;; final tweaks
 (require 'setup-mappings)

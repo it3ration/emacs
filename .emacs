@@ -44,7 +44,7 @@
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))
-(require 'setup-undo-tree)
+;; (require 'setup-undo-tree)
 (require 'setup-auto-complete)
 (require 'setup-yasnippet)
 (require 'setup-xcode)

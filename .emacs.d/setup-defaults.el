@@ -44,15 +44,7 @@
 ;; bind align-regex to a key
 (global-set-key (kbd "C-c h") 'align-regexp)
 
-;; If we only have one window, split horizontally.
-;; Otherwise, use the default behavior as usual.
-(defun split-window-prefer-horizonally (window)
-  "If there's only one active window (excluding the minibuffer), then split horizontally, otherwise sensibly"
-  (if (and (one-window-p t)
-           (not (active-minibuffer-window)))
-      (let ((split-height-threshold nil))
-        (split-window-sensibly window))
-    (split-window-sensibly window)))
-(setq split-window-preferred-function 'split-window-prefer-horizonally)
+;; makes vertical split more likely
+(setq split-height-threshold 100)
 
 (provide 'setup-defaults)

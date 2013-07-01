@@ -44,6 +44,7 @@
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))
+(require 'setup-lazypile)
 (require 'setup-undo-tree)
 (require 'setup-auto-complete)
 (require 'setup-yasnippet)

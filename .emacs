@@ -21,8 +21,7 @@
    (cons 'diminish melpa)
    (cons 'smex melpa)
    (cons 'csharp-mode melpa)
-   (cons 'magit melpa)
-   (cons 'monky melpa)))
+   (cons 'magit melpa)))
 
 (condition-case nil
     (init--install-packages)

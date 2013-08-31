@@ -49,7 +49,6 @@
 (require 'setup-yasnippet)
 (require 'setup-xcode)
 (require 'setup-diminish)
-(require 'setup-breadcrumb)
 
 ;; final tweaks
 (require 'setup-mappings)

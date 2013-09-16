@@ -40,6 +40,7 @@
 (require 'setup-ffip)
 (require 'setup-rebuilder)
 (require 'setup-clipboard)
+(require 'setup-python)
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))

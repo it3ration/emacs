@@ -24,6 +24,9 @@
 ;; highlight the line that point is on
 (global-hl-line-mode t)
 
+;; enable subword mode globally
+(global-subword-mode 1)
+
 ;; reload files if they change
 (global-auto-revert-mode 1)
 

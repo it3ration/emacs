@@ -50,4 +50,7 @@
 ;; makes vertical split more likely
 (setq split-height-threshold 100)
 
+;; compilation
+(setq compilation-scroll-output 'first-error)
+
 (provide 'setup-defaults)

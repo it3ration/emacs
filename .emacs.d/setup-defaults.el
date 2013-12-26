@@ -30,12 +30,7 @@
 ;; reload files if they change
 (global-auto-revert-mode 1)
 
-;; tab settings
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-(setq c-default-style "k&r" c-basic-offset 4)
-
-;; ;; backups
+;; backups
 (setq backup-by-copying t)
 (setq backup-directory-alist `(("." . "~/.emacs.backups/")))
 (setq auto-save-list-file-prefix "~/.emacs.backups/")
@@ -44,13 +39,15 @@
 ;; text must be 80 characters wide
 (setq-default fill-column 80)
 
-;; bind align-regex to a key
-(global-set-key (kbd "C-c h") 'align-regexp)
-
 ;; makes vertical split more likely
 (setq split-height-threshold 100)
 
 ;; compilation
 (setq compilation-scroll-output 'first-error)
+
+;; tab settings
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq c-default-style "k&r" c-basic-offset 4)
 
 (provide 'setup-defaults)

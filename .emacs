@@ -33,6 +33,7 @@
 ;; setup customizations
 (require 'setup-defaults)
 (require 'setup-theme)
+(require 'setup-cc)
 (eval-after-load 'dired '(require 'setup-dired))
 (eval-after-load 'org '(require 'setup-org))
 (require 'setup-ido)

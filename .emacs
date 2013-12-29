@@ -43,6 +43,7 @@
 (require 'setup-rebuilder)
 (require 'setup-clipboard)
 (require 'setup-python)
+(require 'setup-csharp)
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))

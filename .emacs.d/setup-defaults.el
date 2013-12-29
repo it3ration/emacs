@@ -45,8 +45,4 @@
 ;; compilation
 (setq compilation-scroll-output 'first-error)
 
-;; tab settings
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-
 (provide 'setup-defaults)

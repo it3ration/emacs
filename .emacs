@@ -22,7 +22,8 @@
    (cons 'smex melpa)
    (cons 'csharp-mode melpa)
    (cons 'magit melpa)
-   (cons 'haskell-mode melpa)))
+   (cons 'haskell-mode melpa)
+   (cons 'ag melpa)))
 
 (condition-case nil
     (init--install-packages)

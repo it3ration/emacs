@@ -11,7 +11,8 @@
   (setq tab-width 4)
   (setq indent-tabs-mode nil)
   (setq c-basic-offset 4)
-  (c-set-offset 'inline-open '0))
+  (c-set-offset 'inline-open '0)
+  (c-set-offset 'case-label '4))
 
 (add-hook 'c-mode-common-hook 'it3ration-cc-style)
 

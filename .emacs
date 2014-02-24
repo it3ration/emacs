@@ -46,6 +46,7 @@
 (require 'setup-clipboard)
 (require 'setup-python)
 (require 'setup-csharp)
+(require 'setup-graphviz)
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))

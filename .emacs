@@ -23,7 +23,8 @@
    (cons 'csharp-mode melpa)
    (cons 'magit melpa)
    (cons 'haskell-mode melpa)
-   (cons 'ag melpa)))
+   (cons 'ag melpa)
+   (cons 'graphviz-dot-mode melpa)))
 
 (condition-case nil
     (init--install-packages)

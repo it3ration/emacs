@@ -24,7 +24,8 @@
    (cons 'magit melpa)
    (cons 'haskell-mode melpa)
    (cons 'ag melpa)
-   (cons 'graphviz-dot-mode melpa)))
+   (cons 'graphviz-dot-mode melpa)
+   (cons 'flymake melpa)))
 
 (condition-case nil
     (init--install-packages)

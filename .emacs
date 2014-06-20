@@ -25,7 +25,8 @@
    (cons 'haskell-mode melpa)
    (cons 'ag melpa)
    (cons 'graphviz-dot-mode melpa)
-   (cons 'flymake melpa)))
+   (cons 'flymake melpa)
+   (cons 'pointback melpa)))
 
 (condition-case nil
     (init--install-packages)
@@ -48,6 +49,7 @@
 (require 'setup-python)
 (require 'setup-csharp)
 (require 'setup-graphviz)
+(require 'setup-pointback)
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))

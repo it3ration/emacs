@@ -25,7 +25,8 @@
    (cons 'haskell-mode melpa)
    (cons 'ag melpa)
    (cons 'graphviz-dot-mode melpa)
-   (cons 'flymake melpa)))
+   (cons 'flymake melpa)
+   (cons 'ido-ubiquitous marmalade)))
 
 (condition-case nil
     (init--install-packages)

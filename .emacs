@@ -41,6 +41,7 @@
 (eval-after-load 'dired '(require 'setup-dired))
 (eval-after-load 'org '(require 'setup-org))
 (require 'setup-ido)
+(require 'setup-smex)
 (require 'setup-uniquify)
 (require 'setup-multi-term)
 (require 'setup-ffip)

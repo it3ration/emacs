@@ -7,3 +7,5 @@
 
 ;; regular M-x still accessible
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+(provide 'setup-smex)

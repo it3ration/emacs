@@ -27,7 +27,8 @@
    (cons 'graphviz-dot-mode melpa)
    (cons 'flymake melpa)
    (cons 'ido-ubiquitous marmalade)
-   (cons 'flx-ido melpa)))
+   (cons 'flx-ido melpa)
+   (cons 'guide-key melpa)))
 
 (condition-case nil
     (init--install-packages)
@@ -46,6 +47,7 @@
 (require 'setup-flx)
 (require 'setup-smex)
 (require 'setup-uniquify)
+(require 'setup-guide-key)
 (require 'setup-multi-term)
 (require 'setup-ffip)
 (require 'setup-rebuilder)

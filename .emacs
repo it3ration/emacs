@@ -26,7 +26,8 @@
    (cons 'ag melpa)
    (cons 'graphviz-dot-mode melpa)
    (cons 'flymake melpa)
-   (cons 'ido-ubiquitous marmalade)))
+   (cons 'ido-ubiquitous marmalade)
+   (cons 'flx-ido melpa)))
 
 (condition-case nil
     (init--install-packages)
@@ -42,6 +43,7 @@
 (eval-after-load 'org '(require 'setup-org))
 (require 'setup-ido)
 (require 'setup-ido-ubiquitous)
+(require 'setup-flx)
 (require 'setup-smex)
 (require 'setup-uniquify)
 (require 'setup-multi-term)

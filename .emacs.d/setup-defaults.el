@@ -12,6 +12,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; up the amount of memory allocated before gc's
+(setq gc-cons-threshold 20000000)
+
 ;; show column number
 (column-number-mode t)
 

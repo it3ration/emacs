@@ -28,7 +28,8 @@
    (cons 'flymake melpa)
    (cons 'ido-ubiquitous marmalade)
    (cons 'flx-ido melpa)
-   (cons 'guide-key melpa)))
+   (cons 'guide-key melpa)
+   (cons 'omnisharp melpa)))
 
 (condition-case nil
     (init--install-packages)
@@ -54,6 +55,7 @@
 (require 'setup-clipboard)
 (require 'setup-python)
 (require 'setup-csharp)
+(require 'setup-omnisharp)
 (require 'setup-graphviz)
 
 ;; setup extensions

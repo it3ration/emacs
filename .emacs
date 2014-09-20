@@ -15,7 +15,7 @@
   (packages-install
    (cons 'undo-tree marmalade)
    (cons 'lua-mode marmalade)
-   (cons 'auto-complete melpa)
+   (cons 'company melpa)
    (cons 'yasnippet melpa)
    (cons 'multi-term melpa)
    (cons 'diminish melpa)
@@ -62,7 +62,7 @@
 (eval-after-load 'lua-mode '(require 'setup-lua))
 (require 'setup-lazypile)
 (require 'setup-undo-tree)
-(require 'setup-auto-complete)
+(require 'setup-company)
 (require 'setup-yasnippet)
 (require 'setup-xcode)
 (require 'setup-diminish)

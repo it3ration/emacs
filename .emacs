@@ -25,7 +25,6 @@
    (cons 'haskell-mode melpa)
    (cons 'ag melpa)
    (cons 'graphviz-dot-mode melpa)
-   (cons 'flymake melpa)
    (cons 'ido-ubiquitous marmalade)
    (cons 'flx-ido melpa)
    (cons 'guide-key melpa)

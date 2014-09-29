@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: interface
+# key: interface
+# expand-env: ((yas-indent-line 'fixed))
+# --
+public interface ${1:Name}
+{
+    $0
+}

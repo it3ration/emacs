@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: class
+# key: class
+# expand-env: ((yas-indent-line 'fixed))
+# --
+public class ${1:Name}
+{
+    $0
+}

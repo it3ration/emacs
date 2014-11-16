@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: foreach
+# key: foreach
+# binding: direct-keybinding
+# --
+foreach (${1:Type} ${2:Name} in ${3:Container}) {
+    $0
+}

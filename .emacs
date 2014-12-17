@@ -1,5 +1,5 @@
 ;; -------------------------
-;; Kevin Depue (2012)
+;; Kevin Depue (2014)
 ;; Emacs configuration file.
 ;; -------------------------
 
@@ -60,7 +60,6 @@
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))
-(require 'setup-lazypile)
 (require 'setup-undo-tree)
 (require 'setup-company)
 (require 'setup-yasnippet)

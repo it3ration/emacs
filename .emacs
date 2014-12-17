@@ -4,8 +4,9 @@
 ;; -------------------------
 
 ;; load path
-(add-to-list 'load-path "~/.emacs.d/")
-(add-to-list 'load-path "~/.emacs.d/packages/")
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+;; (add-to-list 'load-path "~/.emacs.d/")
+;; (add-to-list 'load-path "~/.emacs.d/packages/")
 
 ;; setup package
 (require 'setup-package)
@@ -27,6 +28,7 @@
    (cons 'graphviz-dot-mode melpa)
    (cons 'ido-ubiquitous marmalade)
    (cons 'flx-ido melpa)
+   (cons 'projectile melpa)
    (cons 'guide-key melpa)
    (cons 'omnisharp melpa)))
 
@@ -45,6 +47,7 @@
 (require 'setup-ido)
 (require 'setup-uniquify)
 (require 'setup-flx)
+(require 'setup-projectile)
 (require 'setup-ido-ubiquitous)
 (require 'setup-smex)
 (require 'setup-guide-key)

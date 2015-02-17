@@ -1,7 +1,7 @@
 (require 'guide-key)
 
 ;; specify which key sequences it pops up for
-(setq guide-key/guide-key-sequence '("C-x r" "C-h" "C-x 4" "C-c p"))
+(setq guide-key/guide-key-sequence '("C-c h" "C-c p" "C-x r" "C-h" "C-x 4"))
 
 ;; turn it on
 (guide-key-mode 1)

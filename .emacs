@@ -30,8 +30,7 @@
    (cons 'helm melpa)
    (cons 'helm-projectile melpa)
    (cons 'helm-ag melpa)
-   (cons 'guide-key melpa)
-   (cons 'omnisharp melpa)))
+   (cons 'guide-key melpa)))
 
 (condition-case nil
     (init--install-packages)
@@ -59,7 +58,6 @@
 (require 'setup-clipboard)
 (require 'setup-python)
 (require 'setup-csharp)
-(require 'setup-omnisharp)
 (require 'setup-graphviz)
 
 ;; setup extensions

@@ -1,18 +1,19 @@
 (require 'package)
 
-(defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
+(defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
 (defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
 
 ;; marmalade
-(add-to-list 'package-archives marmalade)
-(add-to-list 'package-archives melpa t)
+(add-to-list 'package-archives melpa)
+(add-to-list 'package-archives marmalade t)
+(add-to-list 'package-archives gnu t)
 
 (package-initialize)
 
 ;; refresh package list if you never have
-(unless (and (file-exists-p "~/.emacs.d/elpa/archives/marmalade")
-             (file-exists-p "~/.emacs.d/elpa/archives/melpa")
+(unless (and (file-exists-p "~/.emacs.d/elpa/archives/melpa")
+             (file-exists-p "~/.emacs.d/elpa/archives/marmalade")
              (file-exists-p "~/.emacs.d/elpa/archives/gnu"))
   (package-refresh-contents))
 

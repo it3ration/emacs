@@ -25,4 +25,7 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
+;; colors
+(set-face-attribute 'helm-selection nil :background "firebrick4")
+
 (provide 'setup-helm)

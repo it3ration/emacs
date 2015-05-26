@@ -1,7 +1,9 @@
-(deftheme gams "A theme that's easier on the eyes.")
+(deftheme it3ration "A theme that's easier on the eyes.")
 
 (custom-theme-set-faces
- 'gams
+ 'it3ration
+
+ ;; the defaults
  '(default ((t (:background "grey20" :foreground "white"))))
  '(font-lock-comment-face ((t (:foreground "wheat4"))))
  '(font-lock-comment-delimiter-face ((t (:foreground "wheat4" :inherit font-lock-comment-face))))
@@ -21,6 +23,12 @@
  '(highlight ((t (:background "firebrick4"))))
  '(lazy-highlight ((t (:background "sienna4"))))
  '(region ((t (:background "gray10"))))
- '(cursor ((t (:background "DarkSlateGray3")))))
+ '(cursor ((t (:background "DarkSlateGray3"))))
 
-(provide-theme 'gams)
+ ;; magit
+ '(magit-diff-add ((t (:foreground "green"))))
+ '(magit-diff-del ((t (:foreground "IndianRed3"))))
+ '(magit-item-highlight ((t (:background "grey26"))))
+ )
+
+(provide-theme 'it3ration)

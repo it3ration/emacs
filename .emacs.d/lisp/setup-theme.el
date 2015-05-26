@@ -1,8 +1,8 @@
-;; my custom gams emacs theme
+;; use my custom it3ration theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (condition-case nil 
-    (load-theme 'gams t)
-  (wrong-number-of-arguments (load-theme 'gams)))
+    (load-theme 'it3ration t)
+  (wrong-number-of-arguments (load-theme 'it3ration)))
 
 (provide 'setup-theme)
 

@@ -27,6 +27,7 @@
    (cons 'helm melpa)
    (cons 'helm-projectile melpa)
    (cons 'helm-ag melpa)
+   (cons 'haskell-mode melpa)
    (cons 'guide-key melpa)))
 
 (condition-case nil
@@ -52,6 +53,7 @@
 (require 'setup-python)
 (require 'setup-csharp)
 (require 'setup-graphviz)
+(require 'setup-haskell)
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))

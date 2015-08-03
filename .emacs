@@ -28,6 +28,7 @@
    (cons 'helm-projectile melpa)
    (cons 'helm-ag melpa)
    (cons 'haskell-mode melpa)
+   (cons 'go-mode melpa)
    (cons 'guide-key melpa)))
 
 (condition-case nil

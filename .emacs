@@ -55,6 +55,7 @@
 (require 'setup-csharp)
 (require 'setup-graphviz)
 (require 'setup-haskell)
+(require 'setup-go)
 
 ;; setup extensions
 (eval-after-load 'lua-mode '(require 'setup-lua))

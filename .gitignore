@@ -1,6 +1,7 @@
-.emacs.d/ac-comphist.dat
+*~
+.emacs.d/backups
 .emacs.d/elpa
-.emacs.d/url
+.emacs.d/auto-save-list
 .emacs.d/projectile-bookmarks.eld
 .emacs.d/projectile.cache
 .emacs.d/recentf

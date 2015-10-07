@@ -20,16 +20,16 @@
                  (concat user-emacs-directory "backups")))))
 
 ;; Setup packages.
-(require 'setup-package)
+(require 'setup-packages)
 
-;; This method installs packages.
+;; Installs our packages.
 (defun install-packages ()
   (packages-install
    '(company
      magit
      )))
 
-;; Attempt to install packages.
+;; Attempts to install our packages.
 (condition-case nil
     (install-packages)
   (error

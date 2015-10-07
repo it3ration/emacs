@@ -1,33 +1,55 @@
 (require 'package)
 
-(defvar melpa '("melpa" . "http://melpa.milkbox.net/packages/"))
-(defvar marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
-(defvar gnu '("gnu" . "http://elpa.gnu.org/packages/"))
-
-;; marmalade
-(add-to-list 'package-archives melpa)
-(add-to-list 'package-archives marmalade t)
-(add-to-list 'package-archives gnu t)
+;; add melpa to package repos
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (package-initialize)
 
-;; refresh package list if you never have
-(unless (and (file-exists-p "~/.emacs.d/elpa/archives/melpa")
-             (file-exists-p "~/.emacs.d/elpa/archives/marmalade")
-             (file-exists-p "~/.emacs.d/elpa/archives/gnu"))
+(unless (file-exists-p "~/.emacs.d/elpa/archives/melpa")
   (package-refresh-contents))
 
-;; courtesy of magnars: install a list of packages
-(defun packages-install (&rest packages)
-  (mapc (lambda (package)
-          (let ((name (car package))
-                (repo (cdr package)))
-            (when (not (package-installed-p name))
-              (let ((package-archives (list repo)))
-                (package-initialize)
-                (package-install name)))))
-        packages)
-  (package-initialize)
+(defun packages-install (packages)
+  (mapc
+   (lambda (package)
+     (when (not (package-installed-p package))
+       (package-install package)))
+   packages)
   (delete-other-windows))
 
 (provide 'setup-package)
+
+
+;; (require 'package)
+;; (require 'dash)
+
+;; ;; Add melpa to package repos
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+;; (package-initialize)
+
+;; (unless (file-exists-p "~/.emacs.d/elpa/archives/melpa")
+;;   (package-refresh-contents))
+
+;; (defun packages-install (packages)
+;;   (--each packages
+;;     (when (not (package-installed-p it))
+;;       (package-install it)))
+;;   (delete-other-windows))
+
+;; ;;; On-demand installation of packages
+
+;; (defun require-package (package &optional min-version no-refresh)
+;;   "Install given PACKAGE, optionally requiring MIN-VERSION.
+;; If NO-REFRESH is non-nil, the available package lists will not be
+;; re-downloaded in order to locate PACKAGE."
+;;   (if (package-installed-p package min-version)
+;;       t
+;;     (if (or (assoc package package-archive-contents) no-refresh)
+;;         (package-install package)
+;;       (progn
+;;         (package-refresh-contents)
+;;         (require-package package min-version t)))))
+
+;; (provide 'setup-package)

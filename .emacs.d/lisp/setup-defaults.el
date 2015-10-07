@@ -1,16 +1,16 @@
-;; no splash screen
-(setq inhibit-splash-screen t)
+;; ;; no splash screen
+;; (setq inhibit-splash-screen t)
 
-;; no startup message
-(setq inhibit-startup-message t)
+;; ;; no startup message
+;; (setq inhibit-startup-message t)
 
-;; make the initial scratch buffer empty
-(setq initial-scratch-message "")
+;; ;; make the initial scratch buffer empty
+;; (setq initial-scratch-message "")
 
-;; no menu/tool/scroll bars
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+;; ;; no menu/tool/scroll bars
+;; (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+;; (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; up the amount of memory allocated before gc's
 (setq gc-cons-threshold 20000000)

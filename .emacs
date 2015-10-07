@@ -19,14 +19,18 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 
+;; Backup files even if we're using source control.
+(setq vc-make-backup-files t)
+
 ;; Setup packages.
 (require 'setup-packages)
 
 ;; Installs our packages.
 (defun install-packages ()
   (packages-install
-   '(company
-     magit
+   '(s
+     f
+     dash
      )))
 
 ;; Attempts to install our packages.

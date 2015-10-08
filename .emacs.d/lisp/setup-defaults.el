@@ -1,51 +1,51 @@
-;; ;; no splash screen
-;; (setq inhibit-splash-screen t)
-
-;; ;; no startup message
-;; (setq inhibit-startup-message t)
-
-;; ;; make the initial scratch buffer empty
-;; (setq initial-scratch-message "")
-
-;; ;; no menu/tool/scroll bars
-;; (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-;; (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; up the amount of memory allocated before gc's
-(setq gc-cons-threshold 20000000)
-
-;; show column number
-(column-number-mode t)
-
-;; only require 'y' and 'n', not 'yes' and 'no'
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; highlight matching parentheses
-(show-paren-mode t)
-
-;; highlight the line that point is on
-(global-hl-line-mode t)
-
-;; enable subword mode globally
-(global-subword-mode 1)
-
-;; reload files if they change
+;; Auto refresh buffers.
 (global-auto-revert-mode 1)
 
-;; backups
-(setq backup-by-copying t)
-(setq backup-directory-alist `(("." . "~/.emacs.backups/")))
-(setq auto-save-list-file-prefix "~/.emacs.backups/")
-(setq auto-save-file-name-transforms `((".*" "~/.emacs.backups/" t)))
+;; Auto refresh dired.
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
 
-;; text must be 80 characters wide
+;; Highlight the line that point is on.
+(global-hl-line-mode t)
+
+;; Answering 'y' or 'n' will do.
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Use utf8 encoding please.
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+;; Always show line and column numbers.
+(setq line-number-mode t)
+(setq column-number-mode t)
+
+;; Subword mode is the cat's meow.
+(global-subword-mode 1)
+
+;; Highlight matching parentheses.
+(show-paren-mode t)
+
+;; We're not in the 80's anymore.
+(setq gc-cons-threshold 20000000)
+
+;; Shoot for an 80 character width.
+(setq fill-column 80)
 (setq-default fill-column 80)
 
-;; makes vertical split more likely
+;; Make a vertical split more likely.
 (setq split-height-threshold 100)
 
-;; compilation
-(setq compilation-scroll-output 'first-error)
+;; Save minibuffer history.
+(savehist-mode 1)
+(setq history-length 1000)
+
+;; Decrease minibuffer echo time.
+(setq echo-keystrokes 0.1)
+
+;; If inserting text, replace active region.
+(delete-selection-mode 1)
 
 (provide 'setup-defaults)

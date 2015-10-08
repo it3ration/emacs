@@ -40,6 +40,8 @@
    (package-refresh-contents)
    (install-packages)))
 
+;; Setup sane defaults.
+(require 'setup-defaults)
 
 ;; (defun init--install-packages ()
 ;;   (packages-install

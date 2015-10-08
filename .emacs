@@ -22,6 +22,9 @@
 ;; Backup files even if we're using source control.
 (setq vc-make-backup-files t)
 
+;; Setup themes.
+(require 'setup-themes)
+
 ;; Setup packages.
 (require 'setup-packages)
 
@@ -43,69 +46,7 @@
 ;; Setup sane defaults.
 (require 'setup-defaults)
 
-;; (defun init--install-packages ()
-;;   (packages-install
-;;    '(magit
-;;      paredit
-;;      move-text
-;;      gist
-;;      htmlize
-;;      visual-regexp
-;;      markdown-mode
-;;      fill-column-indicator
-;;      flycheck
-;;      flycheck-pos-tip
-;;      flycheck-clojure
-;;      flx
-;;      f
-;;      flx-ido
-;;      dired-details
-;;      css-eldoc
-;;      yasnippet
-;;      smartparens
-;;      ido-vertical-mode
-;;      ido-at-point
-;;      simple-httpd
-;;      guide-key
-;;      nodejs-repl
-;;      restclient
-;;      highlight-escape-sequences
-;;      whitespace-cleanup-mode
-;;      elisp-slime-nav
-;;      dockerfile-mode
-;;      clojure-mode
-;;      clojure-mode-extra-font-locking
-;;      groovy-mode
-;;      prodigy
-;;      cider
-;;      yesql-ghosts
-;;      string-edit
-;;      )))
-
-;; ;; install missing extensions
-;; (defun init--install-packages ()
-;;   (packages-install
-;;    (cons 'undo-tree marmalade)
-;;    (cons 'lua-mode marmalade)
-;;    (cons 'company melpa)
-;;    (cons 'yasnippet melpa)
-;;    (cons 'multi-term melpa)
-;;    (cons 'diminish melpa)
-;;    (cons 'csharp-mode melpa)
-;;    (cons 'magit melpa)
-;;    (cons 'haskell-mode melpa)
-;;    (cons 'ag melpa)
-;;    (cons 'graphviz-dot-mode melpa)
-;;    (cons 'projectile melpa)
-;;    (cons 'helm melpa)
-;;    (cons 'helm-projectile melpa)
-;;    (cons 'helm-ag melpa)
-;;    (cons 'haskell-mode melpa)
-;;    (cons 'go-mode melpa)
-;;    (cons 'guide-key melpa)))
-
 ;; ;; setup customizations
-;; (require 'setup-defaults)
 ;; (require 'setup-theme)
 ;; (require 'setup-cc)
 ;; (eval-after-load 'dired '(require 'setup-dired))

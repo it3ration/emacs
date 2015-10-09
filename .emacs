@@ -75,7 +75,6 @@
 (eval-after-load 'go-mode '(require 'setup-go))
 
 ;; (require 'setup-mappings)
-;; (require 'setup-aliases)
 ;; (require 'setup-diminish)
 
 

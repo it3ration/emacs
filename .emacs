@@ -75,6 +75,17 @@
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
 (eval-after-load 'go-mode '(require 'setup-go))
 
+;; Modes to checkout ..
+;; highlight-escape-sequences
+;; visual-regexp
+;; jump-char
+;; expand-region
+;; paredit
+;; gist
+;; move-text
+;; smartparens
+;; string-edit
+
 ;; (require 'setup-diminish)
 
 

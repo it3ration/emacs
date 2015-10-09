@@ -66,7 +66,6 @@
 
 ;; (require 'setup-rebuilder)
 ;; (require 'setup-python)
-;; (require 'setup-csharp)
 ;; (require 'setup-haskell)
 ;; (require 'setup-go)
 ;; (eval-after-load 'lua-mode '(require 'setup-lua))

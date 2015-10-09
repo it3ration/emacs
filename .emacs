@@ -39,6 +39,7 @@
      ag
      helm-projectile
      helm-ag
+     company
      )))
 
 ;; Attempts to install our packages.
@@ -59,6 +60,7 @@
 (require 'setup-helm)
 (require 'setup-projectile)
 (require 'setup-helm-projectile)
+(require 'setup-company)
 (require 'setup-cc)
 
 
@@ -70,7 +72,6 @@
 ;; (require 'setup-go)
 ;; (eval-after-load 'lua-mode '(require 'setup-lua))
 ;; (require 'setup-undo-tree)
-;; (require 'setup-company)
 ;; (require 'setup-yasnippet)
 ;; (require 'setup-xcode)
 ;; (require 'setup-mappings)

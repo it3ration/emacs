@@ -68,7 +68,6 @@
 (require 'setup-cc)
 
 
-;; (require 'setup-rebuilder)
 ;; (require 'setup-python)
 ;; (require 'setup-haskell)
 ;; (require 'setup-go)

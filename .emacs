@@ -14,8 +14,8 @@
 (setq site-lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path site-lisp-dir)
 
-;; Are we on a mac?
-(setq is-mac (equal system-type 'darwin))
+;; Setup platform.
+(require 'setup-platform)
 
 ;; Setup backups.
 (require 'setup-backups)

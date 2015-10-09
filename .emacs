@@ -34,6 +34,7 @@
      dash
      magit
      guide-key
+     helm
      )))
 
 ;; Attempts to install our packages.
@@ -51,6 +52,7 @@
 (require 'setup-clipboard)
 (require 'setup-uniquify)
 (require 'setup-guide-key)
+(require 'setup-helm)
 
 
 
@@ -59,7 +61,6 @@
 ;; ;; setup customizations
 ;; (require 'setup-cc)
 ;; (require 'setup-projectile)
-;; (require 'setup-helm)
 ;; (require 'setup-multi-term)
 ;; (require 'setup-rebuilder)
 
@@ -83,3 +84,6 @@
 
 
 ;; (require 'setup-diminish)
+
+
+;; finish helm setup file!

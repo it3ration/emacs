@@ -34,6 +34,7 @@
    '(s
      f
      dash
+     magit
      )))
 
 ;; Attempts to install our packages.
@@ -46,12 +47,12 @@
 ;; Setup sane defaults.
 (require 'setup-defaults)
 
+;; Setup modes.  Note that
+;; the order matters here.
+(require 'setup-uniquify)
+
 ;; ;; setup customizations
-;; (require 'setup-theme)
 ;; (require 'setup-cc)
-;; (eval-after-load 'dired '(require 'setup-dired))
-;; (eval-after-load 'org '(require 'setup-org))
-;; (require 'setup-uniquify)
 ;; (require 'setup-projectile)
 ;; (require 'setup-helm)
 ;; (require 'setup-guide-key)
@@ -77,3 +78,6 @@
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)
 
+
+
+;; (require 'setup-diminish)

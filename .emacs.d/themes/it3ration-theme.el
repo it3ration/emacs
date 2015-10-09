@@ -126,3 +126,6 @@
  )
 
 (provide-theme 'it3ration)
+
+;; ;; colors
+;; (set-face-attribute 'helm-selection nil :background "firebrick4")

@@ -78,9 +78,4 @@
 ;; (require 'setup-aliases)
 ;; (require 'setup-diminish)
 
-;; finish helm setup file!
-;; ;; colors
-;; (set-face-attribute 'helm-selection nil :background "firebrick4")
-
-
 

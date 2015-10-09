@@ -35,6 +35,8 @@
      magit
      guide-key
      helm
+     projectile
+     helm-projectile
      )))
 
 ;; Attempts to install our packages.
@@ -53,14 +55,14 @@
 (require 'setup-uniquify)
 (require 'setup-guide-key)
 (require 'setup-helm)
-
-
+(require 'setup-projectile)
+(require 'setup-helm-projectile)
 
 
 
 ;; ;; setup customizations
 ;; (require 'setup-cc)
-;; (require 'setup-projectile)
+
 ;; (require 'setup-multi-term)
 ;; (require 'setup-rebuilder)
 
@@ -87,3 +89,8 @@
 
 
 ;; finish helm setup file!
+;; ;; colors
+;; (set-face-attribute 'helm-selection nil :background "firebrick4")
+
+
+

@@ -23,11 +23,4 @@
 ;; Make sure we can access man pages.
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
-;; ;; projectile
-;; (setq projectile-completion-system 'helm)
-;; (helm-projectile-on)
-
-;; ;; colors
-;; (set-face-attribute 'helm-selection nil :background "firebrick4")
-
 (provide 'setup-helm)

@@ -41,6 +41,7 @@
      helm-ag
      company
      yasnippet
+     undo-tree
      )))
 
 ;; Attempts to install our packages.
@@ -63,6 +64,7 @@
 (require 'setup-helm-projectile)
 (require 'setup-company)
 (require 'setup-yasnippet)
+(require 'setup-undo-tree)
 (require 'setup-cc)
 
 
@@ -70,7 +72,6 @@
 ;; (require 'setup-python)
 ;; (require 'setup-haskell)
 ;; (require 'setup-go)
-;; (require 'setup-undo-tree)
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)
 ;; (require 'setup-diminish)

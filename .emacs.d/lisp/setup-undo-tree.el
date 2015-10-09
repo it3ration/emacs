@@ -1,6 +1,6 @@
 (require 'undo-tree)
 
-;; turn on undo-tree globally
+;; Let's use this everywhere.
 (global-undo-tree-mode)
 
 (provide 'setup-undo-tree)

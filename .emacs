@@ -64,7 +64,6 @@
 (require 'setup-cc)
 
 
-;; (require 'setup-multi-term)
 ;; (require 'setup-rebuilder)
 ;; (require 'setup-python)
 ;; (require 'setup-csharp)

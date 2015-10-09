@@ -72,7 +72,6 @@
 ;; (eval-after-load 'lua-mode '(require 'setup-lua))
 ;; (require 'setup-undo-tree)
 ;; (require 'setup-yasnippet)
-;; (require 'setup-xcode)
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)
 ;; (require 'setup-diminish)

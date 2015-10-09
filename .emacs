@@ -35,6 +35,7 @@
      f
      dash
      magit
+     guide-key
      )))
 
 ;; Attempts to install our packages.
@@ -51,6 +52,7 @@
 ;; Order matters here!
 (require 'setup-clipboard)
 (require 'setup-uniquify)
+(require 'setup-guide-key)
 
 
 
@@ -60,7 +62,6 @@
 ;; (require 'setup-cc)
 ;; (require 'setup-projectile)
 ;; (require 'setup-helm)
-;; (require 'setup-guide-key)
 ;; (require 'setup-multi-term)
 ;; (require 'setup-rebuilder)
 

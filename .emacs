@@ -47,9 +47,14 @@
 ;; Setup sane defaults.
 (require 'setup-defaults)
 
-;; Setup modes.  Note that
-;; the order matters here.
+;; Various setup scripts.
+;; Order matters here!
+(require 'setup-clipboard)
 (require 'setup-uniquify)
+
+
+
+
 
 ;; ;; setup customizations
 ;; (require 'setup-cc)
@@ -57,12 +62,10 @@
 ;; (require 'setup-helm)
 ;; (require 'setup-guide-key)
 ;; (require 'setup-multi-term)
-;; (require 'setup-ffip)
 ;; (require 'setup-rebuilder)
-;; (require 'setup-clipboard)
+
 ;; (require 'setup-python)
 ;; (require 'setup-csharp)
-;; (require 'setup-graphviz)
 ;; (require 'setup-haskell)
 ;; (require 'setup-go)
 

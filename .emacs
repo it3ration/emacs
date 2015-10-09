@@ -42,6 +42,7 @@
      company
      yasnippet
      undo-tree
+     haskell-mode
      )))
 
 ;; Attempts to install our packages.
@@ -54,7 +55,7 @@
 ;; Setup sane defaults.
 (require 'setup-defaults)
 
-;; Various setup scripts.
+;; Setup various packages.
 ;; Order matters here!
 (require 'setup-clipboard)
 (require 'setup-uniquify)
@@ -67,6 +68,11 @@
 (require 'setup-undo-tree)
 (require 'setup-cc)
 
+;; Setup language-specific modes.
+;; Only run if the mode is loaded.
+(eval-after-load 'haskell-mode '(require 'setup-haskell))
+
+;; (eval-after-load 'js2-mode '(require 'setup-js2-mode))
 
 ;; (require 'setup-python)
 ;; (require 'setup-haskell)

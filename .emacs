@@ -70,7 +70,6 @@
 ;; (require 'setup-python)
 ;; (require 'setup-haskell)
 ;; (require 'setup-go)
-;; (eval-after-load 'lua-mode '(require 'setup-lua))
 ;; (require 'setup-undo-tree)
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)

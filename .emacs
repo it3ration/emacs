@@ -36,7 +36,9 @@
      guide-key
      helm
      projectile
+     ag
      helm-projectile
+     helm-ag
      )))
 
 ;; Attempts to install our packages.
@@ -57,8 +59,6 @@
 (require 'setup-helm)
 (require 'setup-projectile)
 (require 'setup-helm-projectile)
-
-
 
 ;; ;; setup customizations
 ;; (require 'setup-cc)

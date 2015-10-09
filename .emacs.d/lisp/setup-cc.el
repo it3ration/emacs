@@ -1,10 +1,10 @@
-;; defaults
+;; Style defaults.
 (setq-default c-default-style "k&r")
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
 
-;; my specific cc-mode settings
+;; Specific style settings.
 (defun it3ration-cc-style ()
   (setq c-default-style "k&r")
   (c-set-style "k&r")
@@ -14,6 +14,7 @@
   (c-set-offset 'inline-open '0)
   (c-set-offset 'case-label '4))
 
+;; Install the settings.
 (add-hook 'c-mode-common-hook 'it3ration-cc-style)
 
 (provide 'setup-cc)

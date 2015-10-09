@@ -58,6 +58,7 @@
 
 ;; Setup various packages.
 ;; Order matters here!
+(require 'setup-mappings)
 (require 'setup-clipboard)
 (require 'setup-uniquify)
 (require 'setup-guide-key)
@@ -74,7 +75,6 @@
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
 (eval-after-load 'go-mode '(require 'setup-go))
 
-;; (require 'setup-mappings)
 ;; (require 'setup-diminish)
 
 

@@ -1,5 +1,0 @@
-x# -*- mode: snippet -*-
-# name: impclass
-# key: impclass
-# --
-IMPLEMENT_CLASS( ${1:namespace}, ${2:class} );

@@ -40,6 +40,7 @@
      helm-projectile
      helm-ag
      company
+     yasnippet
      )))
 
 ;; Attempts to install our packages.
@@ -61,6 +62,7 @@
 (require 'setup-projectile)
 (require 'setup-helm-projectile)
 (require 'setup-company)
+(require 'setup-yasnippet)
 (require 'setup-cc)
 
 
@@ -70,7 +72,6 @@
 ;; (require 'setup-go)
 ;; (eval-after-load 'lua-mode '(require 'setup-lua))
 ;; (require 'setup-undo-tree)
-;; (require 'setup-yasnippet)
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)
 ;; (require 'setup-diminish)

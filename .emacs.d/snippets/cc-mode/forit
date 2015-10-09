@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: forit
-# key: forit
-# --
-for (${1:class}::iterator it = ${2:container}.begin(), end = $2.end(); it != end; ++it) {
-    $0
-}

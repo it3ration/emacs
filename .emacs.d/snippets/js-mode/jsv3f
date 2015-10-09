@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: jsv3f
-# key: jsv3f
-# --
-{ "x": $1, "y": $2, "z": $3 }

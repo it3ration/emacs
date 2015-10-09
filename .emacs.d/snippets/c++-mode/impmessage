@@ -1,5 +1,0 @@
-x# -*- mode: snippet -*-
-# name: impmessage
-# key: impmessage
-# --
-IMPLEMENT_MESSAGE( ${1:namespace}, ${2:class} );

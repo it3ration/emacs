@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: usename
-# key: usename
-# --
-using namespace $1;

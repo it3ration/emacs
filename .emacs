@@ -43,6 +43,7 @@
      yasnippet
      undo-tree
      haskell-mode
+     go-mode
      )))
 
 ;; Attempts to install our packages.
@@ -71,12 +72,9 @@
 ;; Setup language-specific modes.
 ;; Only run if the mode is loaded.
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
-
-;; (eval-after-load 'js2-mode '(require 'setup-js2-mode))
+(eval-after-load 'go-mode '(require 'setup-go))
 
 ;; (require 'setup-python)
-;; (require 'setup-haskell)
-;; (require 'setup-go)
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)
 ;; (require 'setup-diminish)

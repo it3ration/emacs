@@ -1,3 +1,6 @@
+(when is-mac
+  (print "butts"))
+
 ;; copy from the clipboard
 (defun mac-copy ()
   (shell-command-to-string "pbpaste"))

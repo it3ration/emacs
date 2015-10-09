@@ -14,13 +14,11 @@
 (setq site-lisp-dir (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path site-lisp-dir)
 
-;; Put backup files in their own directory.
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "backups")))))
+;; Are we on a mac?
+(setq is-mac (equal system-type 'darwin))
 
-;; Backup files even if we're using source control.
-(setq vc-make-backup-files t)
+;; Setup backups.
+(require 'setup-backups)
 
 ;; Setup themes.
 (require 'setup-themes)

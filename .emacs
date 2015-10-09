@@ -59,34 +59,23 @@
 (require 'setup-helm)
 (require 'setup-projectile)
 (require 'setup-helm-projectile)
+(require 'setup-cc)
 
-;; ;; setup customizations
-;; (require 'setup-cc)
 
 ;; (require 'setup-multi-term)
 ;; (require 'setup-rebuilder)
-
 ;; (require 'setup-python)
 ;; (require 'setup-csharp)
 ;; (require 'setup-haskell)
 ;; (require 'setup-go)
-
-;; ;; setup extensions
 ;; (eval-after-load 'lua-mode '(require 'setup-lua))
 ;; (require 'setup-undo-tree)
 ;; (require 'setup-company)
 ;; (require 'setup-yasnippet)
 ;; (require 'setup-xcode)
-;; (require 'setup-diminish)
-
-;; ;; final tweaks
 ;; (require 'setup-mappings)
 ;; (require 'setup-aliases)
-
-
-
 ;; (require 'setup-diminish)
-
 
 ;; finish helm setup file!
 ;; ;; colors

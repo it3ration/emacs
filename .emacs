@@ -58,6 +58,7 @@
 
 ;; Setup various packages.
 ;; Order matters here!
+(require 'setup-modeline)
 (require 'setup-mappings)
 (require 'setup-clipboard)
 (require 'setup-uniquify)
@@ -87,5 +88,8 @@
 ;; string-edit
 
 ;; (require 'setup-diminish)
+
+
+
 
 

@@ -45,6 +45,8 @@
      haskell-mode
      go-mode
      robe
+     projectile-rails
+     web-mode
      )))
 
 ;; Attempts to install our packages.
@@ -77,6 +79,8 @@
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
 (eval-after-load 'go-mode '(require 'setup-go))
 (require 'setup-robe)
+(require 'setup-projectile-rails)
+(require 'setup-web)
 
 ;; Modes to checkout ..
 ;; highlight-escape-sequences

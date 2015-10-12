@@ -44,6 +44,7 @@
      undo-tree
      haskell-mode
      go-mode
+     robe
      )))
 
 ;; Attempts to install our packages.
@@ -75,6 +76,7 @@
 ;; Only run if the mode is loaded.
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
 (eval-after-load 'go-mode '(require 'setup-go))
+(require 'setup-robe)
 
 ;; Modes to checkout ..
 ;; highlight-escape-sequences

@@ -47,6 +47,7 @@
      robe
      projectile-rails
      web-mode
+     yaml-mode
      )))
 
 ;; Attempts to install our packages.
@@ -81,6 +82,7 @@
 (require 'setup-robe)
 (require 'setup-projectile-rails)
 (require 'setup-web)
+(require 'setup-yaml)
 
 ;; Modes to checkout ..
 ;; highlight-escape-sequences

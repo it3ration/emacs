@@ -49,6 +49,7 @@
      bundler
      web-mode
      yaml-mode
+     restclient
      )))
 
 ;; Attempts to install our packages.

@@ -81,9 +81,10 @@
 ;; Only run if the mode is loaded.
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
 (eval-after-load 'go-mode '(require 'setup-go))
-(require 'setup-robe)
-(require 'setup-projectile-rails)
-(require 'setup-bundler)
+;; (require 'setup-robe)
+;; (require 'setup-projectile-rails)
+;; (require 'setup-bundler)
+(require 'setup-js)
 (require 'setup-web)
 (require 'setup-yaml)
 

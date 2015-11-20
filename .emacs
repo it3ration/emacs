@@ -76,6 +76,7 @@
 (require 'setup-yasnippet)
 (require 'setup-undo-tree)
 (require 'setup-cc)
+(require 'setup-erc)
 
 ;; Setup language-specific modes.
 ;; Only run if the mode is loaded.

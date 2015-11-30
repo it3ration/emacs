@@ -44,9 +44,6 @@
      undo-tree
      haskell-mode
      go-mode
-     robe
-     projectile-rails
-     bundler
      web-mode
      yaml-mode
      restclient
@@ -82,9 +79,6 @@
 ;; Only run if the mode is loaded.
 (eval-after-load 'haskell-mode '(require 'setup-haskell))
 (eval-after-load 'go-mode '(require 'setup-go))
-;; (require 'setup-robe)
-;; (require 'setup-projectile-rails)
-;; (require 'setup-bundler)
 (require 'setup-js)
 (require 'setup-web)
 (require 'setup-yaml)
@@ -99,6 +93,7 @@
 ;; move-text
 ;; smartparens
 ;; string-edit
+;; rainbow-mode
 
 ;; (require 'setup-diminish)
 

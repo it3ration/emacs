@@ -113,10 +113,10 @@
    ;; web-mode-builtin-face
    ;; web-mode-symbol-face
    ;; web-mode-doctype-face
-   '(web-mode-html-tag-face ((t (:foreground "green3" :weight bold))))
-   '(web-mode-html-tag-custom-face ((t (:foreground "green3" :weight bold))))
+   `(web-mode-html-tag-face ,face-keyword)
+   `(web-mode-html-tag-custom-face ,face-keyword)
    ;; web-mode-html-tag-bracket-face
-   '(web-mode-html-attr-name-face ((t (:foreground "purple" :weight bold))))
+   `(web-mode-html-attr-name-face ,face-constant)
    ;; web-mode-html-attr-custom-face
    ;; web-mode-html-attr-engine-face
    ;; web-mode-html-attr-equal-face
@@ -194,20 +194,20 @@
    ;; '(magit-diff-file-heading ((t (:foreground "" :background ""))))
    ;; '(magit-diff-file-heading-highlight ((t (:foreground "" :background ""))))
    ;; '(magit-diff-file-heading-selection ((t (:foreground "" :background ""))))
-   '(magit-diff-hunk-heading ((t (:foreground "grey70" :background "grey35"))))
-   '(magit-diff-hunk-heading-highlight ((t (:foreground "grey70" :background "grey35"))))
+   ;; '(magit-diff-hunk-heading ((t (:foreground "" :background ""))))
+   ;; '(magit-diff-hunk-heading-highlight ((t (:foreground "grey70" :background "grey35"))))
    ;; '(magit-diff-hunk-heading-selection ((t (:foreground "" :background ""))))
    ;; '(magit-diff-lines-heading ((t (:foreground "" :background ""))))
    ;; '(magit-diff-lines-boundary ((t (:foreground "" :background ""))))
    ;; '(magit-diff-conflict-heading ((t (:foreground "" :background ""))))
-   '(magit-diff-added ((t (:foreground "green"))))
-   '(magit-diff-removed ((t (:foreground "IndianRed3"))))
+   ;; '(magit-diff-added ((t (:foreground ""))))
+   ;; '(magit-diff-removed ((t (:foreground ""))))
    ;; '(magit-diff-our ((t (:foreground "" :background ""))))
    ;; '(magit-diff-base ((t (:foreground "" :background ""))))
    ;; '(magit-diff-their ((t (:foreground "" :background ""))))
    ;; '(magit-diff-context ((t (:foreground "" :background ""))))
-   '(magit-diff-added-highlight ((t (:foreground "green" :background "grey26"))))
-   '(magit-diff-removed-highlight ((t (:foreground "IndianRed3" :background "grey26"))))
+   ;; '(magit-diff-added-highlight ((t (:foreground "" :background ""))))
+   ;; '(magit-diff-removed-highlight ((t (:foreground "" :background ""))))
    ;; '(magit-diff-our-highlight ((t (:foreground "" :background ""))))
    ;; '(magit-diff-base-highlight ((t (:foreground "" :background ""))))
    ;; '(magit-diff-their-highlight ((t (:foreground "" :background ""))))

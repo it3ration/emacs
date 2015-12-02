@@ -1,10 +1,20 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
 
-(let ((face-default  '((t (:background "#303030" :foreground "#e5e5e5"))))
-      (face-string   '((t (:foreground "#ffff87"))))
-      (face-comment  '((t (:foreground "#87875f"))))
-      (face-keyword  '((t (:foreground "#d75f5f" :bold t))))
-      (face-function '((t (:foreground "#00af00")))))
+(let ((face-default        '((t (:background "#303030" :foreground "#e5e5e5"))))
+      (face-paren-match    '((t (:background "#0087ff"))))
+      (face-paren-mismatch '((t (:background "#00cd00"))))
+      (face-highlight      '((t (:background "#870000"))))
+      (face-region         '((t (:background "#1c1c1c"))))
+      (face-search-current '((t (:background "#005fff"))))
+      (face-search         '((t (:background "#005f00"))))
+      (face-string         '((t (:foreground "#ffff87"))))
+      (face-comment        '((t (:foreground "#87875f"))))
+      (face-keyword        '((t (:foreground "#d75f5f" :bold t))))
+      (face-function       '((t (:foreground "#00af00" :bold t))))
+      (face-constant       '((t (:foreground "#af87ff" :bold t))))
+      (face-type           '((t (:foreground "#00cdcd" :bold t))))
+      (face-variable       '((t (:foreground "#ff8700" :bold t))))
+      )
   (custom-theme-set-faces
    'it3ration
 
@@ -13,6 +23,20 @@
    ;;
 
    `(default ,face-default)
+   `(show-paren-match ,face-paren-match)
+   `(show-paren-mismatch ,face-paren-mismatch)
+   `(highlight ,face-highlight)
+   `(region ,face-region)
+   `(isearch ,face-search-current)
+   `(query-replace ,face-search-current)
+   `(lazy-highlight ,face-search)
+
+   ;; '(cursor ((t (:background ""))))
+
+   ;;
+   ;; font lock
+   ;;
+   
    `(font-lock-string-face ,face-string)
    `(font-lock-comment-face ,face-comment)
    `(font-lock-comment-delimiter-face ,face-comment)
@@ -20,19 +44,10 @@
    `(font-lock-keyword-face ,face-keyword)
    `(font-lock-preprocessor-face ,face-keyword)
    `(font-lock-function-name-face ,face-function)
-
-   ;; '(font-lock-constant-face ((t (:foreground "#af00af" :bold t :weight bold))))
-   ;; '(font-lock-type-face ((t (:foreground "cyan3"))))
-   ;; '(font-lock-variable-name-face ((t (:foreground "dark orange"))))
-   ;; '(font-lock-builtin-face ((t (:foreground "#af00af"))))
-   ;; '(font-lock-warning-face ((t (:foreground "red" :weight bold))))
-   ;; '(show-paren-match ((t (:background "dodger blue"))))
-   ;; '(show-paren-mismatch ((t (:background "green"))))
-   ;; '(isearch ((t (:background "sienna4"))))
-   ;; '(highlight ((t (:background "firebrick4"))))
-   ;; '(lazy-highlight ((t (:background "sienna4"))))
-   ;; '(region ((t (:background "gray10"))))
-   ;; '(cursor ((t (:background "DarkSlateGray3"))))
+   `(font-lock-constant-face ,face-constant)
+   `(font-lock-builtin-face ,face-constant)
+   `(font-lock-type-face ,face-type)
+   `(font-lock-variable-name-face ,face-variable)
 
    ;;
    ;; helm

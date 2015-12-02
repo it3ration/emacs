@@ -31,8 +31,6 @@
    `(query-replace ,face-search-current)
    `(lazy-highlight ,face-search)
 
-   ;; '(cursor ((t (:background ""))))
-
    ;;
    ;; font lock
    ;;

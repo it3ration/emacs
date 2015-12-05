@@ -8,6 +8,7 @@
       (face-region         '((t (:background "#1c1c1c"))))
       (face-search-current '((t (:background "#005fff"))))
       (face-search         '((t (:background "#005f00"))))
+      (face-header         '((t (:background "#005faf" :bold t))))
       (face-string         '((t (:foreground "#ffff87"))))
       (face-comment        '((t (:foreground "#87875f"))))
       (face-keyword        '((t (:foreground "#d75f5f" :bold t))))
@@ -99,8 +100,9 @@
    `(helm-selection ,face-highlight)
    ;; helm-selection-line                      
    ;; helm-separator                           
-   ;; helm-source-header                       
-   ;; helm-visible-mark                        
+   ;; helm-source-header
+   `(helm-source-header ,face-header)
+   `(helm-visible-mark ,face-region)
    
    ;;
    ;; web-mode

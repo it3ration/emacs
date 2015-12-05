@@ -17,4 +17,11 @@
    (:eval (my-mode-line-source-control-string))
    ))
 
+;; If we're on a gui version of emacs,
+;; fix the modeline height / box.
+(when is-gui
+  (progn
+    (set-face-attribute 'mode-line nil :box nil :font it3ration-font)
+    (set-face-attribute 'mode-line-inactive nil :box nil :font it3ration-font)))
+
 (provide 'setup-modeline)

@@ -86,6 +86,8 @@
 (require 'setup-web)
 (require 'setup-yaml)
 
+;; (require 'setup-diminish)
+
 ;; Modes to checkout ..
 ;; highlight-escape-sequences
 ;; visual-regexp
@@ -98,5 +100,4 @@
 ;; string-edit
 ;; rainbow-mode
 
-;; (require 'setup-diminish)
-
+(print is-gui)

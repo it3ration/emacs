@@ -20,6 +20,9 @@
 ;; Setup backups.
 (require 'setup-backups)
 
+;; Setup font.
+(require 'setup-font)
+
 ;; Setup themes.
 (require 'setup-themes)
 
@@ -96,8 +99,4 @@
 ;; rainbow-mode
 
 ;; (require 'setup-diminish)
-
-
-
-
 

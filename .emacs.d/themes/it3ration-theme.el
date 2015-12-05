@@ -1,6 +1,7 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
 
 (let ((face-default        '((t (:background "#303030" :foreground "#e5e5e5"))))
+      (face-text           '((t (:foreground "#e5e5e5"))))
       (face-paren-match    '((t (:background "#0087ff"))))
       (face-paren-mismatch '((t (:background "#00cd00"))))
       (face-highlight      '((t (:background "#870000"))))
@@ -60,23 +61,23 @@
    ;; helm-bookmark-gnus                       
    ;; helm-bookmark-info                       
    ;; helm-bookmark-man                        
-   ;; helm-bookmark-w3m                        
-   ;; helm-buffer-directory                    
-   ;; helm-buffer-file                         
+   ;; helm-bookmark-w3m
+   ;; helm-buffer-directory
+   ;; helm-buffer-file
    ;; helm-buffer-not-saved                    
    ;; helm-buffer-process                      
    ;; helm-buffer-saved-out                    
    ;; helm-buffer-size                         
    ;; helm-candidate-number                    
-   ;; helm-etags-file                          
-   ;; helm-ff-directory                        
-   ;; helm-ff-dotted-directory                 
-   ;; helm-ff-dotted-symlink-directory         
-   ;; helm-ff-executable                       
-   ;; helm-ff-file                             
-   ;; helm-ff-invalid-symlink                  
-   ;; helm-ff-prefix                           
-   ;; helm-ff-symlink                          
+   ;; helm-etags-file
+   `(helm-ff-directory ,face-keyword)
+   `(helm-ff-dotted-directory ,face-keyword)
+   `(helm-ff-dotted-symlink-directory ,face-string)
+   `(helm-ff-executable ,face-type)
+   `(helm-ff-file ,face-text)
+   `(helm-ff-invalid-symlink ,face-string)
+   `(helm-ff-prefix ,face-text)
+   `(helm-ff-symlink ,face-string)
    ;; helm-grep-cmd-line                       
    ;; helm-grep-file                           
    ;; helm-grep-finish                         
@@ -94,8 +95,8 @@
    ;; helm-match-item                          
    ;; helm-moccur-buffer                       
    ;; helm-prefarg                             
-   ;; helm-resume-need-update                  
-   ;; helm-selection                           
+   ;; helm-resume-need-update
+   `(helm-selection ,face-highlight)
    ;; helm-selection-line                      
    ;; helm-separator                           
    ;; helm-source-header                       

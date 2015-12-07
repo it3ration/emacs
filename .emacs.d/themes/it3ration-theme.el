@@ -15,8 +15,7 @@
       (face-function       '((t (:foreground "#00af00" :bold t))))
       (face-constant       '((t (:foreground "#af87ff" :bold t))))
       (face-type           '((t (:foreground "#00cdcd" :bold t))))
-      (face-variable       '((t (:foreground "#ff8700" :bold t))))
-      )
+      (face-variable       '((t (:foreground "#ff8700" :bold t)))))
   (custom-theme-set-faces
    'it3ration
 
@@ -103,6 +102,23 @@
    ;; helm-source-header
    `(helm-source-header ,face-header)
    `(helm-visible-mark ,face-region)
+
+   ;;
+   ;; eshell
+   ;;
+
+   ;; eshell-ls-archive
+   ;; eshell-ls-backup
+   ;; eshell-ls-clutter
+   ;; eshell-ls-directory
+   ;; eshell-ls-executable
+   ;; eshell-ls-missing
+   ;; eshell-ls-product
+   ;; eshell-ls-readonly
+   ;; eshell-ls-special
+   ;; eshell-ls-symlink
+   ;; eshell-ls-unreadable
+   ;; eshell-prompt
    
    ;;
    ;; web-mode

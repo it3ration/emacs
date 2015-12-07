@@ -89,14 +89,19 @@
 
 ;; (require 'setup-diminish)
 
+;; Must haves ..
+;; smartparens
+;; paredit
+;; rainbow-mode
+;; rainbow-delimiters
+;; helm-spotify
+
 ;; Modes to checkout ..
 ;; highlight-escape-sequences
 ;; visual-regexp
 ;; jump-char
 ;; expand-region
-;; paredit
 ;; gist
 ;; move-text
-;; smartparens
 ;; string-edit
-;; rainbow-mode
+

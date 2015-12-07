@@ -71,6 +71,7 @@
 (require 'setup-uniquify)
 (require 'setup-guide-key)
 (require 'setup-helm)
+(require 'setup-eshell)
 (require 'setup-projectile)
 (require 'setup-helm-projectile)
 (require 'setup-company)
@@ -98,10 +99,11 @@
 
 ;; Modes to checkout ..
 ;; highlight-escape-sequences
-;; visual-regexp
 ;; jump-char
 ;; expand-region
 ;; gist
 ;; move-text
 ;; string-edit
 
+;; Things to look into ..
+;; rx.el

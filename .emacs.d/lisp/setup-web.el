@@ -12,4 +12,7 @@
   (setq web-mode-code-indent-offset 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
+;; We want the html tag to close on '>'.
+(setq web-mode-auto-close-style 2)
+
 (provide 'setup-web)

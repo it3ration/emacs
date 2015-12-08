@@ -107,3 +107,4 @@
 
 ;; Things to look into ..
 ;; rx.el
+;; eshell [aliases / initial directory]

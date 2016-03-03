@@ -8,4 +8,4 @@
 .emacs.d/projectile.cache
 .emacs.d/recentf
 .emacs.d/rake.cache
-
+.emacs.d/tramp

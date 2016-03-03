@@ -10,7 +10,8 @@
   "/usr/bin" ":"
   "/usr/sbin" ":"
   "/bin" ":"
-  "/sbin"))
+  "/sbin" ":"
+  "./node_modules/.bin"))
 
 ;; History size.
 (setq eshell-history-size 100000)

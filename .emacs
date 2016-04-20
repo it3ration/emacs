@@ -51,6 +51,7 @@
      web-mode
      yaml-mode
      restclient
+     dockerfile-mode
      )))
 
 ;; Attempts to install our packages.

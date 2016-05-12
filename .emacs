@@ -49,6 +49,7 @@
      haskell-mode
      go-mode
      web-mode
+     csharp-mode
      yaml-mode
      restclient
      dockerfile-mode
@@ -87,6 +88,7 @@
 (eval-after-load 'go-mode '(require 'setup-go))
 (require 'setup-js)
 (require 'setup-web)
+(require 'setup-csharp)
 (require 'setup-yaml)
 
 ;; (require 'setup-diminish)

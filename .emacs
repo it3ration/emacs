@@ -71,6 +71,7 @@
 (require 'setup-mappings)
 (require 'setup-clipboard)
 (require 'setup-uniquify)
+(require 'setup-org)
 (require 'setup-guide-key)
 (require 'setup-helm)
 (require 'setup-eshell)

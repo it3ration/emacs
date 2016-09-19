@@ -14,7 +14,7 @@
 
 (defun diary/make-filename (date)
   "Returns the path for a diary entry."
-  (concat diary/dir date ".org"))
+  (concat diary/root date ".org"))
 
 (defun diary/today ()
   "Opens today's diary entry."

@@ -92,6 +92,9 @@
 (require 'setup-csharp)
 (require 'setup-yaml)
 
+;; Setup your packages.
+(require 'setup-diary)
+
 ;; (require 'setup-diminish)
 
 ;; Must haves ..

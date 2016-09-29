@@ -20,6 +20,9 @@
       (face-diff-added     '((t (:foreground "#00af00" :bold t))))
       (face-diff-removed   '((t (:foreground "#d75f5f" :bold t))))
 
+      (face-test           '((t (:foreground "#00cdcd" :bold t))))
+      (face-test-bg        '((t (:background "#00cdcd"))))
+      
       )
   (custom-theme-set-faces
    'it3ration
@@ -199,8 +202,10 @@
 
    ;; rebase
    ;; git-rebase-hash
-   ;; git-rebase-description
+   ;; git-rebase-description nil
    ;; git-rebase-killed-action
+   ;; git-rebase-comment-hash
+   ;; git-rebase-comment-heading
 
    ;; bisect
    ;; magit-bisect-good
@@ -215,50 +220,54 @@
    ;; magit-blame-date
 
    ;; diff
-   ;; '(magit-diff-file-heading ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-file-heading-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-file-heading-selection ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-hunk-heading ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-hunk-heading-highlight ((t (:foreground "grey70" :background "grey35"))))
-   ;; '(magit-diff-hunk-heading-selection ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-lines-heading ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-lines-boundary ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-conflict-heading ((t (:foreground "" :background ""))))
+   ;; magit-diff-file-heading
+   ;; magit-diff-file-heading-highlight
+   ;; magit-diff-file-heading-selection
+   ;; magit-diff-hunk-heading
+   ;; magit-diff-hunk-heading-highlight
+   ;; magit-diff-hunk-heading-selection
+   ;; magit-diff-lines-heading
+   ;; magit-diff-lines-boundary
+   ;; magit-diff-conflict-heading
    `(magit-diff-added ,face-diff-added)
    `(magit-diff-removed ,face-diff-removed)
+   ;; magit-diff-our
+   ;; magit-diff-base
+   ;; magit-diff-their
+   ;; magit-diff-context
    `(magit-diff-added-highlight ,face-diff-added)
    `(magit-diff-removed-highlight ,face-diff-removed)
-   ;; '(magit-diff-our ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-base ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-their ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-context ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-added-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-removed-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-our-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-base-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-their-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-context-highlight ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-whitespace-warning ((t (:foreground "" :background ""))))
-   ;; '(magit-diffstat-added ((t (:foreground "" :background ""))))
-   ;; '(magit-diffstat-removed ((t (:foreground "" :background ""))))
-
+   ;; magit-diff-our-highlight
+   ;; magit-diff-base-highlight
+   ;; magit-diff-their-highlight
+   ;; magit-diff-context-highlight
+   ;; magit-diff-whitespace-warning
+   ;; magit-diffstat-added
+   ;; magit-diffstat-removed
+   
    ;; log
    ;; magit-log-graph
    ;; magit-log-author
    ;; magit-log-date
    ;; magit-reflog-commit
-   ;; magit-reflog-amend
-   ;; magit-reflog-merge
+   ;; magit-reflog-amend 
+   ;; magit-reflog-merge 
    ;; magit-reflog-checkout
-   ;; magit-reflog-reset
+   ;; magit-reflog-reset 
    ;; magit-reflog-rebase
-   ;; magit-reflog-cherry-pick
+   ;; magit-reflog-cherry-pireen
    ;; magit-reflog-remote
    ;; magit-reflog-other
 
    ;; process
    ;; magit-process-ok
    ;; magit-process-ng
+
+   ;; section
+   ;; magit-section-highlight
+   ;; magit-section-heading
+   ;; magit-section-secondary-heading
+   ;; magit-section-heading-selection
 
    ;; sequence
    ;; magit-sequence-pick
@@ -268,12 +277,6 @@
    ;; magit-sequence-drop
    ;; magit-sequence-done
    ;; magit-sequence-onto
-
-   ;; section
-   ;; magit-section-highlight
-   ;; magit-section-heading
-   ;; magit-section-secondary-heading
-   ;; magit-section-heading-selection
 
    ;; magit
    ;; magit-header-line

@@ -15,7 +15,12 @@
       (face-function       '((t (:foreground "#00af00" :bold t))))
       (face-constant       '((t (:foreground "#af87ff" :bold t))))
       (face-type           '((t (:foreground "#00cdcd" :bold t))))
-      (face-variable       '((t (:foreground "#ff8700" :bold t)))))
+      (face-variable       '((t (:foreground "#ff8700" :bold t))))
+
+      (face-diff-added     '((t (:foreground "#00af00" :bold t))))
+      (face-diff-removed   '((t (:foreground "#d75f5f" :bold t))))
+
+      )
   (custom-theme-set-faces
    'it3ration
 
@@ -219,8 +224,10 @@
    ;; '(magit-diff-lines-heading ((t (:foreground "" :background ""))))
    ;; '(magit-diff-lines-boundary ((t (:foreground "" :background ""))))
    ;; '(magit-diff-conflict-heading ((t (:foreground "" :background ""))))
-   ;; '(magit-diff-added ((t (:foreground ""))))
-   ;; '(magit-diff-removed ((t (:foreground ""))))
+   `(magit-diff-added ,face-diff-added)
+   `(magit-diff-removed ,face-diff-removed)
+   `(magit-diff-added-highlight ,face-diff-added)
+   `(magit-diff-removed-highlight ,face-diff-removed)
    ;; '(magit-diff-our ((t (:foreground "" :background ""))))
    ;; '(magit-diff-base ((t (:foreground "" :background ""))))
    ;; '(magit-diff-their ((t (:foreground "" :background ""))))

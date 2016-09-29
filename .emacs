@@ -65,6 +65,10 @@
 ;; Setup sane defaults.
 (require 'setup-defaults)
 
+;; Stupid temporary fix
+;; for csharp-mode.
+(require 'cl)
+
 ;; Setup various packages.
 ;; Order matters here!
 (require 'setup-modeline)

@@ -53,6 +53,7 @@
      yaml-mode
      restclient
      dockerfile-mode
+     shader-mode
      )))
 
 ;; Attempts to install our packages.
@@ -95,6 +96,7 @@
 (require 'setup-web)
 (require 'setup-csharp)
 (require 'setup-yaml)
+(require 'setup-shaders)
 
 ;; Setup your packages.
 (require 'setup-diary)

@@ -12,7 +12,8 @@
   (setq indent-tabs-mode nil)
   (setq c-basic-offset 4)
   (c-set-offset 'inline-open '0)
-  (c-set-offset 'case-label '4))
+  (c-set-offset 'case-label '4)
+  (electric-pair-mode 1))
 
 ;; Install the settings.
 (add-hook 'c-mode-common-hook 'it3ration-cc-style)

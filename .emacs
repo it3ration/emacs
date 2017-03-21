@@ -10,6 +10,7 @@
 ;; * Customize the following packages:
 ;;   * helm
 ;;   * magit
+;;   * which-key
 
 ;;
 ;; Basic configuration
@@ -214,8 +215,8 @@
     ;; Show count / total on the modeline.
     (setq which-key-show-remaining-keys t)
 
-    ;; Allow 75% of the frame to display keys.
-    (setq which-key-side-window-max-height 0.75)
+    ;; Allow 50% of the frame to display keys.
+    (setq which-key-side-window-max-height 0.5)
     
     ;; Open it at the bottom.
     (which-key-setup-side-window-bottom)

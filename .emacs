@@ -4,13 +4,8 @@
 ;; use-package. Always a work in progress.
 
 ;; TODO
-;; * Find a better way to deal with backups.
 ;; * Navigate to the *scratch* buffer and close
 ;;   all other windows once we are done loading.
-;; * Customize the following packages:
-;;   * helm
-;;   * magit
-;;   * which-key
 
 ;;
 ;; Basic configuration
@@ -90,6 +85,9 @@
 ;;
 ;; Backups
 ;;
+
+;; TODO
+;; Find a better way to deal with backups.
 
 ;; Put backup files in their own directory.
 (setq backup-directory-alist
@@ -228,6 +226,13 @@
 ;; magit
 ;;
 
+;; TODO
+;; * Open the status buffer in the current window.
+;; * Add a keymap for magit so we get which-key
+;;   support.
+;; * Customize this package.
+
+;; The best git interface ever.
 (use-package magit
   :ensure t
   :bind
@@ -236,6 +241,9 @@
 ;;
 ;; helm
 ;;
+
+;; TODO
+;; * Customize this package.
 
 ;; The best completion package ever
 ;; build in my humble opinion.

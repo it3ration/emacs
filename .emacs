@@ -229,7 +229,9 @@
 ;;
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :bind
+  (("C-x m" . magit-status)))
   
 ;;
 ;; helm

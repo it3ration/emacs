@@ -10,6 +10,20 @@
 ;;   https://pawelbx.github.io/emacs-theme-gallery/
 ;; * Figure out a way to copy the thing under point.
 
+;; PACKAGES TO EXPLORE
+;; * smartparens
+;; * paredit
+;; * rainbow-mode
+;; * rainbow-delimiters
+;; * ace-jump-mode
+;; * helm-spotify
+;; * highlight-escape-sequences
+;; * jump-char
+;; * expand-region
+;; * gist
+;; * move-text
+;; * string-edit
+
 ;;
 ;; Basic configuration
 ;;
@@ -519,6 +533,10 @@
 ;; eshell
 ;;
 
+;; TODO
+;; * Look into eshell alises, not having "la" sucks.
+;; * Check to make sure the initial directory is set.
+
 ;; The emacs shell.
 (use-package eshell
   :ensure t
@@ -568,28 +586,6 @@
 ;; (require 'setup-modeline)
 ;; (require 'setup-erc)
 
-;; ;; Setup language-specific modes.
-;; ;; Only run if the mode is loaded.
-;; (eval-after-load 'go-mode '(require 'setup-go))
-
 ;; ;; (require 'setup-diminish)
 
-;; ;; Must haves ..
-;; ;; smartparens
-;; ;; paredit
-;; ;; rainbow-mode
-;; ;; rainbow-delimiters
-;; ;; helm-spotify
-
-;; ;; Modes to checkout ..
-;; ;; highlight-escape-sequences
-;; ;; jump-char
-;; ;; expand-region
-;; ;; gist
-;; ;; move-text
-;; ;; string-edit
-
-;; ;; Things to look into ..
-;; ;; rx.el
-;; ;; eshell [aliases / initial directory]
 

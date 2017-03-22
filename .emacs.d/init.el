@@ -215,14 +215,20 @@
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
 ;;
-;; try
+;; company
 ;;
 
-;; Allows you to try packages
-;; without installing them.
-(use-package try
+;; This mode enables make-
+;; believe intellisense.
+(use-package company
   :ensure t
-  :commands (try try-and-refresh))
+  :init
+  (progn
+    ;; No delay please.
+    (setq company-idle-delay 0)
+
+    ;; Turn company on globally.
+    (add-hook 'after-init-hook 'global-company-mode)))
 
 ;;
 ;; which-key
@@ -373,19 +379,20 @@
     ;; Let's use this everywhere.
     (global-undo-tree-mode)))
 
+;;
+;; try
+;;
+
+;; Allows you to try packages
+;; without installing them.
+(use-package try
+  :ensure t
+  :commands (try try-and-refresh))
 
 
-
-
-
-
-
-;; (use-package ag
-;;   :ensure t)
 
 
 ;;    '(ag
-;;      company
 ;;      yasnippet
 ;;      haskell-mode
 ;;      go-mode

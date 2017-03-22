@@ -206,6 +206,15 @@
   :defer t)
 
 ;;
+;; uniquify
+;;
+
+(require 'uniquify)
+
+;; Customize the look of duplicate values.
+(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
+
+;;
 ;; try
 ;;
 
@@ -214,15 +223,6 @@
 (use-package try
   :ensure t
   :commands (try try-and-refresh))
-
-;;
-;; uniquify
-;;
-
-(require 'uniquify)
-
-;; Customize the look of duplicate values.
-(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
 ;;
 ;; which-key
@@ -251,6 +251,96 @@
     (which-key-mode)))
 
 ;;
+;; helm
+;;
+
+;; TODO
+;; * Customize this package.
+;; * You should probably map helm-occur
+;;   to something that's easier to type.
+;; * Bind the various ag commands to
+;;   useful keys, you use them a lot.
+;; * Add support for helm-swoop!
+
+;; The best completion package ever in my
+;; humble opinion. The initialization order
+;; is important here due to some global key
+;; bindings - we start with the config.
+(use-package helm
+  :ensure t
+  :demand t
+  :diminish helm-mode
+  :bind
+  (("C-x C-f" . helm-find-files)
+   ("M-x" . helm-M-x)
+   ("C-x b" . helm-mini)
+   ("C-x C-b" . helm-buffers-list)
+   ("M-y" . helm-show-kill-ring)
+   ("C-h a" . helm-apropos))
+  :init
+  (progn
+    ;; We need this now.
+    (use-package helm-config)
+
+    ;; Open helm in the current window.
+    (setq helm-split-window-in-side-p t)
+
+    ;; Remap C-c h to helm's command map.
+    (global-set-key (kbd "C-c h") 'helm-command-prefix)
+
+    ;; Disable C-x c, it's too close to
+    ;; C-x C-c which closes emacs. :/
+    (global-unset-key (kbd "C-x c"))
+
+    ;; Add occur mode to the command map. I'm
+    ;; surprised it's not already in there.
+    (define-key helm-command-map (kbd "o") 'helm-occur))
+  :config
+  (progn
+    ;; Support for the silver searcher.
+    (use-package helm-ag
+      :ensure t)
+     
+    ;; For inspecting bindings.
+    (use-package helm-descbinds
+      :ensure t
+      :bind ("C-h b" . helm-descbinds))))
+
+;;
+;; projectile
+;;
+
+;; TODO
+;; * Add a keybinding for projectile-switch-project.
+
+(use-package projectile
+  :ensure t
+  :diminish projectile-mode
+  :commands (projectile-find-file projectile-switch-project)
+  :bind
+  (("C-x p" . projectile-find-file))
+  :init
+  (progn
+    ;; Use helm as projectile's completion system.
+    (setq projectile-completion-system 'helm)
+
+    ;; Enable caching.
+    (setq projectile-enable-caching t)
+  
+    ;; Set our indexing mode.
+    (setq projectile-indexing-method 'alien))
+  :config
+  (progn
+    ;; Turn projectile on globally.
+    (projectile-mode)
+
+    ;; Helm integration? Yes please!
+    (use-package helm-projectile
+      :ensure t
+      :config
+      (helm-projectile-on))))
+
+;;
 ;; magit
 ;;
 
@@ -269,71 +359,34 @@
   (progn
     ;; Open the status buffer in the current window and select it.
     (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)))
-  
+
 ;;
-;; helm
+;; undo-tree
 ;;
 
-;; TODO
-;; * Customize this package.
-
-;; The best completion package ever
-;; build in my humble opinion.
-(use-package helm
+(use-package undo-tree
   :ensure t
-  :diminish helm-mode
   :bind
-  (
-   ;; ("C-c h" . helm-command-prefix)
-
-   ;; (:map helm-command-map
-   ;;       ("C-c h" . helm-execute-persistent-action)
-
-   ;; :map helm-command-map
-	
-   ("C-x C-f" . helm-find-files)
-   ("M-x" . helm-M-x)
-   ("M-y" . helm-show-kill-ring)
-   ("C-x b" . helm-mini)
-   ("C-x C-b" . helm-buffers-list)
-   :map helm-command-map
-   ("C-c h" . helm-execute-persistent-action)
-   )
-  ;; :init
-  ;; (progn
-  ;;       (setq helm-command-prefix-key "C-c h")
-  ;;   )
+  (("C-x u" . undo-tree-visualize))
   :config
   (progn
-    ;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
-    ;; (global-unset-key (kbd "C-x c"))
-    
-    (require 'helm-config)
+    ;; Let's use this everywhere.
+    (global-undo-tree-mode)))
 
 
-;; (setq projectile-keymap-prefix (kbd "C-c C-p"))
-    
-    (setq helm-split-window-in-side-p t)
-    (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
-    
-    ;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
-    ;; (global-unset-key (kbd "C-x c"))
 
-    ;; (require 'helm-descbinds)
-    ;; (helm-descbinds-mode)
-    
-    (helm-mode)
-    ))
 
-;;    '(helm
-;;      projectile
-;;      ag
-;;      helm-projectile
-;;      helm-ag
+
+
+
+;; (use-package ag
+;;   :ensure t)
+
+
+;;    '(ag
 ;;      company
 ;;      yasnippet
-;;      undo-tree
 ;;      haskell-mode
 ;;      go-mode
 ;;      web-mode
@@ -396,3 +449,4 @@
 ;; ;; Things to look into ..
 ;; ;; rx.el
 ;; ;; eshell [aliases / initial directory]
+

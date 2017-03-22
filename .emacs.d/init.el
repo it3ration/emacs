@@ -9,6 +9,7 @@
 ;; * Checkout some other emacs themes here:
 ;;   https://pawelbx.github.io/emacs-theme-gallery/
 ;; * Figure out a way to copy the thing under point.
+;; * Figure out how to diminish all major modes.
 
 ;; PACKAGES TO EXPLORE
 ;; * smartparens

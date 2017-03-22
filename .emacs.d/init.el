@@ -262,7 +262,6 @@
 ;; sequence, shows what commands are available.
 (use-package which-key
   :ensure t
-  :diminish which-key-mode
   :config
   (progn
     ;; No delay please.
@@ -299,7 +298,6 @@
 (use-package helm
   :ensure t
   :demand t
-  :diminish helm-mode
   :bind
   (("C-x C-f" . helm-find-files)
    ("M-x" . helm-M-x)
@@ -345,7 +343,6 @@
 
 (use-package projectile
   :ensure t
-  :diminish projectile-mode
   :commands (projectile-find-file projectile-switch-project)
   :bind
   (("C-x p" . projectile-find-file))
@@ -466,13 +463,8 @@
 ;;    '(ag
 ;;      yasnippet
 ;;      haskell-mode
-;;      web-mode
 ;;      restclient
 ;;      )))
-
-;; ;; Stupid temporary fix
-;; ;; for csharp-mode.
-;; (require 'cl)
 
 ;; ;; Setup various packages.
 ;; ;; Order matters here!

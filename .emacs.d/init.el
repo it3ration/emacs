@@ -495,7 +495,6 @@
     (electric-pair-mode 1)))
 
 ;;    '(ag
-;;      yasnippet
 ;;      restclient
 ;;      )))
 
@@ -503,7 +502,6 @@
 ;; ;; Order matters here!
 ;; (require 'setup-modeline)
 ;; (require 'setup-eshell)
-;; (require 'setup-yasnippet)
 ;; (require 'setup-erc)
 
 ;; ;; Setup language-specific modes.

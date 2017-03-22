@@ -428,14 +428,20 @@
      (lambda ()
        (electric-pair-mode 1)))))
 
+;;
+;; shader-mode
+;;
+
+(use-package shader-mode
+  :ensure t
+  :mode ("\\.shader$" "\\.cginc$"))
+
 ;;    '(ag
 ;;      yasnippet
 ;;      haskell-mode
-;;      go-mode
 ;;      web-mode
 ;;      yaml-mode
 ;;      restclient
-;;      dockerfile-mode
 ;;      shader-mode
 ;;      )))
 

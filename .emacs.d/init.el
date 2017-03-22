@@ -494,6 +494,50 @@
   (progn
     (electric-pair-mode 1)))
 
+;;
+;; eshell
+;;
+
+;; The emacs shell.
+(use-package eshell
+  :ensure t
+  :commands eshell
+  :config
+  (progn
+    ;; We need these.
+    (require 's)
+    (require 'f)
+
+    ;; History size.
+    (setq eshell-history-size 100000)
+
+    ;; Make our prompt look like the terminal.
+    (setq
+     eshell-prompt-function
+     (lambda ()
+       (let ((color-yellow "#ffff87")
+	     (color-green "#00af00")
+	     (color-red "#d75f5f"))
+	 (concat
+	  (propertize "[" 'face `(:foreground ,color-yellow :weight bold))
+	  (propertize
+	   (concat
+	    (user-login-name)
+	    "@"
+	    (s-trim (shell-command-to-string "hostname -s")))
+	   'face `(:foreground ,color-green :weight bold))
+	  " "
+	  (propertize
+	   (f-short (s-trim (shell-command-to-string "pwd")))
+	   'face `(:foreground ,color-red :weight bold))
+	  (propertize "]" 'face `(:foreground ,color-yellow :weight bold))
+	  "\n"
+	  (propertize "$" 'face `(:foreground ,color-red :weight bold))
+	  " "))))
+
+    ;; Fix the prompt regex.
+    (setq eshell-prompt-regexp "^[$] ")))
+  
 ;;    '(ag
 ;;      restclient
 ;;      )))

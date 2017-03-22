@@ -215,6 +215,14 @@
   :ensure t
   :commands (try try-and-refresh))
 
+;;
+;; uniquify
+;;
+
+(require 'uniquify)
+
+;; Customize the look of duplicate values.
+(setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
 ;;
 ;; which-key

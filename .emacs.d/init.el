@@ -430,6 +430,7 @@
 ;; shader-mode
 ;;
 
+;; For editing shaders.
 (use-package shader-mode
   :ensure t
   :mode ("\\.shader$" "\\.cginc$"))
@@ -438,6 +439,7 @@
 ;; yaml-mode
 ;;
 
+;; The yaml language.
 (use-package yaml-mode
   :ensure t
   :mode "\\.yml$")
@@ -446,6 +448,10 @@
 ;; web-mode
 ;;
 
+;; Follow conventions please.
+(setq js-indent-level 2)
+
+;; For web-based languages.
 (use-package web-mode
   :ensure t
   :mode ("\\.js$" "\\.jsx$" "\\.css$" "\\.scss$" "\\.html")

@@ -480,9 +480,19 @@
    ;; Auto fill please.
    (turn-on-auto-fill)))
 
+;;
+;; haskell-mode
+;;
+
+(use-package haskell-mode
+  :ensure t
+  :mode "\\.hs$"
+  :config
+  (progn
+    (electric-pair-mode 1)))
+
 ;;    '(ag
 ;;      yasnippet
-;;      haskell-mode
 ;;      restclient
 ;;      )))
 

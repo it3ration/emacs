@@ -600,9 +600,16 @@
   (interactive)
   (chat-connect "~/.erc" "irc.freenode.net" 6667))
 
-;;    '(ag
-;;      restclient
-;;      )))
+;;
+;; restclient
+;;
+
+;; TODO
+;; * Customize this package.
+
+(use-package restclient
+  :ensure t
+  :commands restclient-mode)
 
 ;; (require 'setup-modeline)
 ;; (require 'setup-diminish)

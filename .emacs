@@ -192,15 +192,18 @@
 
 ;; The string library.
 (use-package s
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; The file library.
 (use-package f
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; The list library.
 (use-package dash
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;
 ;; try

@@ -236,7 +236,11 @@
 (use-package magit
   :ensure t
   :bind
-  (("C-x m" . magit-status)))
+  (("C-x g" . magit-status))
+  :config
+  (progn
+    ;; Open the status buffer in the current window and select it.
+    (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)))
   
 ;;
 ;; helm

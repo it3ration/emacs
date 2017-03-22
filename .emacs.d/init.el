@@ -8,6 +8,7 @@
 ;;   all other windows once we are done loading.
 ;; * Checkout some other emacs themes here:
 ;;   https://pawelbx.github.io/emacs-theme-gallery/
+;; * Figure out a way to copy the thing under point.
 
 ;;
 ;; Basic configuration

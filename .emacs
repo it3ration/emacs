@@ -21,6 +21,10 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 
+;; Clear the minibuffer please.
+(defun display-startup-echo-area-message ()
+  (message ""))
+
 ;; Make the scratch buffer empty.
 (setq initial-scratch-message "")
 

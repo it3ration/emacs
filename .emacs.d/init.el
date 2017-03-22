@@ -448,6 +448,20 @@
 ;; web-mode
 ;;
 
+(use-package web-mode
+  :ensure t
+  :mode ("\\.js$" "\\.jsx$" "\\.css$" "\\.scss$" "\\.html")
+  ;; :config
+  :init
+  (progn
+    (add-hook
+     'web-mode-hook
+     (lambda ()
+       ;; Indenting offsets.
+       (setq web-mode-markup-indent-offset 2)
+       (setq web-mode-css-indent-offset 2)
+       (setq web-mode-code-indent-offset 2)))))
+
 ;;    '(ag
 ;;      yasnippet
 ;;      haskell-mode

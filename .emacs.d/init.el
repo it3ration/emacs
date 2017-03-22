@@ -500,29 +500,13 @@
 ;; ;; Order matters here!
 ;; (require 'setup-modeline)
 ;; (require 'setup-mappings)
-;; (require 'setup-clipboard)
-;; (require 'setup-uniquify)
-;; (require 'setup-org)
-;; (require 'setup-guide-key)
-;; (require 'setup-helm)
 ;; (require 'setup-eshell)
-;; (require 'setup-projectile)
-;; (require 'setup-helm-projectile)
-;; (require 'setup-company)
 ;; (require 'setup-yasnippet)
-;; (require 'setup-undo-tree)
-;; (require 'setup-cc)
 ;; (require 'setup-erc)
 
 ;; ;; Setup language-specific modes.
 ;; ;; Only run if the mode is loaded.
-;; (eval-after-load 'haskell-mode '(require 'setup-haskell))
 ;; (eval-after-load 'go-mode '(require 'setup-go))
-;; (require 'setup-js)
-;; (require 'setup-web)
-;; (require 'setup-csharp)
-;; (require 'setup-yaml)
-;; (require 'setup-shaders)
 
 ;; ;; (require 'setup-diminish)
 

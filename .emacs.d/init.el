@@ -436,13 +436,23 @@
   :ensure t
   :mode ("\\.shader$" "\\.cginc$"))
 
+;;
+;; yaml-mode
+;;
+
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.yml$")
+
+;;
+;; web-mode
+;;
+
 ;;    '(ag
 ;;      yasnippet
 ;;      haskell-mode
 ;;      web-mode
-;;      yaml-mode
 ;;      restclient
-;;      shader-mode
 ;;      )))
 
 ;; ;; Stupid temporary fix

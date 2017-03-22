@@ -162,6 +162,10 @@
 ;; C-style languages
 ;;
 
+;; TODO
+;; * See if we can initialize this stuff
+;;   using the use-package macro.
+
 ;; Open header files in c++ mode.
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 

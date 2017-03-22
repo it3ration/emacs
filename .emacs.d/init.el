@@ -545,7 +545,6 @@
 ;; ;; Setup various packages.
 ;; ;; Order matters here!
 ;; (require 'setup-modeline)
-;; (require 'setup-eshell)
 ;; (require 'setup-erc)
 
 ;; ;; Setup language-specific modes.

@@ -473,6 +473,24 @@
        (setq web-mode-code-indent-offset 2)))))
 
 ;;
+;; go-mode
+;;
+
+(use-package go-mode
+  :ensure t
+  :mode "\\.go$"
+  :init
+  (progn
+    ;; The style.
+    (add-hook
+     'go-mode-hook
+     (lambda ()
+       (setq-default indent-tabs-mode 1)))
+
+    ;; Reformat the file before saving.
+    (add-hook 'before-save-hook #'gofmt-before-save)))
+  
+;;
 ;; org-mode
 ;;
 

@@ -212,7 +212,9 @@
 ;; Allows you to try packages
 ;; without installing them.
 (use-package try
-  :ensure t)
+  :ensure t
+  :commands (try try-and-refresh))
+
 
 ;;
 ;; which-key

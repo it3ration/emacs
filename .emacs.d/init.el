@@ -159,8 +159,11 @@
   (wrong-number-of-arguments (load-theme 'it3ration)))
 
 ;;
-;; Styles
+;; C-style languages
 ;;
+
+;; Open header files in c++ mode.
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; Style defaults.
 (setq-default c-default-style "k&r")
@@ -499,7 +502,6 @@
 ;; ;; Setup various packages.
 ;; ;; Order matters here!
 ;; (require 'setup-modeline)
-;; (require 'setup-mappings)
 ;; (require 'setup-eshell)
 ;; (require 'setup-yasnippet)
 ;; (require 'setup-erc)

@@ -413,15 +413,26 @@
   :ensure t
   :commands (try try-and-refresh))
 
+;;
+;; csharp-mode
+;;
 
-
+(use-package csharp-mode
+  :ensure t
+  :mode "\\.cs$"
+  :config
+  (progn
+    ;; The style.
+    (add-hook
+     'csharp-mode-hook
+     (lambda ()
+       (electric-pair-mode 1)))))
 
 ;;    '(ag
 ;;      yasnippet
 ;;      haskell-mode
 ;;      go-mode
 ;;      web-mode
-;;      csharp-mode
 ;;      yaml-mode
 ;;      restclient
 ;;      dockerfile-mode

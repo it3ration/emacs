@@ -425,7 +425,7 @@
 (use-package csharp-mode
   :ensure t
   :mode "\\.cs$"
-  :config
+  :init
   (progn
     ;; The style.
     (add-hook

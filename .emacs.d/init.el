@@ -460,6 +460,20 @@
        (setq web-mode-css-indent-offset 2)
        (setq web-mode-code-indent-offset 2)))))
 
+;;
+;; org-mode
+;;
+
+;; The style.
+(add-hook
+ 'org-mode-hook
+ (lambda ()
+   ;; Set a reasonable width.
+   (set-fill-column 65)
+
+   ;; Auto fill please.
+   (turn-on-auto-fill)))
+
 ;;    '(ag
 ;;      yasnippet
 ;;      haskell-mode

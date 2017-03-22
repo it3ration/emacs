@@ -78,6 +78,11 @@
 ;; If inserting text, replace active region.
 (delete-selection-mode 1)
 
+;; If loading code from a byte-compiled elc
+;; file, prefer raw code from an el file if
+;; it is newer.
+(setq load-prefer-newer t)
+
 ;;
 ;; Platform
 ;;

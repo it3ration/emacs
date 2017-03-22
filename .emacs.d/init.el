@@ -638,8 +638,3 @@
 (use-package restclient
   :ensure t
   :commands restclient-mode)
-
-;; (require 'setup-modeline)
-;; (require 'setup-diminish)
-
-

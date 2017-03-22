@@ -6,6 +6,8 @@
 ;; TODO
 ;; * Navigate to the *scratch* buffer and close
 ;;   all other windows once we are done loading.
+;; * Checkout some other emacs themes here:
+;;   https://pawelbx.github.io/emacs-theme-gallery/
 
 ;;
 ;; Basic configuration

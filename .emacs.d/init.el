@@ -462,7 +462,6 @@
 (use-package web-mode
   :ensure t
   :mode ("\\.js$" "\\.jsx$" "\\.css$" "\\.scss$" "\\.html")
-  ;; :config
   :init
   (progn
     (add-hook

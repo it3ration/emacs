@@ -85,6 +85,10 @@
 ;; it is newer.
 (setq load-prefer-newer t)
 
+;; If we open a help buffer in
+;; any way, navigate to it.
+(setq help-window-select t)
+
 ;;
 ;; Platform
 ;;

@@ -232,7 +232,7 @@
 ;; sequence, shows what commands are available.
 (use-package which-key
   :ensure t
-  :diminish which-key-mode "which"
+  :diminish which-key-mode
   :config
   (progn
     ;; No delay please.

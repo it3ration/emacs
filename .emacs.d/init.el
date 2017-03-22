@@ -416,6 +416,7 @@
 ;; csharp-mode
 ;;
 
+;; The c# language.
 (use-package csharp-mode
   :ensure t
   :mode "\\.cs$"

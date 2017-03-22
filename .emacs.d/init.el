@@ -237,18 +237,15 @@
 
 ;; The string library.
 (use-package s
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;; The file library.
 (use-package f
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;; The list library.
 (use-package dash
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;
 ;; uniquify

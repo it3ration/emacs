@@ -12,7 +12,6 @@
 ;; * Figure out how to diminish all major modes.
 
 ;; PACKAGES TO EXPLORE
-;; * smartparens
 ;; * paredit
 ;; * rainbow-mode
 ;; * rainbow-delimiters
@@ -284,6 +283,27 @@
 
 ;; Customize the look of duplicate values.
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
+
+;;
+;; smartparens
+;;
+
+;; TODO
+;; * Customize this package.
+
+;; This package kicks ass.
+(use-package smartparens
+  :ensure t
+  :init
+  (progn
+    ;; Use the default configuration.
+    (use-package smartparens-config)
+
+    ;; Show matching delimiters.
+    (show-smartparens-global-mode t)
+    
+    ;; Use it everywhere.
+    (smartparens-global-mode 1)))
 
 ;;
 ;; company

@@ -10,3 +10,4 @@
 .emacs.d/recentf
 .emacs.d/rake.cache
 .emacs.d/tramp
+.emacs.d/custom.el

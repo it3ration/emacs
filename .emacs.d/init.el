@@ -392,6 +392,9 @@
     (define-key helm-command-map (kbd "o") 'helm-occur))
   :config
   (progn
+    ;; Turn it on.
+    (helm-mode t)
+    
     ;; Support for the silver searcher.
     (use-package helm-ag
       :ensure t)

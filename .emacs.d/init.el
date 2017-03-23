@@ -364,7 +364,6 @@
 ;; bindings - we start with the config.
 (use-package helm
   :ensure t
-  :demand t
   :bind
   (("C-x C-f" . helm-find-files)
    ("M-x" . helm-M-x)
@@ -393,7 +392,7 @@
   :config
   (progn
     ;; Turn it on.
-    (helm-mode t)
+    (helm-mode)
     
     ;; Support for the silver searcher.
     (use-package helm-ag

@@ -394,6 +394,14 @@
   (progn
     ;; Turn it on.
     (helm-mode)
+
+    ;; Swoop mode ftw.
+    (use-package helm-swoop
+      :ensure t
+      :init
+      (progn
+        ;; Split horizontally please.
+        (setq helm-swoop-split-direction 'split-window-horizontally)))
     
     ;; Support for the silver searcher.
     (use-package helm-ag

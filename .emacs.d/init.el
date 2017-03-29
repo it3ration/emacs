@@ -514,6 +514,23 @@
   :mode ("\\.shader$" "\\.cginc$"))
 
 ;;
+;; clojure-mode
+;;
+
+;; TODO
+;; * Customize these packages.
+
+;; The clojure language.
+(use-package clojure-mode
+  :ensure t
+  :mode "\\.clj$"
+  :config
+  (progn
+    ;; This mode adds a clojure repl.
+    (use-package cider
+      :ensure t)))
+
+;;
 ;; yaml-mode
 ;;
 

@@ -357,7 +357,7 @@
 ;;   to something that's easier to type.
 ;; * Bind the various ag commands to
 ;;   useful keys, you use them a lot.
-;; * Add support for helm-swoop!
+;; * Customize helm-swoop!
 
 ;; The best completion package ever in my
 ;; humble opinion. The initialization order

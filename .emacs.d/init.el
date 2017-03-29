@@ -12,6 +12,7 @@
 ;; * Figure out how to diminish all major modes.
 
 ;; PACKAGES TO EXPLORE
+;; * slime
 ;; * paredit
 ;; * rainbow-mode
 ;; * rainbow-delimiters

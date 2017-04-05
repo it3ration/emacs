@@ -428,9 +428,6 @@
   (progn
     ;; Use helm as projectile's completion system.
     (setq projectile-completion-system 'helm)
-
-    ;; Enable caching.
-    (setq projectile-enable-caching t)
   
     ;; Set our indexing mode.
     (setq projectile-indexing-method 'alien))

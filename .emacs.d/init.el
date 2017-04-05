@@ -400,8 +400,8 @@
       :ensure t
       :init
       (progn
-        ;; Split horizontally please.
-        (setq helm-swoop-split-direction 'split-window-horizontally)))
+        ;; Split vertically please.
+        (setq helm-swoop-split-direction 'split-window-vertically)))
     
     ;; Support for the silver searcher.
     (use-package helm-ag

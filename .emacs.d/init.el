@@ -601,6 +601,14 @@
     (electric-pair-mode 1)))
 
 ;;
+;; markdown-mode
+;;
+
+(use-package markdown-mode
+  :ensure t
+  :mode "\\.md$")
+
+;;
 ;; eshell
 ;;
 

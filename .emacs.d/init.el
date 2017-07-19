@@ -403,8 +403,8 @@
         (setq helm-swoop-pre-input-function (lambda () ""))
         
         ;; Replace isearch.
-        (global-set-key (kbd "C-s") 'helm-swoop)
-        (global-set-key (kbd "C-r") 'helm-swoop)
+        ;; (global-set-key (kbd "C-s") 'helm-swoop)
+        ;; (global-set-key (kbd "C-r") 'helm-swoop)
 
         ;; Split vertically please.
         (setq helm-swoop-split-direction 'split-window-horizontally)))

@@ -357,7 +357,6 @@
 ;;   to something that's easier to type.
 ;; * Bind the various ag commands to
 ;;   useful keys, you use them a lot.
-;; * Customize helm-swoop!
 
 ;; The best completion package ever in my
 ;; humble opinion. The initialization order
@@ -408,7 +407,7 @@
         (global-set-key (kbd "C-r") 'helm-swoop)
 
         ;; Split vertically please.
-        (setq helm-swoop-split-direction 'split-window-vertically)))
+        (setq helm-swoop-split-direction 'split-window-horizontally)))
     
     ;; Support for the silver searcher.
     (use-package helm-ag

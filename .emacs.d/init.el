@@ -596,6 +596,21 @@
    (turn-on-auto-fill)))
 
 ;;
+;; org-journal
+;;
+
+(use-package org-journal
+  :ensure t
+  :config
+  (progn
+    ;; Various settings.
+    (setq org-journal-dir "~/repos/journal")
+    (setq org-journal-file-format "%Y-%m-%d.org")
+    (setq org-journal-date-format "%F (%A)")
+    (setq org-journal-time-format"%I:%M %p | ")
+    (setq org-journal-find-file 'find-file)))
+
+;;
 ;; haskell-mode
 ;;
 

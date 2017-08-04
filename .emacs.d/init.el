@@ -591,9 +591,12 @@
  (lambda ()
    ;; Set a reasonable width.
    (set-fill-column 65)
-
+   
    ;; Auto fill please.
-   (turn-on-auto-fill)))
+   (turn-on-auto-fill)
+
+   ;; Only show rightmost stars.
+   (org-indent-mode)))
 
 ;;
 ;; org-journal

@@ -394,6 +394,10 @@
     ;; Turn it on.
     (helm-mode)
 
+    ;; For spell checking.
+    (use-package helm-flyspell
+      :ensure t)
+    
     ;; Swoop mode ftw.
     (use-package helm-swoop
       :ensure t

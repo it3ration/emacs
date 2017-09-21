@@ -584,7 +584,15 @@
 
     ;; Reformat the file before saving.
     (add-hook 'before-save-hook #'gofmt-before-save)))
-  
+
+;;
+;; solidity-mode
+;;
+
+(use-package solidity-mode
+  :ensure t
+  :mode "\\.sol$")
+
 ;;
 ;; org-mode
 ;;

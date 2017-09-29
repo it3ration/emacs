@@ -540,6 +540,10 @@
     ;; Helm integration? Yes please!
     (use-package helm-cider
       :ensure t
+      :init
+      (progn
+        ;; Don't snap to the bottom.
+        (setq cider-repl-scroll-on-output nil))
       :config
       (helm-cider-mode 1))))
 

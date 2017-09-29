@@ -535,7 +535,13 @@
   (progn
     ;; This mode adds a clojure repl.
     (use-package cider
-      :ensure t)))
+      :ensure t)
+
+    ;; Helm integration? Yes please!
+    (use-package helm-cider
+      :ensure t
+      :config
+      (helm-cider-mode 1))))
 
 ;;
 ;; yaml-mode

@@ -566,7 +566,12 @@
 ;; For web-based languages.
 (use-package web-mode
   :ensure t
-  :mode ("\\.js$" "\\.jsx$" "\\.css$" "\\.scss$" "\\.html")
+  :mode ("\\.js$"
+         "\\.jsx$"
+         "\\.css$"
+         "\\.scss$"
+         "\\.html"
+         "\\.php")
   :init
   (progn
     (add-hook

@@ -473,6 +473,20 @@
     (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)))
 
 ;;
+;; rainbow-mode
+;;
+
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (progn
+    ;; Only style hex colors please.
+    (setq rainbow-ansi-colors nil)
+    (setq rainbow-latex-colors nil)
+    (setq rainbow-html-colors nil)
+    (setq rainbow-x-colors nil)))
+
+;;
 ;; undo-tree
 ;;
 

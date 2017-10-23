@@ -1,29 +1,39 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
 
-(let ((face-default        '((t (:background "#303030" :foreground "#e5e5e5"))))
-      (face-text           '((t (:foreground "#e5e5e5"))))
-      (face-paren-match    '((t (:background "#0087ff"))))
-      (face-paren-mismatch '((t (:background "#00cd00"))))
-      (face-highlight      '((t (:background "#870000"))))
-      (face-region         '((t (:background "#1c1c1c"))))
-      (face-search-current '((t (:background "#005fff"))))
-      (face-search         '((t (:background "#005f00"))))
-      (face-header         '((t (:background "#005faf" :bold t))))
-      (face-string         '((t (:foreground "#ffff87"))))
-      (face-comment        '((t (:foreground "#87875f"))))
-      (face-keyword        '((t (:foreground "#d75f5f" :bold t))))
-      (face-function       '((t (:foreground "#00af00" :bold t))))
-      (face-constant       '((t (:foreground "#af87ff" :bold t))))
-      (face-type           '((t (:foreground "#00cdcd" :bold t))))
-      (face-variable       '((t (:foreground "#ff8700" :bold t))))
+(defun it3ration-face (bg fg bold)
+  "Builds a theme face."
+  (let ((f '()))
+    (when bold
+      (push bold f)
+      (push :bold f))
+    (when fg
+      (push fg f)
+      (push :foreground f))
+    (when bg
+      (push bg f)
+      (push :background f))
+    `((t ,f))))
 
-      (face-diff-added     '((t (:foreground "#00af00" :bold t))))
-      (face-diff-removed   '((t (:foreground "#d75f5f" :bold t))))
+(let* ((c-background "#303030")
+       (c-foreground "#e5e5e5")
+       (c-highlight "#870000")
+       (c-region "#1c1c1c")
+       (c-search "#005f00")
+       (c-search-current "#005fff")
+       (c-paren-match "#0087ff")
+       (c-paren-mismatch "#00cd00")
 
-      (face-test           '((t (:foreground "#00cdcd" :bold t))))
-      (face-test-bg        '((t (:background "#00cdcd"))))
-      
-      )
+       ;; old
+       (face-header         '((t (:background "#005faf" :bold t))))
+       (face-string         '((t (:foreground "#ffff87"))))
+       (face-comment        '((t (:foreground "#87875f"))))
+       (face-keyword        '((t (:foreground "#d75f5f" :bold t))))
+       (face-function       '((t (:foreground "#00af00" :bold t))))
+       (face-constant       '((t (:foreground "#af87ff" :bold t))))
+       (face-type           '((t (:foreground "#00cdcd" :bold t))))
+       (face-variable       '((t (:foreground "#ff8700" :bold t))))
+       (face-diff-added     '((t (:foreground "#00af00" :bold t))))
+       (face-diff-removed   '((t (:foreground "#d75f5f" :bold t)))))
   (custom-theme-set-faces
    'it3ration
 
@@ -31,14 +41,14 @@
    ;; defaults
    ;;
 
-   `(default ,face-default)
-   `(show-paren-match ,face-paren-match)
-   `(show-paren-mismatch ,face-paren-mismatch)
-   `(highlight ,face-highlight)
-   `(region ,face-region)
-   `(isearch ,face-search-current)
-   `(query-replace ,face-search-current)
-   `(lazy-highlight ,face-search)
+   `(default ,(it3ration-face c-background c-foreground nil))
+   `(highlight ,(it3ration-face c-highlight nil nil))
+   `(region ,(it3ration-face c-region nil nil))
+   `(lazy-highlight ,(it3ration-face c-search nil nil))
+   `(isearch ,(it3ration-face c-search-current nil nil))
+   `(query-replace ,(it3ration-face c-search-current nil nil))
+   `(show-paren-match ,(it3ration-face c-paren-match nil nil))
+   `(show-paren-mismatch ,(it3ration-face c-paren-mismatch nil nil))
 
    ;;
    ;; font lock
@@ -60,32 +70,36 @@
    ;; helm
    ;;
 
-   ;; helm-M-x-key                            
+   ;; helm-M-x-key                             
    ;; helm-action                              
    ;; helm-ag-edit-deleted-line                
    ;; helm-bookmark-addressbook                
    ;; helm-bookmark-directory                  
    ;; helm-bookmark-file                       
+   ;; helm-bookmark-file-not-found             
    ;; helm-bookmark-gnus                       
    ;; helm-bookmark-info                       
    ;; helm-bookmark-man                        
-   ;; helm-bookmark-w3m
-   ;; helm-buffer-directory
-   ;; helm-buffer-file
+   ;; helm-bookmark-w3m                        
+   ;; helm-buffer-directory                    
+   ;; helm-buffer-file                         
+   ;; helm-buffer-modified                     
    ;; helm-buffer-not-saved                    
    ;; helm-buffer-process                      
    ;; helm-buffer-saved-out                    
    ;; helm-buffer-size                         
    ;; helm-candidate-number                    
-   ;; helm-etags-file
-   `(helm-ff-directory ,face-keyword)
-   `(helm-ff-dotted-directory ,face-keyword)
-   `(helm-ff-dotted-symlink-directory ,face-string)
-   `(helm-ff-executable ,face-type)
-   `(helm-ff-file ,face-text)
-   `(helm-ff-invalid-symlink ,face-string)
-   `(helm-ff-prefix ,face-text)
-   `(helm-ff-symlink ,face-string)
+   ;; helm-candidate-number-suspended          
+   ;; helm-etags-file                          
+   ;; helm-ff-directory                        
+   ;; helm-ff-dirs                             
+   ;; helm-ff-dotted-directory                 
+   ;; helm-ff-dotted-symlink-directory         
+   ;; helm-ff-executable                       
+   ;; helm-ff-file                             
+   ;; helm-ff-invalid-symlink                  
+   ;; helm-ff-prefix                           
+   ;; helm-ff-symlink                          
    ;; helm-grep-cmd-line                       
    ;; helm-grep-file                           
    ;; helm-grep-finish                         
@@ -102,14 +116,30 @@
    ;; helm-match                               
    ;; helm-match-item                          
    ;; helm-moccur-buffer                       
+   ;; helm-non-file-buffer                     
    ;; helm-prefarg                             
-   ;; helm-resume-need-update
-   `(helm-selection ,face-highlight)
+   ;; helm-resume-need-update                  
+   ;; helm-selection                           
    ;; helm-selection-line                      
    ;; helm-separator                           
-   ;; helm-source-header
-   `(helm-source-header ,face-header)
-   `(helm-visible-mark ,face-region)
+   ;; helm-source-header                       
+   ;; helm-swoop-line-number-face              
+   ;; helm-swoop-target-line-block-face        
+   ;; helm-swoop-target-line-face              
+   ;; helm-swoop-target-word-face              
+   ;; helm-visible-mark                        
+
+   ;; `(helm-ff-directory ,face-keyword)
+   ;; `(helm-ff-dotted-directory ,face-keyword)
+   ;; `(helm-ff-dotted-symlink-directory ,face-string)
+   ;; `(helm-ff-executable ,face-type)
+   ;; `(helm-ff-file ,face-text)
+   ;; `(helm-ff-invalid-symlink ,face-string)
+   ;; `(helm-ff-prefix ,face-text)
+   ;; `(helm-ff-symlink ,face-string)
+   ;; `(helm-selection ,face-highlight)
+   ;; `(helm-source-header ,face-header)
+   ;; `(helm-visible-mark ,face-region)
 
    ;;
    ;; eshell

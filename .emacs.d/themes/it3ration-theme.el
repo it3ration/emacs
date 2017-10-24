@@ -1,4 +1,5 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
+
 (let ((c-bg "#303030")
       (c-fg "#e5e5e5")
       (c-highlight "#870000")
@@ -68,16 +69,16 @@
    ;; helm-buffer-size                         
    ;; helm-candidate-number                    
    ;; helm-candidate-number-suspended          
-   ;; helm-etags-file                          
-   ;; helm-ff-directory                        
+   ;; helm-etags-file
+   `(helm-ff-directory ((t (:foreground ,c-keyword :bold t))))
    ;; helm-ff-dirs                             
-   ;; helm-ff-dotted-directory                 
-   ;; helm-ff-dotted-symlink-directory         
-   ;; helm-ff-executable                       
-   ;; helm-ff-file                             
-   ;; helm-ff-invalid-symlink                  
-   ;; helm-ff-prefix                           
-   ;; helm-ff-symlink                          
+   `(helm-ff-dotted-directory ((t (:foreground ,c-keyword :bold t))))
+   `(helm-ff-dotted-symlink-directory ((t (:foreground ,c-string :bold t))))
+   `(helm-ff-executable ((t (:foreground ,c-type :bold t))))
+   `(helm-ff-file ((t (:foreground ,c-fg))))
+   `(helm-ff-invalid-symlink ((t (:foreground ,c-string :bold t))))
+   `(helm-ff-prefix ((t (:foreground ,c-fg))))
+   `(helm-ff-symlink ((t (:foreground ,c-string :bold t))))
    ;; helm-grep-cmd-line                       
    ;; helm-grep-file                           
    ;; helm-grep-finish                         
@@ -96,8 +97,8 @@
    ;; helm-moccur-buffer                       
    ;; helm-non-file-buffer                     
    ;; helm-prefarg                             
-   ;; helm-resume-need-update                  
-   ;; helm-selection                           
+   ;; helm-resume-need-update
+   `(helm-selection ((t (:background ,c-highlight))))
    ;; helm-selection-line                      
    ;; helm-separator
    `(helm-source-header ((t (:background "#005faf" :bold t))))
@@ -105,18 +106,7 @@
    ;; helm-swoop-target-line-block-face        
    ;; helm-swoop-target-line-face              
    ;; helm-swoop-target-word-face              
-   ;; helm-visible-mark                        
-
-   ;; `(helm-ff-directory ,face-keyword)
-   ;; `(helm-ff-dotted-directory ,face-keyword)
-   ;; `(helm-ff-dotted-symlink-directory ,face-string)
-   ;; `(helm-ff-executable ,face-type)
-   ;; `(helm-ff-file ,face-text)
-   ;; `(helm-ff-invalid-symlink ,face-string)
-   ;; `(helm-ff-prefix ,face-text)
-   ;; `(helm-ff-symlink ,face-string)
-   ;; `(helm-selection ,face-highlight)
-   ;; `(helm-visible-mark ,face-region)
+   `(helm-visible-mark ((t (:background ,c-region))))
 
    ;;
    ;; magit

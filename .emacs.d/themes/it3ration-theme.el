@@ -1,7 +1,7 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
 
-(let ((c-bg "#303030")
-      (c-fg "#e5e5e5")
+(let ((c-background "#303030")
+      (c-text "#e5e5e5")
       (c-highlight "#870000")
       (c-region "#080808")
       (c-match "#005f00")
@@ -13,6 +13,12 @@
       (c-constant "#af87ff")
       (c-type "#00cdcd")
       (c-variable "#ff8700")
+
+      (c-file "#e5e5e5")
+      (c-directory "#d75f5f")
+      (c-symlink "#ffff87")
+      (c-executable "#00cdcd")
+      
       (c-diff-added "#00af00")
       (c-diff-removed "#d75f5f"))
   (custom-theme-set-faces
@@ -22,7 +28,7 @@
    ;; defaults
    ;;
 
-   `(default ((t (:background ,c-bg :foreground ,c-fg))))
+   `(default ((t (:background ,c-background :foreground ,c-text))))
    `(highlight ((t (:background ,c-highlight))))
    `(region ((t (:background ,c-region))))
    `(lazy-highlight ((t (:background ,c-match))))
@@ -72,15 +78,15 @@
    ;; helm-candidate-number                    
    ;; helm-candidate-number-suspended          
    ;; helm-etags-file
-   `(helm-ff-directory ((t (:foreground ,c-keyword :bold t))))
+   `(helm-ff-directory ((t (:foreground ,c-directory :bold t))))
    ;; helm-ff-dirs                             
-   `(helm-ff-dotted-directory ((t (:foreground ,c-keyword :bold t))))
-   `(helm-ff-dotted-symlink-directory ((t (:foreground ,c-string :bold t))))
-   `(helm-ff-executable ((t (:foreground ,c-type :bold t))))
-   `(helm-ff-file ((t (:foreground ,c-fg))))
-   `(helm-ff-invalid-symlink ((t (:foreground ,c-string :bold t))))
-   `(helm-ff-prefix ((t (:foreground ,c-fg))))
-   `(helm-ff-symlink ((t (:foreground ,c-string :bold t))))
+   `(helm-ff-dotted-directory ((t (:foreground ,c-directory :bold t))))
+   `(helm-ff-dotted-symlink-directory ((t (:foreground ,c-symlink :bold t))))
+   `(helm-ff-executable ((t (:foreground ,c-executable :bold t))))
+   `(helm-ff-file ((t (:foreground ,c-file))))
+   `(helm-ff-invalid-symlink ((t (:foreground ,c-symlink :bold t))))
+   `(helm-ff-prefix ((t (:foreground ,c-text))))
+   `(helm-ff-symlink ((t (:foreground ,c-symlink :bold t))))
    ;; helm-grep-cmd-line                       
    ;; helm-grep-file                           
    ;; helm-grep-finish                         

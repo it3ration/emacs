@@ -1,13 +1,10 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
-
-(let ((c-default "#303030")
-      (c-text "#e5e5e5")
+(let ((c-bg "#303030")
+      (c-fg "#e5e5e5")
       (c-highlight "#870000")
       (c-region "#1c1c1c")
-      (c-search "#005f00")
-      (c-search-current "#005fff")
-      (c-paren-match "#0087ff")
-      (c-paren-mismatch "#00cd00")
+      (c-match "#005f00")
+      (c-match-current "#005fff")
       (c-string "#ffff87")
       (c-comment "#87875f")
       (c-keyword "#d75f5f")
@@ -15,11 +12,6 @@
       (c-constant "#af87ff")
       (c-type "#00cdcd")
       (c-variable "#ff8700"))
-  
-  ;; old
-  ;; (face-header         '((t (:background "#005faf" :bold t))))
-  ;; (face-diff-added     '((t (:foreground "#00af00" :bold t))))
-  ;; (face-diff-removed   '((t (:foreground "#d75f5f" :bold t)))))
   (custom-theme-set-faces
    'it3ration
 
@@ -27,14 +19,14 @@
    ;; defaults
    ;;
 
-   `(default ((t (:background ,c-default :foreground ,c-text))))
+   `(default ((t (:background ,c-bg :foreground ,c-fg))))
    `(highlight ((t (:background ,c-highlight))))
    `(region ((t (:background ,c-region))))
-   `(lazy-highlight ((t (:background ,c-search))))
-   `(isearch ((t (:background ,c-search-current))))
-   `(query-replace ((t (:background ,c-search-current))))
-   `(show-paren-match ((t (:background ,c-paren-match))))
-   `(show-paren-mismatch ((t (:background ,c-paren-mismatch))))
+   `(lazy-highlight ((t (:background ,c-match))))
+   `(isearch ((t (:background ,c-match-current))))
+   `(query-replace ((t (:background ,c-match-current))))
+   `(show-paren-match ((t (:background "#0087ff"))))
+   `(show-paren-mismatch ((t (:background "#00cd00"))))
 
    ;;
    ;; font lock
@@ -107,8 +99,8 @@
    ;; helm-resume-need-update                  
    ;; helm-selection                           
    ;; helm-selection-line                      
-   ;; helm-separator                           
-   ;; helm-source-header                       
+   ;; helm-separator
+   `(helm-source-header ((t (:background "#005faf" :bold t))))
    ;; helm-swoop-line-number-face              
    ;; helm-swoop-target-line-block-face        
    ;; helm-swoop-target-line-face              
@@ -124,194 +116,189 @@
    ;; `(helm-ff-prefix ,face-text)
    ;; `(helm-ff-symlink ,face-string)
    ;; `(helm-selection ,face-highlight)
-   ;; `(helm-source-header ,face-header)
    ;; `(helm-visible-mark ,face-region)
 
+   ;;
+   ;; magit
+   ;;
+
+   ;; magit-bisect-bad                         
+   ;; magit-bisect-good                        
+   ;; magit-bisect-skip                        
+   ;; magit-blame-date                         
+   ;; magit-blame-hash                         
+   ;; magit-blame-heading                      
+   ;; magit-blame-name                         
+   ;; magit-blame-summary                      
+   ;; magit-branch-current                     
+   ;; magit-branch-local                       
+   ;; magit-branch-remote                      
+   ;; magit-cherry-equivalent                  
+   ;; magit-cherry-unmatched
+   `(magit-diff-added ((t (:foreground "#00af00" :bold t))))
+   ;; magit-diff-added-highlight               
+   ;; magit-diff-base                          
+   ;; magit-diff-base-highlight                
+   ;; magit-diff-conflict-heading              
+   ;; magit-diff-context                       
+   ;; magit-diff-context-highlight             
+   ;; magit-diff-file-heading                  
+   ;; magit-diff-file-heading-highlight        
+   ;; magit-diff-file-heading-selection        
+   ;; magit-diff-hunk-heading                  
+   ;; magit-diff-hunk-heading-highlight        
+   ;; magit-diff-hunk-heading-selection        
+   ;; magit-diff-hunk-region                   
+   ;; magit-diff-lines-boundary                
+   ;; magit-diff-lines-heading                 
+   ;; magit-diff-our                           
+   ;; magit-diff-our-highlight
+   `(magit-diff-removed ((t (:foreground "#d75f5f" :bold t))))
+   ;; magit-diff-removed-highlight             
+   ;; magit-diff-their                         
+   ;; magit-diff-their-highlight               
+   ;; magit-diff-whitespace-warning            
+   ;; magit-diffstat-added                     
+   ;; magit-diffstat-removed                   
+   ;; magit-dimmed                             
+   ;; magit-filename                           
+   ;; magit-hash                               
+   ;; magit-head                               
+   ;; magit-header-line                        
+   ;; magit-keyword                            
+   ;; magit-log-author                         
+   ;; magit-log-date                           
+   ;; magit-log-graph                          
+   ;; magit-popup-argument                     
+   ;; magit-popup-disabled-argument            
+   ;; magit-popup-heading                      
+   ;; magit-popup-key                          
+   ;; magit-popup-option-value                 
+   ;; magit-process-ng                         
+   ;; magit-process-ok                         
+   ;; magit-reflog-amend                       
+   ;; magit-reflog-checkout                    
+   ;; magit-reflog-cherry-pick                 
+   ;; magit-reflog-commit                      
+   ;; magit-reflog-merge                       
+   ;; magit-reflog-other                       
+   ;; magit-reflog-rebase                      
+   ;; magit-reflog-remote                      
+   ;; magit-reflog-reset                       
+   ;; magit-refname                            
+   ;; magit-refname-stash                      
+   ;; magit-refname-wip                        
+   ;; magit-section-heading                    
+   ;; magit-section-heading-selection          
+   ;; magit-section-highlight                  
+   ;; magit-section-secondary-heading          
+   ;; magit-sequence-done                      
+   ;; magit-sequence-drop                      
+   ;; magit-sequence-head                      
+   ;; magit-sequence-onto                      
+   ;; magit-sequence-part                      
+   ;; magit-sequence-pick                      
+   ;; magit-sequence-stop                      
+   ;; magit-signature-bad                      
+   ;; magit-signature-error                    
+   ;; magit-signature-expired                  
+   ;; magit-signature-expired-key              
+   ;; magit-signature-good                     
+   ;; magit-signature-revoked                  
+   ;; magit-signature-untrusted                
+   ;; magit-tag                                
+   
    ;;
    ;; eshell
    ;;
 
-   ;; eshell-ls-archive
-   ;; eshell-ls-backup
-   ;; eshell-ls-clutter
-   ;; eshell-ls-directory
-   ;; eshell-ls-executable
-   ;; eshell-ls-missing
-   ;; eshell-ls-product
-   ;; eshell-ls-readonly
-   ;; eshell-ls-special
-   ;; eshell-ls-symlink
-   ;; eshell-ls-unreadable
-   ;; eshell-prompt
+   ;; eshell-ls-archive                        
+   ;; eshell-ls-backup                         
+   ;; eshell-ls-clutter                        
+   ;; eshell-ls-directory                      
+   ;; eshell-ls-executable                     
+   ;; eshell-ls-missing                        
+   ;; eshell-ls-product                        
+   ;; eshell-ls-readonly                       
+   ;; eshell-ls-special                        
+   ;; eshell-ls-symlink                        
+   ;; eshell-ls-unreadable                     
+   ;; eshell-prompt                            
    
    ;;
    ;; web-mode
    ;;
 
-   ;; ;; web-mode-error-face
-   ;; ;; web-mode-warning-face
-   ;; ;; web-mode-preprocessor-face
-   ;; ;; web-mode-block-delimiter-face
-   ;; ;; web-mode-block-control-face
-   ;; ;; web-mode-builtin-face
-   ;; ;; web-mode-symbol-face
-   ;; ;; web-mode-doctype-face
-   ;; `(web-mode-html-tag-face ,face-keyword)
-   ;; `(web-mode-html-tag-custom-face ,face-keyword)
-   ;; ;; web-mode-html-tag-bracket-face
-   ;; `(web-mode-html-attr-name-face ,face-constant)
-   ;; ;; web-mode-html-attr-custom-face
-   ;; ;; web-mode-html-attr-engine-face
-   ;; ;; web-mode-html-attr-equal-face
-   ;; ;; web-mode-html-attr-value-face
-   ;; ;; web-mode-block-attr-name-face
-   ;; ;; web-mode-block-attr-value-face
-   ;; ;; web-mode-variable-name-face
-   ;; ;; web-mode-css-selector-face
-   ;; ;; web-mode-css-pseudo-class-face
-   ;; ;; web-mode-css-at-rule-face
-   ;; ;; web-mode-css-property-name-face
-   ;; ;; web-mode-css-color-face
-   ;; ;; web-mode-css-priority-face
-   ;; ;; web-mode-css-function-face
-   ;; ;; web-mode-css-variable-face
-   ;; ;; web-mode-function-name-face
-   ;; ;; web-mode-filter-face
-   ;; ;; web-mode-function-call-face
-   ;; ;; web-mode-string-face
-   ;; ;; web-mode-block-string-face
-   ;; ;; web-mode-part-string-face
-   ;; ;; web-mode-javascript-string-face
-   ;; ;; web-mode-css-string-face
-   ;; ;; web-mode-json-key-face
-   ;; ;; web-mode-json-context-face
-   ;; ;; web-mode-json-string-face
-   ;; ;; web-mode-comment-face
-   ;; ;; web-mode-block-comment-face
-   ;; ;; web-mode-part-comment-face
-   ;; ;; web-mode-json-comment-face
-   ;; ;; web-mode-javascript-comment-face
-   ;; ;; web-mode-css-comment-face
-   ;; ;; web-mode-constant-face
-   ;; ;; web-mode-type-face
-   ;; ;; web-mode-keyword-face
-   ;; ;; web-mode-param-name-face
-   ;; ;; web-mode-whitespace-face
-   ;; ;; web-mode-inlay-face
-   ;; ;; web-mode-block-face
-   ;; ;; web-mode-part-face
-   ;; ;; web-mode-script-face
-   ;; ;; web-mode-style-face
-   ;; ;; web-mode-folded-face
-   ;; ;; web-mode-bold-face
-   ;; ;; web-mode-italic-face
-   ;; ;; web-mode-underline-face
-   ;; ;; web-mode-current-element-highlight-face
-   ;; ;; web-mode-current-column-highlight-face
-   ;; ;; web-mode-comment-keyword-face
-   ;; ;; web-mode-sql-keyword-face
-   ;; ;; web-mode-html-entity-face
-   
-   ;;
-   ;; magit
-   ;;
-
-   ;; ;; rebase
-   ;; ;; git-rebase-hash
-   ;; ;; git-rebase-description nil
-   ;; ;; git-rebase-killed-action
-   ;; ;; git-rebase-comment-hash
-   ;; ;; git-rebase-comment-heading
-
-   ;; ;; bisect
-   ;; ;; magit-bisect-good
-   ;; ;; magit-bisect-skip
-   ;; ;; magit-bisect-bad
-
-   ;; ;; blame
-   ;; ;; magit-blame-heading
-   ;; ;; magit-blame-summary
-   ;; ;; magit-blame-hash
-   ;; ;; magit-blame-name
-   ;; ;; magit-blame-date
-
-   ;; ;; diff
-   ;; ;; magit-diff-file-heading
-   ;; ;; magit-diff-file-heading-highlight
-   ;; ;; magit-diff-file-heading-selection
-   ;; ;; magit-diff-hunk-heading
-   ;; ;; magit-diff-hunk-heading-highlight
-   ;; ;; magit-diff-hunk-heading-selection
-   ;; ;; magit-diff-lines-heading
-   ;; ;; magit-diff-lines-boundary
-   ;; ;; magit-diff-conflict-heading
-   ;; `(magit-diff-added ,face-diff-added)
-   ;; `(magit-diff-removed ,face-diff-removed)
-   ;; ;; magit-diff-our
-   ;; ;; magit-diff-base
-   ;; ;; magit-diff-their
-   ;; ;; magit-diff-context
-   ;; `(magit-diff-added-highlight ,face-diff-added)
-   ;; `(magit-diff-removed-highlight ,face-diff-removed)
-   ;; ;; magit-diff-our-highlight
-   ;; ;; magit-diff-base-highlight
-   ;; ;; magit-diff-their-highlight
-   ;; ;; magit-diff-context-highlight
-   ;; ;; magit-diff-whitespace-warning
-   ;; ;; magit-diffstat-added
-   ;; ;; magit-diffstat-removed
-   
-   ;; ;; log
-   ;; ;; magit-log-graph
-   ;; ;; magit-log-author
-   ;; ;; magit-log-date
-   ;; ;; magit-reflog-commit
-   ;; ;; magit-reflog-amend 
-   ;; ;; magit-reflog-merge 
-   ;; ;; magit-reflog-checkout
-   ;; ;; magit-reflog-reset 
-   ;; ;; magit-reflog-rebase
-   ;; ;; magit-reflog-cherry-pireen
-   ;; ;; magit-reflog-remote
-   ;; ;; magit-reflog-other
-
-   ;; ;; process
-   ;; ;; magit-process-ok
-   ;; ;; magit-process-ng
-
-   ;; ;; section
-   ;; ;; magit-section-highlight
-   ;; ;; magit-section-heading
-   ;; ;; magit-section-secondary-heading
-   ;; ;; magit-section-heading-selection
-
-   ;; ;; sequence
-   ;; ;; magit-sequence-pick
-   ;; ;; magit-sequence-stop
-   ;; ;; magit-sequence-part
-   ;; ;; magit-sequence-head
-   ;; ;; magit-sequence-drop
-   ;; ;; magit-sequence-done
-   ;; ;; magit-sequence-onto
-
-   ;; ;; magit
-   ;; ;; magit-header-line
-   ;; ;; magit-dimmed
-   ;; ;; magit-hash
-   ;; ;; magit-tag
-   ;; ;; magit-branch-remote
-   ;; ;; magit-branch-local
-   ;; ;; magit-branch-current
-   ;; ;; magit-head
-   ;; ;; magit-refname
-   ;; ;; magit-refname-stash
-   ;; ;; magit-refname-wip
-   ;; ;; magit-signature-good
-   ;; ;; magit-signature-bad
-   ;; ;; magit-signature-untrusted
-   ;; ;; magit-cherry-unmatched
-   ;; ;; magit-cherry-equivalent
-   ;; ;; magit-filename
+   ;; web-mode-block-attr-name-face           
+   ;; web-mode-block-attr-value-face           
+   ;; web-mode-block-comment-face              
+   ;; web-mode-block-control-face              
+   ;; web-mode-block-delimiter-face            
+   ;; web-mode-block-face                      
+   ;; web-mode-block-string-face               
+   ;; web-mode-bold-face                       
+   ;; web-mode-builtin-face                    
+   ;; web-mode-comment-face                    
+   ;; web-mode-comment-keyword-face            
+   ;; web-mode-constant-face                   
+   ;; web-mode-css-at-rule-face                
+   ;; web-mode-css-color-face                  
+   ;; web-mode-css-comment-face                
+   ;; web-mode-css-function-face               
+   ;; web-mode-css-priority-face               
+   ;; web-mode-css-property-name-face          
+   ;; web-mode-css-pseudo-class-face           
+   ;; web-mode-css-selector-face               
+   ;; web-mode-css-string-face                 
+   ;; web-mode-css-variable-face               
+   ;; web-mode-current-column-highlight-face   
+   ;; web-mode-current-element-highlight-face  
+   ;; web-mode-doctype-face                    
+   ;; web-mode-error-face                      
+   ;; web-mode-filter-face                     
+   ;; web-mode-folded-face                     
+   ;; web-mode-function-call-face              
+   ;; web-mode-function-name-face              
+   ;; web-mode-html-attr-custom-face           
+   ;; web-mode-html-attr-engine-face           
+   ;; web-mode-html-attr-equal-face            
+   `(web-mode-html-attr-name-face ((t (:foreground ,c-constant :bold t))))
+   ;; web-mode-html-attr-value-face            
+   ;; web-mode-html-entity-face                
+   ;; web-mode-html-tag-bracket-face           
+   ;; web-mode-html-tag-custom-face
+   `(web-mode-html-tag-face ((t (:foreground ,c-keyword :bold t))))
+   `(web-mode-html-tag-namespaced-face ((t (:foreground ,c-keyword :bold t))))
+   ;; web-mode-html-tag-face                   
+   ;; web-mode-html-tag-namespaced-face        
+   ;; web-mode-inlay-face                      
+   ;; web-mode-italic-face                     
+   ;; web-mode-javascript-comment-face         
+   ;; web-mode-javascript-string-face          
+   ;; web-mode-json-comment-face               
+   ;; web-mode-json-context-face               
+   ;; web-mode-json-key-face                   
+   ;; web-mode-json-string-face                
+   ;; web-mode-jsx-depth-1-face                
+   ;; web-mode-jsx-depth-2-face                
+   ;; web-mode-jsx-depth-3-face                
+   ;; web-mode-jsx-depth-4-face                
+   ;; web-mode-keyword-face                    
+   ;; web-mode-param-name-face                 
+   ;; web-mode-part-comment-face               
+   ;; web-mode-part-face                       
+   ;; web-mode-part-string-face                
+   ;; web-mode-preprocessor-face               
+   ;; web-mode-script-face                     
+   ;; web-mode-sql-keyword-face                
+   ;; web-mode-string-face                     
+   ;; web-mode-style-face                      
+   ;; web-mode-symbol-face                     
+   ;; web-mode-type-face                       
+   ;; web-mode-underline-face                  
+   ;; web-mode-variable-name-face              
+   ;; web-mode-warning-face                    
+   ;; web-mode-whitespace-face                 
    ))
 
 (provide-theme 'it3ration)

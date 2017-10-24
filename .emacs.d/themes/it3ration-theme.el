@@ -12,7 +12,9 @@
       (c-function "#00af00")
       (c-constant "#af87ff")
       (c-type "#00cdcd")
-      (c-variable "#ff8700"))
+      (c-variable "#ff8700")
+      (c-diff-added "#00af00")
+      (c-diff-removed "#d75f5f"))
   (custom-theme-set-faces
    'it3ration
 
@@ -125,8 +127,8 @@
    ;; magit-branch-remote                      
    ;; magit-cherry-equivalent                  
    ;; magit-cherry-unmatched
-   `(magit-diff-added ((t (:foreground "#00af00" :bold t))))
-   ;; magit-diff-added-highlight               
+   ;; magit-diff-added
+   `(magit-diff-added-highlight ((t (:foreground ,c-diff-added :bold t))))
    ;; magit-diff-base                          
    ;; magit-diff-base-highlight                
    ;; magit-diff-conflict-heading              
@@ -143,8 +145,8 @@
    ;; magit-diff-lines-heading                 
    ;; magit-diff-our                           
    ;; magit-diff-our-highlight
-   `(magit-diff-removed ((t (:foreground "#d75f5f" :bold t))))
-   ;; magit-diff-removed-highlight             
+   ;; magit-diff-removed
+   `(magit-diff-removed-highlight ((t (:foreground ,c-diff-removed :bold t))))
    ;; magit-diff-their                         
    ;; magit-diff-their-highlight               
    ;; magit-diff-whitespace-warning            

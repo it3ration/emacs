@@ -3,7 +3,7 @@
 (let ((c-bg "#303030")
       (c-fg "#e5e5e5")
       (c-highlight "#870000")
-      (c-region "#1c1c1c")
+      (c-region "#080808")
       (c-match "#005f00")
       (c-match-current "#005fff")
       (c-string "#ffff87")

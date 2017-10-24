@@ -131,7 +131,7 @@
    ;; magit-branch-remote                      
    ;; magit-cherry-equivalent                  
    ;; magit-cherry-unmatched
-   ;; magit-diff-added
+   `(magit-diff-added ((t (:foreground ,c-diff-added :bold t))))
    `(magit-diff-added-highlight ((t (:foreground ,c-diff-added :bold t))))
    ;; magit-diff-base                          
    ;; magit-diff-base-highlight                
@@ -149,7 +149,7 @@
    ;; magit-diff-lines-heading                 
    ;; magit-diff-our                           
    ;; magit-diff-our-highlight
-   ;; magit-diff-removed
+   `(magit-diff-removed ((t (:foreground ,c-diff-removed :bold t))))
    `(magit-diff-removed-highlight ((t (:foreground ,c-diff-removed :bold t))))
    ;; magit-diff-their                         
    ;; magit-diff-their-highlight               

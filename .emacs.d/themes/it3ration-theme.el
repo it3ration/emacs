@@ -13,12 +13,10 @@
       (c-constant "#af87ff")
       (c-type "#00cdcd")
       (c-variable "#ff8700")
-
       (c-file "#e5e5e5")
       (c-directory "#d75f5f")
       (c-symlink "#ffff87")
       (c-executable "#00cdcd")
-      
       (c-diff-added "#00af00")
       (c-diff-removed "#d75f5f"))
   (custom-theme-set-faces

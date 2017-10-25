@@ -18,7 +18,9 @@
       (c-symlink "#ffff87")
       (c-executable "#00cdcd")
       (c-diff-added "#00af00")
-      (c-diff-removed "#d75f5f"))
+      (c-diff-removed "#d75f5f")
+      (c-diff-selected  "#af87ff")
+      (c-diff-marked "#af875f"))
   (custom-theme-set-faces
    'it3ration
 
@@ -138,13 +140,13 @@
    ;; magit-diff-conflict-heading              
    ;; magit-diff-context                       
    ;; magit-diff-context-highlight             
-   ;; magit-diff-file-heading                  
-   ;; magit-diff-file-heading-highlight        
-   ;; magit-diff-file-heading-selection        
-   ;; magit-diff-hunk-heading                  
-   ;; magit-diff-hunk-heading-highlight        
-   ;; magit-diff-hunk-heading-selection        
-   ;; magit-diff-hunk-region                   
+   `(magit-diff-file-heading ((t (:foreground ,c-text))))
+   `(magit-diff-file-heading-highlight ((t (:foreground ,c-diff-selected :bold t))))
+   `(magit-diff-file-heading-selection ((t (:foreground ,c-diff-marked :bold t))))
+   `(magit-diff-hunk-heading ((t (:background "#444444" :foreground ,c-text))))
+   `(magit-diff-hunk-heading-highlight ((t (:background "#4e4e4e" :foreground ,c-diff-selected :bold t))))
+   `(magit-diff-hunk-heading-selection ((t (:background "#4e4e4e" :foreground ,c-diff-marked :bold t))))
+   ;; magit-diff-hunk-region
    ;; magit-diff-lines-boundary                
    ;; magit-diff-lines-heading                 
    ;; magit-diff-our                           
@@ -184,7 +186,7 @@
    ;; magit-refname                            
    ;; magit-refname-stash                      
    ;; magit-refname-wip                        
-   ;; magit-section-heading                    
+   `(magit-section-heading ((t (:foreground "#d75f5f" :bold t))))
    ;; magit-section-heading-selection          
    ;; magit-section-highlight                  
    ;; magit-section-secondary-heading          

@@ -185,8 +185,8 @@
    ;; magit-reflog-reset                       
    ;; magit-refname                            
    ;; magit-refname-stash                      
-   ;; magit-refname-wip                        
-   `(magit-section-heading ((t (:foreground "#d75f5f" :bold t))))
+   ;; magit-refname-wip
+   `(magit-section-heading ((t (:foreground "#ffff87" :bold t))))
    ;; magit-section-heading-selection          
    ;; magit-section-highlight                  
    ;; magit-section-secondary-heading          

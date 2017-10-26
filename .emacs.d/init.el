@@ -676,24 +676,24 @@
      eshell-prompt-function
      (lambda ()
        (let ((color-yellow "#ffff87")
-	     (color-green "#00af00")
-	     (color-red "#d75f5f"))
-	 (concat
-	  (propertize "[" 'face `(:foreground ,color-yellow :weight bold))
-	  (propertize
-	   (concat
-	    (user-login-name)
-	    "@"
-	    (s-trim (shell-command-to-string "hostname -s")))
-	   'face `(:foreground ,color-green :weight bold))
-	  " "
-	  (propertize
-	   (f-short (s-trim (shell-command-to-string "pwd")))
-	   'face `(:foreground ,color-red :weight bold))
-	  (propertize "]" 'face `(:foreground ,color-yellow :weight bold))
-	  "\n"
-	  (propertize "$" 'face `(:foreground ,color-red :weight bold))
-	  " "))))
+             (color-green "#00af00")
+             (color-red "#d75f5f"))
+         (concat
+          (propertize "[" 'face `(:foreground ,color-yellow :weight bold))
+          (propertize
+           (concat
+            (user-login-name)
+            "@"
+            (s-trim (shell-command-to-string "hostname -s")))
+           'face `(:foreground ,color-green :weight bold))
+          " "
+          (propertize
+           (f-short (s-trim (shell-command-to-string "pwd")))
+           'face `(:foreground ,color-red :weight bold))
+          (propertize "]" 'face `(:foreground ,color-yellow :weight bold))
+          "\n"
+          (propertize "$" 'face `(:foreground ,color-red :weight bold))
+          " "))))
 
     ;; Fix the prompt regex.
     (setq eshell-prompt-regexp "^[$] ")))

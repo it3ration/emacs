@@ -338,6 +338,7 @@
 ;; bindings - we start with the config.
 (use-package helm
   :ensure t
+  :demand t
   :bind
   (("C-x C-f" . helm-find-files)
    ("M-x" . helm-M-x)
@@ -366,7 +367,7 @@
   :config
   (progn
     ;; Turn it on.
-    (helm-mode)
+    (helm-mode t)
 
     ;; For spell checking.
     (use-package helm-flyspell
@@ -375,22 +376,27 @@
     ;; Swoop mode ftw.
     (use-package helm-swoop
       :ensure t
+      :bind (("M-i" . helm-swoop)
+             ("C-c M-i" . helm-multi-swoop))
       :init
       (progn
         ;; Start with no search string.
         (setq helm-swoop-pre-input-function (lambda () ""))
-        
-        ;; Replace isearch.
-        ;; (global-set-key (kbd "C-s") 'helm-swoop)
-        ;; (global-set-key (kbd "C-r") 'helm-swoop)
 
         ;; Split vertically please.
-        (setq helm-swoop-split-direction 'split-window-horizontally)))
+        (setq helm-swoop-split-direction 'split-window-horizontally))
+      :config
+      (progn
+        ;; Move up and down using isearch keys.
+        (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+        (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+        (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
+        (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
     
     ;; Support for the silver searcher.
     (use-package helm-ag
       :ensure t)
-     
+    
     ;; For inspecting bindings.
     (use-package helm-descbinds
       :ensure t

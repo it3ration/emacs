@@ -161,10 +161,6 @@
 ;; Theme
 ;;
 
-;; Make sure we set this for gui emacs.
-(defconst it3ration-font "Menlo Regular-18" "My emacs font.")
-(when is-gui (add-to-list 'default-frame-alist `(font . ,it3ration-font)))
-
 ;; Setup our theme path.
 (setq custom-theme-directory (concat user-emacs-directory "themes"))
 
@@ -172,13 +168,6 @@
 (condition-case nil 
     (load-theme 'it3ration t)
   (wrong-number-of-arguments (load-theme 'it3ration)))
-
-;; If we're on a gui version of emacs,
-;; fix the modeline height / box.
-(when is-gui
-  (progn
-    (set-face-attribute 'mode-line nil :box nil :font it3ration-font)
-    (set-face-attribute 'mode-line-inactive nil :box nil :font it3ration-font)))
 
 ;;
 ;; C-style languages

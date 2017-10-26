@@ -394,9 +394,6 @@
 ;; projectile
 ;;
 
-;; TODO
-;; * Add a keybinding for projectile-switch-project.
-
 (use-package projectile
   :ensure t
   :commands (projectile-find-file projectile-switch-project)

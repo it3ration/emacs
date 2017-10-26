@@ -225,6 +225,35 @@
    ;; magit-signature-revoked
    ;; magit-signature-untrusted
    ;; magit-tag
+   
+   ;;
+   ;; erc
+   ;;
+
+   ;; erc-action-face
+   ;; erc-bold-face
+   ;; erc-button
+   ;; erc-command-indicator-face
+   ;; erc-current-nick-face
+   ;; erc-dangerous-host-face
+   ;; erc-default-face
+   ;; erc-direct-msg-face
+   ;; erc-error-face
+   ;; erc-fool-face
+   ;; erc-header-line
+   ;; erc-input-face
+   ;; erc-inverse-face
+   ;; erc-keyword-face
+   ;; erc-my-nick-face
+   ;; erc-my-nick-prefix-face
+   ;; erc-nick-default-face
+   ;; erc-nick-msg-face
+   ;; erc-nick-prefix-face
+   ;; erc-notice-face
+   ;; erc-pal-face
+   ;; erc-prompt-face
+   ;; erc-timestamp-face
+   ;; erc-underline-face
 
    ;;
    ;; eshell
@@ -317,35 +346,6 @@
    ;; web-mode-variable-name-face
    ;; web-mode-warning-face
    ;; web-mode-whitespace-face
-
-   ;;
-   ;; erc
-   ;;
-
-   ;; erc-action-face
-   ;; erc-bold-face
-   ;; erc-button
-   ;; erc-command-indicator-face
-   ;; erc-current-nick-face
-   ;; erc-dangerous-host-face
-   ;; erc-default-face
-   ;; erc-direct-msg-face
-   ;; erc-error-face
-   ;; erc-fool-face
-   ;; erc-header-line
-   ;; erc-input-face
-   ;; erc-inverse-face
-   ;; erc-keyword-face
-   ;; erc-my-nick-face
-   ;; erc-my-nick-prefix-face
-   ;; erc-nick-default-face
-   ;; erc-nick-msg-face
-   ;; erc-nick-prefix-face
-   ;; erc-notice-face
-   ;; erc-pal-face
-   ;; erc-prompt-face
-   ;; erc-timestamp-face
-   ;; erc-underline-face
    ))
 
 (provide-theme 'it3ration)

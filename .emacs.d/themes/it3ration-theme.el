@@ -27,7 +27,7 @@
    '((:eval (propertize "%& " 'face '(:background "#4e4e4e" :foreground "#00af00" :weight bold))) 
      (:eval (propertize "%b " 'face '(:background "#4e4e4e" :foreground "#ffff87" :weight bold)))
      (:eval (propertize "(%l, %c) " 'face '(:background "#4e4e4e" :foreground "#ff8700" :weight bold)))
-     (:eval (propertize "[%m] " 'face '(:background "#4e4e4e" :foreground "#af87ff" :weight bold)))
+     (:eval (propertize "%m " 'face '(:background "#4e4e4e" :foreground "#af87ff" :weight bold)))
      (:eval
       (propertize
        (s-trim (substring-no-properties vc-mode))

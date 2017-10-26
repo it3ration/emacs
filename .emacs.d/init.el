@@ -408,7 +408,7 @@
 
 (use-package projectile
   :ensure t
-  ;; :demand t
+  :demand t
   :commands (projectile-find-file projectile-switch-project)
   :bind
   (("C-x p" . projectile-find-file))

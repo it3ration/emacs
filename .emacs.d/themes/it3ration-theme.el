@@ -29,10 +29,11 @@
      (:eval (propertize "(%l, %c) " 'face '(:background "#4e4e4e" :foreground "#ff8700" :weight bold)))
      (:eval (propertize "%m " 'face '(:background "#4e4e4e" :foreground "#af87ff" :weight bold)))
      (:eval
-      (propertize
-       (s-trim (substring-no-properties vc-mode))
-       'face
-       '(:background "#4e4e4e" :foreground "#00a7ff" :weight bold)))))
+      (when vc-mode
+        (propertize
+         (s-trim (substring-no-properties vc-mode))
+         'face
+         '(:background "#4e4e4e" :foreground "#00a7ff" :weight bold))))))
   ;; The theme.
   (custom-theme-set-faces
    'it3ration

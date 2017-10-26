@@ -26,6 +26,16 @@
 ;; * string-edit
 
 ;;
+;; Custom
+;;
+
+;; Put the special emacs "customize" settings in their own
+;; file. We load it first because we may want to override
+;; these settings in our config below.
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file 'noerror)
+
+;;
 ;; Basic configuration
 ;;
 
@@ -105,6 +115,10 @@
 ;; any way, navigate to it.
 (setq help-window-select t)
 
+;; Don't automatically debug on error.
+;; We enable this by hand if desired.
+(setq debug-on-error nil)
+
 ;;
 ;; Platform
 ;;
@@ -127,14 +141,6 @@
 
 ;; Backup files even if we're using source control.
 (setq vc-make-backup-files t)
-
-;;
-;; Custom
-;;
-
-;; Keep custom settings in a separate file.
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file 'noerror)
 
 ;;
 ;; Clipboard

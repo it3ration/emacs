@@ -43,6 +43,7 @@
    ;;
 
    `(mode-line ((t (:background "#4e4e4e" :foreground ,c-text :bold t))))
+   `(header-line ((t (:background "#4e4e4e" :foreground ,c-text :bold t))))
    ;; mode-line-buffer-id
    ;; mode-line-emphasis
    ;; mode-line-highlight

@@ -128,10 +128,10 @@
    ;; helm-selection-line                      
    ;; helm-separator
    `(helm-source-header ((t (:background "#005faf" :bold t))))
-   ;; helm-swoop-line-number-face              
-   ;; helm-swoop-target-line-block-face        
-   ;; helm-swoop-target-line-face              
-   ;; helm-swoop-target-word-face              
+   ;; helm-swoop-line-number-face
+   `(helm-swoop-target-line-block-face ((t (:background ,c-highlight))))              
+   `(helm-swoop-target-line-face ((t (:background ,c-highlight))))              
+   `(helm-swoop-target-word-face ((t (:background ,c-match-current))))
    `(helm-visible-mark ((t (:background ,c-region))))
 
    ;;

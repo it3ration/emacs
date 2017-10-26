@@ -41,6 +41,11 @@
    ;; defaults
    ;;
 
+   `(mode-line ((t (:background "#4e4e4e" :foreground ,c-text :bold t))))
+   ;; mode-line-buffer-id                      
+   ;; mode-line-emphasis                       
+   ;; mode-line-highlight                      
+   ;; mode-line-inactive                       
    `(default ((t (:background ,c-background :foreground ,c-text))))
    `(highlight ((t (:background ,c-highlight))))
    `(region ((t (:background ,c-region))))

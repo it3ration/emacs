@@ -48,6 +48,7 @@
    ;; mode-line-highlight
    ;; mode-line-inactive
    `(default ((t (:background ,c-background :foreground ,c-text))))
+   `(trailing-whitespace ((t (:background ,c-background :foreground ,c-text))))
    `(highlight ((t (:background ,c-highlight))))
    `(region ((t (:background ,c-region))))
    `(lazy-highlight ((t (:background ,c-match))))

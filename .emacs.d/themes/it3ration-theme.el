@@ -1,30 +1,25 @@
 (deftheme it3ration "A theme that's easier on the eyes.")
 
-(let ((c-background "#303030")
-      (c-text "#e5e5e5")
-      (c-highlight "#870000")
-      (c-region "#080808")
-      (c-match "#005f00")
-      (c-match-current "#005fff")
-      (c-string "#ffff87")
-      (c-comment "#87875f")
-      (c-keyword "#d75f5f")
-      (c-function "#00af00")
-      (c-constant "#af87ff")
-      (c-type "#00cdcd")
-      (c-variable "#ff8700")
-      (c-file "#e5e5e5")
-      (c-directory "#d75f5f")
-      (c-symlink "#ffff87")
-      (c-executable "#00cdcd")
-      (c-diff-added "#00af00")
-      (c-diff-removed "#d75f5f")
-      (c-diff-selected  "#af87ff")
-      (c-diff-marked "#af875f"))
+(let ((c-gray "#303030")
+      (c-mid-gray "#444444")
+      (c-light-gray "#4e4e4e")
+      (c-white "#e5e5e5")
+      (c-red "#870000")
+      (c-black "#080808")
+      (c-yellow "#ffff87")
+      (c-green "#00cd00")
+      (c-blue "#00a7ff")
+      (c-dark-blue "#005faf")
+      (c-orange "#ff8700")
+      (c-pink "#d75f5f")
+      (c-purple "#af87ff")
+      (c-teil "#00cdcd")
+      (c-brown "#87875f")
+      (c-tan "#af875f"))
   ;; The modeline.
   (setq-default
    mode-line-format
-   '((:eval (propertize "%& " 'face '(:foreground "#00af00" :weight bold)))
+   '((:eval (propertize "%& " 'face '(:foreground "#00cd00" :weight bold)))
      (:eval (propertize "%b " 'face '(:foreground "#ffff87" :weight bold)))
      (:eval (propertize "(%l, %c) " 'face '(:foreground "#ff8700" :weight bold)))
      (:eval (propertize "%m " 'face '(:foreground "#af87ff" :weight bold)))
@@ -42,37 +37,38 @@
    ;; defaults
    ;;
 
-   `(mode-line ((t (:background "#4e4e4e" :foreground ,c-text :bold t))))
-   `(header-line ((t (:background "#4e4e4e" :foreground ,c-text :bold t))))
+   `(mode-line ((t (:background ,c-light-gray :foreground ,c-white :bold t))))
+   `(header-line ((t (:background ,c-light-gray :foreground ,c-white :bold t))))
+   `(minibuffer-prompt ((t (:foreground ,c-blue :bold t))))
    ;; mode-line-buffer-id
    ;; mode-line-emphasis
    ;; mode-line-highlight
    ;; mode-line-inactive
-   `(default ((t (:background ,c-background :foreground ,c-text))))
-   `(trailing-whitespace ((t (:background ,c-background :foreground ,c-text))))
-   `(highlight ((t (:background ,c-highlight))))
-   `(region ((t (:background ,c-region))))
-   `(lazy-highlight ((t (:background ,c-match))))
-   `(isearch ((t (:background ,c-match-current))))
-   `(query-replace ((t (:background ,c-match-current))))
-   `(show-paren-match ((t (:background "#0087ff"))))
-   `(show-paren-mismatch ((t (:background "#00cd00"))))
+   `(default ((t (:background ,c-gray :foreground ,c-white))))
+   `(trailing-whitespace ((t (:background ,c-gray :foreground ,c-white))))
+   `(highlight ((t (:background ,c-red))))
+   `(region ((t (:background ,c-black))))
+   `(lazy-highlight ((t (:background ,c-dark-blue))))
+   `(isearch ((t (:background ,c-black))))
+   `(query-replace ((t (:background ,c-black))))
+   `(show-paren-match ((t (:background ,c-blue))))
+   `(show-paren-mismatch ((t (:background ,c-green))))
 
    ;;
    ;; font lock
    ;;
 
-   `(font-lock-string-face ((t (:foreground ,c-string))))
-   `(font-lock-comment-face ((t (:foreground ,c-comment))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,c-comment))))
-   `(font-lock-doc-face ((t (:foreground ,c-comment))))
-   `(font-lock-keyword-face ((t (:foreground ,c-keyword :bold t))))
-   `(font-lock-preprocessor-face ((t (:foreground ,c-keyword :bold t))))
-   `(font-lock-function-name-face ((t (:foreground ,c-function :bold t))))
-   `(font-lock-constant-face ((t (:foreground ,c-constant :bold t))))
-   `(font-lock-builtin-face ((t (:foreground ,c-constant :bold t))))
-   `(font-lock-type-face ((t (:foreground ,c-type :bold t))))
-   `(font-lock-variable-name-face ((t (:foreground ,c-variable :bold t))))
+   `(font-lock-string-face ((t (:foreground ,c-yellow))))
+   `(font-lock-comment-face ((t (:foreground ,c-brown))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,c-brown))))
+   `(font-lock-doc-face ((t (:foreground ,c-brown))))
+   `(font-lock-keyword-face ((t (:foreground ,c-pink :bold t))))
+   `(font-lock-preprocessor-face ((t (:foreground ,c-pink :bold t))))
+   `(font-lock-function-name-face ((t (:foreground ,c-green :bold t))))
+   `(font-lock-constant-face ((t (:foreground ,c-purple :bold t))))
+   `(font-lock-builtin-face ((t (:foreground ,c-purple :bold t))))
+   `(font-lock-type-face ((t (:foreground ,c-teil :bold t))))
+   `(font-lock-variable-name-face ((t (:foreground ,c-orange :bold t))))
 
    ;;
    ;; helm
@@ -99,15 +95,15 @@
    ;; helm-candidate-number
    ;; helm-candidate-number-suspended
    ;; helm-etags-file
-   `(helm-ff-directory ((t (:foreground ,c-directory :bold t))))
+   `(helm-ff-directory ((t (:foreground ,c-pink :bold t))))
    ;; helm-ff-dirs
-   `(helm-ff-dotted-directory ((t (:foreground ,c-directory :bold t))))
-   `(helm-ff-dotted-symlink-directory ((t (:foreground ,c-symlink :bold t))))
-   `(helm-ff-executable ((t (:foreground ,c-executable :bold t))))
-   `(helm-ff-file ((t (:foreground ,c-file))))
-   `(helm-ff-invalid-symlink ((t (:foreground ,c-symlink :bold t))))
-   `(helm-ff-prefix ((t (:foreground ,c-text))))
-   `(helm-ff-symlink ((t (:foreground ,c-symlink :bold t))))
+   `(helm-ff-dotted-directory ((t (:foreground ,c-pink :bold t))))
+   `(helm-ff-dotted-symlink-directory ((t (:foreground ,c-yellow :bold t))))
+   `(helm-ff-executable ((t (:foreground ,c-teil :bold t))))
+   `(helm-ff-file ((t (:foreground ,c-white))))
+   `(helm-ff-invalid-symlink ((t (:foreground ,c-yellow :bold t))))
+   `(helm-ff-prefix ((t (:foreground ,c-white))))
+   `(helm-ff-symlink ((t (:foreground ,c-yellow :bold t))))
    ;; helm-grep-cmd-line
    ;; helm-grep-file
    ;; helm-grep-finish
@@ -127,15 +123,15 @@
    ;; helm-non-file-buffer
    ;; helm-prefarg
    ;; helm-resume-need-update
-   `(helm-selection ((t (:background ,c-highlight))))
+   `(helm-selection ((t (:background ,c-red))))
    ;; helm-selection-line
    ;; helm-separator
-   `(helm-source-header ((t (:background "#005faf" :bold t))))
+   `(helm-source-header ((t (:background ,c-dark-blue :bold t))))
    ;; helm-swoop-line-number-face
-   `(helm-swoop-target-line-block-face ((t (:background ,c-highlight))))
-   `(helm-swoop-target-line-face ((t (:background ,c-highlight))))
-   `(helm-swoop-target-word-face ((t (:background ,c-match-current))))
-   `(helm-visible-mark ((t (:background ,c-region))))
+   `(helm-swoop-target-line-block-face ((t (:background ,c-red))))
+   `(helm-swoop-target-line-face ((t (:background ,c-red))))
+   `(helm-swoop-target-word-face ((t (:background ,c-dark-blue))))
+   `(helm-visible-mark ((t (:background ,c-black))))
 
    ;;
    ;; magit
@@ -154,26 +150,26 @@
    ;; magit-branch-remote
    ;; magit-cherry-equivalent
    ;; magit-cherry-unmatched
-   `(magit-diff-added ((t (:foreground ,c-diff-added :bold t))))
-   `(magit-diff-added-highlight ((t (:foreground ,c-diff-added :bold t))))
+   `(magit-diff-added ((t (:foreground ,c-green :bold t))))
+   `(magit-diff-added-highlight ((t (:foreground ,c-green :bold t))))
    ;; magit-diff-base
    ;; magit-diff-base-highlight
    ;; magit-diff-conflict-heading
    ;; magit-diff-context
    ;; magit-diff-context-highlight
-   `(magit-diff-file-heading ((t (:foreground ,c-text))))
-   `(magit-diff-file-heading-highlight ((t (:foreground ,c-diff-selected :bold t))))
-   `(magit-diff-file-heading-selection ((t (:foreground ,c-diff-marked :bold t))))
-   `(magit-diff-hunk-heading ((t (:background "#444444" :foreground ,c-text))))
-   `(magit-diff-hunk-heading-highlight ((t (:background "#4e4e4e" :foreground ,c-diff-selected :bold t))))
-   `(magit-diff-hunk-heading-selection ((t (:background "#4e4e4e" :foreground ,c-diff-marked :bold t))))
+   `(magit-diff-file-heading ((t (:foreground ,c-white))))
+   `(magit-diff-file-heading-highlight ((t (:foreground ,c-purple :bold t))))
+   `(magit-diff-file-heading-selection ((t (:foreground ,c-tan :bold t))))
+   `(magit-diff-hunk-heading ((t (:background ,c-mid-gray :foreground ,c-white))))
+   `(magit-diff-hunk-heading-highlight ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
+   `(magit-diff-hunk-heading-selection ((t (:background ,c-light-gray :foreground ,c-tan :bold t))))
    ;; magit-diff-hunk-region
    ;; magit-diff-lines-boundary
    ;; magit-diff-lines-heading
    ;; magit-diff-our
    ;; magit-diff-our-highlight
-   `(magit-diff-removed ((t (:foreground ,c-diff-removed :bold t))))
-   `(magit-diff-removed-highlight ((t (:foreground ,c-diff-removed :bold t))))
+   `(magit-diff-removed ((t (:foreground ,c-pink :bold t))))
+   `(magit-diff-removed-highlight ((t (:foreground ,c-pink :bold t))))
    ;; magit-diff-their
    ;; magit-diff-their-highlight
    ;; magit-diff-whitespace-warning
@@ -207,7 +203,7 @@
    ;; magit-refname
    ;; magit-refname-stash
    ;; magit-refname-wip
-   `(magit-section-heading ((t (:foreground "#ffff87" :bold t))))
+   `(magit-section-heading ((t (:foreground ,c-yellow :bold t))))
    ;; magit-section-heading-selection
    ;; magit-section-highlight
    ;; magit-section-secondary-heading
@@ -310,13 +306,13 @@
    ;; web-mode-html-attr-custom-face
    ;; web-mode-html-attr-engine-face
    ;; web-mode-html-attr-equal-face
-   `(web-mode-html-attr-name-face ((t (:foreground ,c-constant :bold t))))
+   `(web-mode-html-attr-name-face ((t (:foreground ,c-purple :bold t))))
    ;; web-mode-html-attr-value-face
    ;; web-mode-html-entity-face
    ;; web-mode-html-tag-bracket-face
    ;; web-mode-html-tag-custom-face
-   `(web-mode-html-tag-face ((t (:foreground ,c-keyword :bold t))))
-   `(web-mode-html-tag-namespaced-face ((t (:foreground ,c-keyword :bold t))))
+   `(web-mode-html-tag-face ((t (:foreground ,c-pink :bold t))))
+   `(web-mode-html-tag-namespaced-face ((t (:foreground ,c-pink :bold t))))
    ;; web-mode-html-tag-face
    ;; web-mode-html-tag-namespaced-face
    ;; web-mode-inlay-face

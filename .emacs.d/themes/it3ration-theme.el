@@ -128,7 +128,7 @@
    ;; helm-separator
    `(helm-source-header ((t (:background ,c-dark-blue :bold t))))
    ;; helm-swoop-line-number-face
-   `(helm-swoop-target-line-block-face ((t (:background ,c-red))))
+   ;; helm-swoop-target-line-block-face
    `(helm-swoop-target-line-face ((t (:background ,c-red))))
    `(helm-swoop-target-word-face ((t (:background ,c-dark-blue))))
    `(helm-visible-mark ((t (:background ,c-black))))

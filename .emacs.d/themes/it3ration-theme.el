@@ -13,7 +13,6 @@
       (c-orange "#ff8700")
       (c-pink "#d75f5f")
       (c-purple "#af87ff")
-      (c-teil "#00cdcd")
       (c-brown "#87875f")
       (c-tan "#af875f"))
   ;; The modeline.
@@ -67,7 +66,7 @@
    `(font-lock-function-name-face ((t (:foreground ,c-green :bold t))))
    `(font-lock-constant-face ((t (:foreground ,c-purple :bold t))))
    `(font-lock-builtin-face ((t (:foreground ,c-purple :bold t))))
-   `(font-lock-type-face ((t (:foreground ,c-teil :bold t))))
+   `(font-lock-type-face ((t (:foreground ,c-blue :bold t))))
    `(font-lock-variable-name-face ((t (:foreground ,c-orange :bold t))))
 
    ;;
@@ -99,7 +98,7 @@
    ;; helm-ff-dirs
    `(helm-ff-dotted-directory ((t (:foreground ,c-pink :bold t))))
    `(helm-ff-dotted-symlink-directory ((t (:foreground ,c-yellow :bold t))))
-   `(helm-ff-executable ((t (:foreground ,c-teil :bold t))))
+   `(helm-ff-executable ((t (:foreground ,c-blue :bold t))))
    `(helm-ff-file ((t (:foreground ,c-white))))
    `(helm-ff-invalid-symlink ((t (:foreground ,c-yellow :bold t))))
    `(helm-ff-prefix ((t (:foreground ,c-white))))

@@ -730,14 +730,25 @@
     (setq erc-user-full-name nil)
 
     ;; Don't leak your username.
-    (setq erc-email-userid nil)
+    (setq erc-email-userid "user")
 
     ;; Don't leak your system name.
     (setq erc-system-name "emacs")
 
+    ;; Always show timestamps.
+    (setq erc-timestamp-only-if-changed-flag nil)
+    
+    ;; Show timestamps on the left.
+    (setq erc-insert-timestamp-function 'erc-insert-timestamp-left)
+
+    ;; Make the format non-military.
+    (setq erc-timestamp-format "%I:%M ")
+
+    ;; Add an indention prefix.
+    (setq erc-fill-prefix "    + ")
+    
     ;; Let's use a sane prompt please.
     (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))))
-
 
 (defun chat-load-settings (file)
   "Tries to load nickname / password as association list."

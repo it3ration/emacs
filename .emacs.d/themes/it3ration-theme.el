@@ -230,25 +230,25 @@
    ;; erc-bold-face
    ;; erc-button
    ;; erc-command-indicator-face
-   ;; erc-current-nick-face
+   `(erc-current-nick-face ((t (:foreground ,c-blue :bold t))))
    ;; erc-dangerous-host-face
-   ;; erc-default-face
-   ;; erc-direct-msg-face
+   `(erc-default-face ((t (:foreground ,c-white))))
+   `(erc-direct-msg-face ((t (:foreground ,c-pink))))
    ;; erc-error-face
    ;; erc-fool-face
    ;; erc-header-line
-   ;; erc-input-face
+   `(erc-input-face ((t (:foreground ,c-orange))))
    ;; erc-inverse-face
    ;; erc-keyword-face
    ;; erc-my-nick-face
    ;; erc-my-nick-prefix-face
-   ;; erc-nick-default-face
+   `(erc-nick-default-face ((t (:foreground ,c-purple :bold t))))
    ;; erc-nick-msg-face
    ;; erc-nick-prefix-face
-   ;; erc-notice-face
+   `(erc-notice-face ((t (:foreground ,c-brown))))
    ;; erc-pal-face
-   ;; erc-prompt-face
-   ;; erc-timestamp-face
+   `(erc-prompt-face ((t (:foreground ,c-yellow :bold t))))
+   `(erc-timestamp-face ((t (:foreground ,c-green))))
    ;; erc-underline-face
 
    ;;

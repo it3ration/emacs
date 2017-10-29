@@ -703,6 +703,27 @@
 ;; erc
 ;;
 
+(use-package erc
+  :ensure t
+  :init
+  (progn
+    ;; Fill chat messages based on window width.
+    (make-variable-buffer-local 'erc-fill-column)
+    (add-hook
+     'window-configuration-change-hook 
+     '(lambda ()
+        (save-excursion
+          (walk-windows
+           (lambda (w)
+             (let ((buffer (window-buffer w)))
+               (set-buffer buffer)
+               (when (eq major-mode 'erc-mode)
+                 (setq erc-fill-column (- (window-width w) 2)))))))))
+
+    ;; Let's use a sane prompt please.
+    (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))))
+
+
 (defun chat-load-settings (file)
   "Tries to load nickname / password as association list."
   (when (file-exists-p file)

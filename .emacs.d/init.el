@@ -354,15 +354,13 @@
     ;; Open helm in the current window.
     (setq helm-split-window-in-side-p t)
 
-    ;; Remap C-c h to helm's command map.
+    ;; Remap helm's command map from C-x c to C-c h,
+    ;; C-x c is too close to C-x C-c which closes emacs.
+    (global-unset-key (kbd "C-x c"))
     (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
-    ;; Disable C-x c, it's too close to
-    ;; C-x C-c which closes emacs. :/
-    (global-unset-key (kbd "C-x c"))
-
-    ;; Add occur mode to the command map. I'm
-    ;; surprised it's not already in there.
+    ;; Add a few extensions to helm's command map.
+    (define-key helm-command-map (kbd "d") 'helm-dash)
     (define-key helm-command-map (kbd "o") 'helm-occur))
   :config
   (progn
@@ -371,6 +369,10 @@
 
     ;; For spell checking.
     (use-package helm-flyspell
+      :ensure t)
+
+    ;; For docsets.
+    (use-package helm-dash
       :ensure t)
     
     ;; Swoop mode ftw.

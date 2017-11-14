@@ -263,9 +263,6 @@
 ;; smartparens
 ;;
 
-;; TODO
-;; * Customize this package.
-
 ;; This package kicks ass.
 (use-package smartparens
   :ensure t

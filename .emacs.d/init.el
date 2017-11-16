@@ -110,6 +110,9 @@
 ;; We enable this by hand if desired.
 (setq debug-on-error nil)
 
+;; Don't blink the cursor.
+(setq blink-cursor-mode nil)
+
 ;;
 ;; platform
 ;;

@@ -36,14 +36,15 @@
    ;; defaults
    ;;
 
-   `(mode-line ((t (:background ,c-light-gray :foreground ,c-white :bold t))))
-   `(header-line ((t (:background ,c-light-gray :foreground ,c-white :bold t))))
-   `(minibuffer-prompt ((t (:foreground ,c-blue :bold t))))
+   `(default ((t (:background ,c-gray :foreground ,c-white))))
+   `(cursor ((t (:background ,c-yellow))))
+   `(mode-line ((t (:background ,c-light-gray :foreground ,c-white :bold t :box nil))))
+   `(mode-line-inactive ((t (:background ,c-light-gray :foreground ,c-white :bold t :box nil))))
    ;; mode-line-buffer-id
    ;; mode-line-emphasis
    ;; mode-line-highlight
-   ;; mode-line-inactive
-   `(default ((t (:background ,c-gray :foreground ,c-white))))
+   `(header-line ((t (:background ,c-light-gray :foreground ,c-white :bold t))))
+   `(minibuffer-prompt ((t (:foreground ,c-blue :bold t))))
    `(trailing-whitespace ((t (:background ,c-gray :foreground ,c-white))))
    `(highlight ((t (:background ,c-red))))
    `(region ((t (:background ,c-black))))

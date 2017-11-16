@@ -177,7 +177,7 @@
 ;; font
 ;;
 
-(when is-gui
+(when (and is-mac is-gui)
   (custom-set-faces
    '(default ((t (:height 160 :width normal :family "Menlo"))))))
 

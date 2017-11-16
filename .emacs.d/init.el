@@ -349,8 +349,7 @@
     ;; Open helm in the current window.
     (setq helm-split-window-in-side-p t)
 
-    ;; Remap helm's command map from C-x c to C-c h,
-    ;; C-x c is too close to C-x C-c which closes emacs.
+    ;; Make helm's prefix C-c h.
     (global-unset-key (kbd "C-x c"))
     (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
@@ -413,7 +412,7 @@
   (progn
     ;; Use helm as projectile's completion system.
     (setq projectile-completion-system 'helm)
-  
+    
     ;; Set our indexing mode.
     (setq projectile-indexing-method 'alien))
   :config

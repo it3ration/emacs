@@ -170,6 +170,9 @@
 ;; font
 ;;
 
+(when is-gui
+  (custom-set-faces
+   '(default ((t (:height 160 :width normal :family "Menlo"))))))
 
 ;;
 ;; c / c++

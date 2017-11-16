@@ -50,7 +50,7 @@
    `(lazy-highlight ((t (:background ,c-dark-blue))))
    `(isearch ((t (:background ,c-black))))
    `(query-replace ((t (:background ,c-black))))
-   `(show-paren-match ((t (:background ,c-blue))))
+   `(show-paren-match ((t (:background ,c-green))))
    `(show-paren-mismatch ((t (:background ,c-green))))
 
    ;;
@@ -221,6 +221,13 @@
    ;; magit-signature-revoked
    ;; magit-signature-untrusted
    ;; magit-tag
+
+   ;;
+   ;; smartparens
+   ;;
+
+   `(sp-show-pair-match-face ((t (:background ,c-green))))
+   `(sp-show-pair-mismatch-face ((t (:background ,c-green))))
    
    ;;
    ;; erc

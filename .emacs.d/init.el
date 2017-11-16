@@ -6,18 +6,12 @@
 ;; TODO
 ;; * Navigate to the *scratch* buffer and close
 ;;   all other windows once we are done loading.
-;; * Checkout some other emacs themes here:
-;;   https://pawelbx.github.io/emacs-theme-gallery/
 ;; * Figure out a way to copy the thing under point.
 ;; * Figure out how to diminish all major modes.
 
 ;; PACKAGES TO EXPLORE
 ;; * slime
 ;; * paredit
-;; * rainbow-mode
-;; * rainbow-delimiters
-;; * ace-jump-mode
-;; * helm-spotify
 ;; * highlight-escape-sequences
 ;; * jump-char
 ;; * expand-region
@@ -26,7 +20,7 @@
 ;; * string-edit
 
 ;;
-;; Custom
+;; custom
 ;;
 
 ;; Put the special emacs "customize" settings in their own
@@ -36,7 +30,7 @@
 (load custom-file 'noerror)
 
 ;;
-;; Basic configuration
+;; basic
 ;;
 
 ;; I don't ever want to see this.
@@ -117,7 +111,7 @@
 (setq debug-on-error nil)
 
 ;;
-;; Platform
+;; platform
 ;;
 
 ;; Define some platform-specific variables.
@@ -125,7 +119,7 @@
 (setq is-mac (equal system-type 'darwin))
 
 ;;
-;; Backups
+;; backups
 ;;
 
 ;; TODO
@@ -140,7 +134,7 @@
 (setq vc-make-backup-files t)
 
 ;;
-;; Clipboard
+;; clipboard
 ;;
 
 ;; Copy / paste on mac.
@@ -161,7 +155,7 @@
   (setq interprogram-cut-function 'mac-paste))
 
 ;;
-;; Theme
+;; theme
 ;;
 
 ;; Setup our theme path.
@@ -173,7 +167,12 @@
   (wrong-number-of-arguments (load-theme 'it3ration)))
 
 ;;
-;; C-style languages
+;; font
+;;
+
+
+;;
+;; c / c++
 ;;
 
 ;; TODO
@@ -203,7 +202,7 @@
    (electric-pair-mode 1)))
 
 ;;
-;; Package management
+;; packages
 ;;
 
 ;; Setup our load path.
@@ -232,7 +231,7 @@
 (require 'bind-key)                
 
 ;;
-;; Libraries
+;; libraries
 ;;
 
 ;; The string library.
@@ -260,19 +259,80 @@
 ;; smartparens
 ;;
 
-;; This package kicks ass.
-(use-package smartparens
-  :ensure t
-  :init
-  (progn
-    ;; Use the default configuration.
-    (use-package smartparens-config)
+;; ;; This package kicks ass.
+;; (use-package smartparens
+;;   :ensure t
+;;   :init
+;;   (progn
+;;     ;; Use the default configuration.
+;;     (use-package smartparens-config)
 
-    ;; Show matching delimiters.
-    (show-smartparens-global-mode t)
+;;     ;; Show matching delimiters.
+;;     (show-smartparens-global-mode t)
     
-    ;; Use it everywhere.
-    (smartparens-global-mode 1)))
+;;     ;; Use it everywhere.
+;;     (smartparens-global-mode 1))
+;;   :config
+;;   (progn
+;;     ;; Make smartparens' prefix C-c j.
+;;     (global-set-key (kbd "C-c j") 'smartparens-mode-map)
+;;     (define-prefix-command 'smartparens-mode-map)
+
+;;     ;; Setup key bindings.
+;;     (bind-keys
+;;      :map smartparens-mode-map
+;;      ;; ("C-M-a" . sp-beginning-of-sexp)
+;;      ;; ("C-M-e" . sp-end-of-sexp)
+;;      ;; ("C-M-f" . sp-forward-sexp)
+;;      ;; ("C-M-b" . sp-backward-sexp)
+;;      ;; ("C-M-n" . sp-next-sexp)
+;;      ;; ("C-M-p" . sp-previous-sexp)
+
+;;      ("a" . sp-beginning-of-sexp)
+;;      ("e" . sp-end-of-sexp)
+;;      ("f" . sp-forward-sexp)
+;;      ("b" . sp-backward-sexp)
+;;      ("n" . sp-next-sexp)
+;;      ("p" . sp-previous-sexp)
+
+;;     ;; ("C-<down>" . sp-down-sexp)
+;;     ;; ("C-<up>"   . sp-up-sexp)
+;;     ;; ("M-<down>" . sp-backward-down-sexp)
+;;     ;; ("M-<up>"   . sp-backward-up-sexp)
+
+
+;;     ;; ("C-S-f" . sp-forward-symbol)
+;;     ;; ("C-S-b" . sp-backward-symbol)
+
+;;     ;; ("C-<right>" . sp-forward-slurp-sexp)
+;;     ;; ("M-<right>" . sp-forward-barf-sexp)
+;;     ;; ("C-<left>"  . sp-backward-slurp-sexp)
+;;     ;; ("M-<left>"  . sp-backward-barf-sexp)
+
+;;     ;; ("C-M-t" . sp-transpose-sexp)
+;;     ;; ("C-M-k" . sp-kill-sexp)
+;;     ;; ("C-k"   . sp-kill-hybrid-sexp)
+;;     ;; ("M-k"   . sp-backward-kill-sexp)
+;;     ;; ("C-M-w" . sp-copy-sexp)
+;;     ;; ("C-M-d" . delete-sexp)
+
+;;     ;; ("M-<backspace>" . backward-kill-word)
+;;     ;; ("C-<backspace>" . sp-backward-kill-word)
+;;     ;; ([remap sp-backward-kill-word] . backward-kill-word)
+
+;;     ;; ("M-[" . sp-backward-unwrap-sexp)
+;;     ;; ("M-]" . sp-unwrap-sexp)
+
+;;     ;; ("C-x C-t" . sp-transpose-hybrid-sexp)
+
+;;     ;; ("C-c ("  . wrap-with-parens)
+;;     ;; ("C-c ["  . wrap-with-brackets)
+;;     ;; ("C-c {"  . wrap-with-braces)
+;;     ;; ("C-c '"  . wrap-with-single-quotes)
+;;     ;; ("C-c \"" . wrap-with-double-quotes)
+;;     ;; ("C-c _"  . wrap-with-underscores)
+;;     ;; ("C-c `"  . wrap-with-back-quotes)
+;;     )))
 
 ;;
 ;; company

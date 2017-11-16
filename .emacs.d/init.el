@@ -83,9 +83,6 @@
 ;; Subword mode is the cat's meow.
 (global-subword-mode 1)
 
-;; Highlight matching parentheses.
-;; (show-paren-mode t)
-
 ;; We're not in the 80's anymore.
 (setq gc-cons-threshold 20000000)
 

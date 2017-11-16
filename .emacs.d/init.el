@@ -113,6 +113,10 @@
 ;; Don't blink the cursor.
 (setq blink-cursor-mode nil)
 
+;; Cursor types.
+(setq-default cursor-type 'box)
+(setq-default cursor-in-non-selected-windows nil)
+
 ;;
 ;; platform
 ;;

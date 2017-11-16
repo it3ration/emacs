@@ -37,7 +37,7 @@
    ;;
 
    `(default ((t (:background ,c-gray :foreground ,c-white))))
-   `(cursor ((t (:background ,c-yellow))))
+   `(cursor ((t (:background ,c-blue))))
    `(mode-line ((t (:background ,c-light-gray :foreground ,c-white :bold t :box nil))))
    `(mode-line-inactive ((t (:background ,c-light-gray :foreground ,c-white :bold t :box nil))))
    ;; mode-line-buffer-id

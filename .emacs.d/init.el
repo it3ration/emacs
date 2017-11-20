@@ -20,6 +20,27 @@
 ;; * string-edit
 
 ;;
+;; platform
+;;
+
+;; Define some platform-specific variables.
+(setq is-terminal (equal window-system nil))
+(setq is-gui (equal window-system 'ns))
+(setq is-mac (equal system-type 'darwin))
+
+;;
+;; path
+;;
+
+;; export PATH="~/bin"
+;; export PATH=$PATH:"/usr/local/bin"
+;; export PATH=$PATH:"/usr/local/sbin"
+;; export PATH=$PATH:"/usr/bin"
+;; export PATH=$PATH:"/usr/sbin"
+;; export PATH=$PATH:"/bin"
+;; export PATH=$PATH:"/sbin"
+
+;;
 ;; custom
 ;;
 
@@ -118,14 +139,6 @@
 (setq-default cursor-in-non-selected-windows nil)
 
 ;;
-;; platform
-;;
-
-;; Define some platform-specific variables.
-(setq is-gui (equal window-system 'ns))
-(setq is-mac (equal system-type 'darwin))
-
-;;
 ;; backups
 ;;
 
@@ -145,7 +158,7 @@
 ;;
 
 ;; Copy / paste on mac.
-(when is-mac
+(when (and is-mac is-terminal)
   ;; Copy from the clipboard.
   (defun mac-copy ()
     (shell-command-to-string "pbpaste"))

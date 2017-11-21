@@ -85,8 +85,8 @@
    ;; helm-bookmark-info
    ;; helm-bookmark-man
    ;; helm-bookmark-w3m
-   ;; helm-buffer-directory
-   ;; helm-buffer-file
+   `(helm-buffer-directory ((t :foreground ,c-pink :bold t)))
+   `(helm-buffer-file ((t :foreground ,c-purple :bold t)))
    ;; helm-buffer-modified
    ;; helm-buffer-not-saved
    ;; helm-buffer-process

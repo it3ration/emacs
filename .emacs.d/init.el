@@ -29,18 +29,6 @@
 (setq is-mac (equal system-type 'darwin))
 
 ;;
-;; path
-;;
-
-;; export PATH="~/bin"
-;; export PATH=$PATH:"/usr/local/bin"
-;; export PATH=$PATH:"/usr/local/sbin"
-;; export PATH=$PATH:"/usr/bin"
-;; export PATH=$PATH:"/usr/sbin"
-;; export PATH=$PATH:"/bin"
-;; export PATH=$PATH:"/sbin"
-
-;;
 ;; custom
 ;;
 
@@ -238,7 +226,7 @@
 
 ;; Setup package repositories.
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
- 
+
 ;; Initialize packages.
 (package-initialize)
 
@@ -270,6 +258,31 @@
   :ensure t)
 
 ;;
+;; paths
+;;
+
+;; If we're in gui emacs, we have to fix our path
+;; variables as they are not lifted from bash.
+(when is-gui
+  (let ((paths '("~/bin"
+                 "/usr/local/bin"
+                 "/usr/local/sbin"
+                 "/usr/bin"
+                 "/usr/sbin"
+                 "/bin"
+                 "/sbin")))
+    ;; Setup the environment variable.
+    (setenv
+     "PATH"
+     (s-join ":" (-distinct
+                  (-concat
+                   paths
+                   (s-split ":" (getenv "PATH"))))))
+
+    ;; Setup the path for commands.
+    (setq exec-path (-distinct (-concat paths exec-path)))))
+
+;;
 ;; uniquify
 ;;
 
@@ -282,80 +295,79 @@
 ;; smartparens
 ;;
 
-;; ;; This package kicks ass.
-;; (use-package smartparens
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     ;; Use the default configuration.
-;;     (use-package smartparens-config)
+;; This package kicks ass.
+(use-package smartparens
+  :ensure t
+  :init
+  (progn
+    ;; Use the default configuration.
+    (use-package smartparens-config)
 
-;;     ;; Show matching delimiters.
-;;     (show-smartparens-global-mode t)
+    ;; Show matching delimiters.
+    (show-smartparens-global-mode t)
     
-;;     ;; Use it everywhere.
-;;     (smartparens-global-mode 1))
-;;   :config
-;;   (progn
-;;     ;; Make smartparens' prefix C-c j.
-;;     (global-set-key (kbd "C-c j") 'smartparens-mode-map)
-;;     (define-prefix-command 'smartparens-mode-map)
+    ;; Use it everywhere.
+    (smartparens-global-mode 1))
+  :config
+  (progn
+    ;; ;; Make smartparens' prefix C-c j.
+    ;; (global-set-key (kbd "C-c j") 'smartparens-mode-map)
+    ;; (define-prefix-command 'smartparens-mode-map)
 
-;;     ;; Setup key bindings.
-;;     (bind-keys
-;;      :map smartparens-mode-map
-;;      ;; ("C-M-a" . sp-beginning-of-sexp)
-;;      ;; ("C-M-e" . sp-end-of-sexp)
-;;      ;; ("C-M-f" . sp-forward-sexp)
-;;      ;; ("C-M-b" . sp-backward-sexp)
-;;      ;; ("C-M-n" . sp-next-sexp)
-;;      ;; ("C-M-p" . sp-previous-sexp)
+    ;; ;; Setup key bindings.
+    ;; (bind-keys
+    ;;  :map smartparens-mode-map
+    ;;  ;; ("C-M-a" . sp-beginning-of-sexp)
+    ;;  ;; ("C-M-e" . sp-end-of-sexp)
+    ;;  ;; ("C-M-f" . sp-forward-sexp)
+    ;;  ;; ("C-M-b" . sp-backward-sexp)
+    ;;  ;; ("C-M-n" . sp-next-sexp)
+    ;;  ;; ("C-M-p" . sp-previous-sexp)
 
-;;      ("a" . sp-beginning-of-sexp)
-;;      ("e" . sp-end-of-sexp)
-;;      ("f" . sp-forward-sexp)
-;;      ("b" . sp-backward-sexp)
-;;      ("n" . sp-next-sexp)
-;;      ("p" . sp-previous-sexp)
+    ;;  ("a" . sp-beginning-of-sexp)
+    ;;  ("e" . sp-end-of-sexp)
+    ;;  ("f" . sp-forward-sexp)
+    ;;  ("b" . sp-backward-sexp)
+    ;;  ("n" . sp-next-sexp)
+    ;;  ("p" . sp-previous-sexp)
 
-;;     ;; ("C-<down>" . sp-down-sexp)
-;;     ;; ("C-<up>"   . sp-up-sexp)
-;;     ;; ("M-<down>" . sp-backward-down-sexp)
-;;     ;; ("M-<up>"   . sp-backward-up-sexp)
+    ;;  ;; ("C-<down>" . sp-down-sexp)
+    ;;  ;; ("C-<up>"   . sp-up-sexp)
+    ;;  ;; ("M-<down>" . sp-backward-down-sexp)
+    ;;  ;; ("M-<up>"   . sp-backward-up-sexp)
 
+    ;;  ;; ("C-S-f" . sp-forward-symbol)
+    ;;  ;; ("C-S-b" . sp-backward-symbol)
 
-;;     ;; ("C-S-f" . sp-forward-symbol)
-;;     ;; ("C-S-b" . sp-backward-symbol)
+    ;;  ;; ("C-<right>" . sp-forward-slurp-sexp)
+    ;;  ;; ("M-<right>" . sp-forward-barf-sexp)
+    ;;  ;; ("C-<left>"  . sp-backward-slurp-sexp)
+    ;;  ;; ("M-<left>"  . sp-backward-barf-sexp)
 
-;;     ;; ("C-<right>" . sp-forward-slurp-sexp)
-;;     ;; ("M-<right>" . sp-forward-barf-sexp)
-;;     ;; ("C-<left>"  . sp-backward-slurp-sexp)
-;;     ;; ("M-<left>"  . sp-backward-barf-sexp)
+    ;;  ;; ("C-M-t" . sp-transpose-sexp)
+    ;;  ;; ("C-M-k" . sp-kill-sexp)
+    ;;  ;; ("C-k"   . sp-kill-hybrid-sexp)
+    ;;  ;; ("M-k"   . sp-backward-kill-sexp)
+    ;;  ;; ("C-M-w" . sp-copy-sexp)
+    ;;  ;; ("C-M-d" . delete-sexp)
 
-;;     ;; ("C-M-t" . sp-transpose-sexp)
-;;     ;; ("C-M-k" . sp-kill-sexp)
-;;     ;; ("C-k"   . sp-kill-hybrid-sexp)
-;;     ;; ("M-k"   . sp-backward-kill-sexp)
-;;     ;; ("C-M-w" . sp-copy-sexp)
-;;     ;; ("C-M-d" . delete-sexp)
+    ;;  ;; ("M-<backspace>" . backward-kill-word)
+    ;;  ;; ("C-<backspace>" . sp-backward-kill-word)
+    ;;  ;; ([remap sp-backward-kill-word] . backward-kill-word)
 
-;;     ;; ("M-<backspace>" . backward-kill-word)
-;;     ;; ("C-<backspace>" . sp-backward-kill-word)
-;;     ;; ([remap sp-backward-kill-word] . backward-kill-word)
+    ;;  ;; ("M-[" . sp-backward-unwrap-sexp)
+    ;;  ;; ("M-]" . sp-unwrap-sexp)
 
-;;     ;; ("M-[" . sp-backward-unwrap-sexp)
-;;     ;; ("M-]" . sp-unwrap-sexp)
+    ;;  ;; ("C-x C-t" . sp-transpose-hybrid-sexp)
 
-;;     ;; ("C-x C-t" . sp-transpose-hybrid-sexp)
-
-;;     ;; ("C-c ("  . wrap-with-parens)
-;;     ;; ("C-c ["  . wrap-with-brackets)
-;;     ;; ("C-c {"  . wrap-with-braces)
-;;     ;; ("C-c '"  . wrap-with-single-quotes)
-;;     ;; ("C-c \"" . wrap-with-double-quotes)
-;;     ;; ("C-c _"  . wrap-with-underscores)
-;;     ;; ("C-c `"  . wrap-with-back-quotes)
-;;     )))
+    ;;  ;; ("C-c ("  . wrap-with-parens)
+    ;;  ;; ("C-c ["  . wrap-with-brackets)
+    ;;  ;; ("C-c {"  . wrap-with-braces)
+    ;;  ;; ("C-c '"  . wrap-with-single-quotes)
+    ;;  ;; ("C-c \"" . wrap-with-double-quotes)
+    ;;  ;; ("C-c _"  . wrap-with-underscores)
+    ;;  ;; ("C-c `"  . wrap-with-back-quotes)
+    ))
 
 ;;
 ;; company

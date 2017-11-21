@@ -837,6 +837,10 @@
 
     ;; Add an indention prefix.
     (setq erc-fill-prefix "    + ")
+
+    ;; Automatically join a few channels.
+    (setq erc-autojoin-channels-alist
+          '(("freenode.net" "#emacs")))
     
     ;; Let's use a sane prompt please.
     (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))))

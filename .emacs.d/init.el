@@ -11,7 +11,6 @@
 
 ;; PACKAGES TO EXPLORE
 ;; * slime
-;; * paredit
 ;; * highlight-escape-sequences
 ;; * jump-char
 ;; * expand-region

@@ -125,6 +125,10 @@
 (setq-default cursor-type 'box)
 (setq-default cursor-in-non-selected-windows nil)
 
+;; Start gui emacs fullscreen.
+(when is-gui
+  (toggle-frame-fullscreen))
+
 ;;
 ;; backups
 ;;

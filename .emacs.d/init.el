@@ -126,8 +126,8 @@
 (setq-default cursor-in-non-selected-windows nil)
 
 ;; Start gui emacs fullscreen.
-(when is-gui
-  (toggle-frame-fullscreen))
+(when (and is-mac is-gui)
+  (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;;
 ;; backups

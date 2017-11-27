@@ -114,6 +114,10 @@
 ;; any way, navigate to it.
 (setq help-window-select t)
 
+;; Show matching delimiters instantly.
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+
 ;; Don't automatically debug on error.
 ;; We enable this by hand if desired.
 (setq debug-on-error nil)

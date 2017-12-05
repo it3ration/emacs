@@ -435,7 +435,11 @@
     ;; For inspecting bindings.
     (use-package helm-descbinds
       :ensure t
-      :bind ("C-h b" . helm-descbinds))))
+      :bind ("C-h b" . helm-descbinds)
+      :config
+      (progn
+        ;; Open in the other window please.
+        (setq helm-descbinds-window-style 'split-window)))))
 
 ;;
 ;; projectile

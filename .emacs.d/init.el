@@ -17,6 +17,12 @@
 ;; * gist
 ;; * move-text
 ;; * string-edit
+;; * paredit
+;; * smartparens
+;; * rainbow-delimiters
+;; * rainbow-identifiers
+;; * sexp-fu
+;; * paxedit
 
 ;;
 ;; platform

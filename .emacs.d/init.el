@@ -858,9 +858,9 @@
 (use-package hydra
   :ensure t)
 
-;; Hydra for editing with paredit / paxedit.
+;; For editing with paredit / paxedit.
 (defhydra hydra-lisp
-  (global-map "C-c j")
+  (:columns 6)
   "paredit / paxedit"
   ("(" paredit-backward-slurp-sexp "slurp-left")
   (")" paredit-forward-slurp-sexp "slurp-right")
@@ -873,3 +873,6 @@
   ("p" paredit-backward-down "backward-down")
   ("n" paredit-forward-up "forward-up")
   ("RET" nil "cancel"))
+
+;; Bind the various hydras.
+(global-set-key (kbd "C-c j") 'hydra-lisp/body)

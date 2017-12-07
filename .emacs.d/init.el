@@ -385,7 +385,11 @@
     (which-key-setup-side-window-bottom)
 
     ;; Turn it on.
-    (which-key-mode)))
+    (which-key-mode)
+
+    ;; Custom string replacements.
+    (push '((nil . "\\`hydra-.+/\\(.+\\)") . (nil . "\\1"))
+          which-key-replacement-alist)))
 
 ;;
 ;; helm

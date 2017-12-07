@@ -846,3 +846,26 @@
 
 (use-package 2048-game
   :ensure t)
+
+;;
+;; hydra
+;;
+
+(use-package hydra
+  :ensure t)
+
+;; Hydra for editing with paredit / paxedit.
+(defhydra hydra-lisp
+  (global-map "C-c j")
+  "paredit / paxedit"
+  ("(" paredit-backward-slurp-sexp "slurp-left")
+  (")" paredit-forward-slurp-sexp "slurp-right")
+  ("{" paredit-backward-barf-sexp "barf-left")
+  ("}" paredit-forward-barf-sexp "barf-right")
+  ("b" paredit-backward "backward")
+  ("f" paredit-forward "forward")
+  ("u" paredit-backward-up "backward-up")
+  ("d" paredit-forward-down "forward-down")
+  ("p" paredit-backward-down "backward-down")
+  ("n" paredit-forward-up "forward-up")
+  ("RET" nil "cancel"))

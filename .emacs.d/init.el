@@ -321,16 +321,8 @@
     (add-hook 'cider-repl-mode-hook 'paredit-mode))
   :config
   (progn
-    ;; Paredit hijacks C-j, even in lisp-interaction-mode.
-    ;; Let's not let this happen, it's annoying as fuck.
-    (defun my-control-j ()
-      (interactive)
-      (if (derived-mode-p 'lisp-interaction-mode)
-          (call-interactively 'eval-print-last-sexp)
-        (call-interactively 'paredit-newline)))
-
-    ;; Use our version.
-    (define-key paredit-mode-map (kbd "C-j") 'my-control-j)))
+    ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
+    (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
 
 ;;
 ;; paxedit

@@ -348,6 +348,13 @@
     (add-hook 'cider-repl-mode-hook 'paxedit-mode)))
 
 ;;
+;; lispy
+;;
+
+;; (use-package lispy
+;;   :ensure t)
+
+;;
 ;; company
 ;;
 
@@ -856,24 +863,24 @@
 ;; hydra
 ;;
 
-(use-package hydra
-  :ensure t)
+;; (use-package hydra
+;;   :ensure t)
 
-;; For editing with paredit / paxedit.
-(defhydra hydra-lisp
-  (:columns 6)
-  "paredit / paxedit"
-  ("(" paredit-backward-slurp-sexp "slurp-left")
-  (")" paredit-forward-slurp-sexp "slurp-right")
-  ("{" paredit-backward-barf-sexp "barf-left")
-  ("}" paredit-forward-barf-sexp "barf-right")
-  ("b" paredit-backward "backward")
-  ("f" paredit-forward "forward")
-  ("u" paredit-backward-up "backward-up")
-  ("d" paredit-forward-down "forward-down")
-  ("p" paredit-backward-down "backward-down")
-  ("n" paredit-forward-up "forward-up")
-  ("RET" nil "cancel"))
+;; ;; For editing with paredit / paxedit.
+;; (defhydra hydra-lisp
+;;   (:columns 6)
+;;   "paredit / paxedit"
+;;   ("(" paredit-backward-slurp-sexp "slurp-left")
+;;   (")" paredit-forward-slurp-sexp "slurp-right")
+;;   ("{" paredit-backward-barf-sexp "barf-left")
+;;   ("}" paredit-forward-barf-sexp "barf-right")
+;;   ("b" paredit-backward "backward")
+;;   ("f" paredit-forward "forward")
+;;   ("u" paredit-backward-up "backward-up")
+;;   ("d" paredit-forward-down "forward-down")
+;;   ("p" paredit-backward-down "backward-down")
+;;   ("n" paredit-forward-up "forward-up")
+;;   ("RET" nil "cancel"))
 
-;; Bind the various hydras.
-(global-set-key (kbd "C-c j") 'hydra-lisp/body)
+;; ;; Bind the various hydras.
+;; (global-set-key (kbd "C-c j") 'hydra-lisp/body)

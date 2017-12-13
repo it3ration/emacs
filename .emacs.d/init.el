@@ -23,6 +23,7 @@
 ;; * rainbow-identifiers
 ;; * sexp-fu
 ;; * paxedit
+;; * swiper-helm
 
 ;;
 ;; platform

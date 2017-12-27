@@ -7,7 +7,6 @@
 ;; * Navigate to the *scratch* buffer and close
 ;;   all other windows once we are done loading.
 ;; * Figure out a way to copy the thing under point.
-;; * Figure out how to diminish all major modes.
 
 ;; PACKAGES TO EXPLORE
 ;; * slime
@@ -197,13 +196,6 @@
    '(default ((t (:height 160 :width normal :family "Menlo"))))))
 
 ;;
-;; text-mode
-;;
-
-;; Wrap words in text mode please.
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-
-;;
 ;; c / c++
 ;;
 
@@ -251,16 +243,13 @@
 ;; Initialize packages.
 (package-initialize)
 
-;; Make sure use-package is installed.
+;; Install / setup use-package.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
-;; Enable diminish / bind variants.
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)                
-(require 'bind-key)                
+(require 'bind-key)
 
 ;;
 ;; libraries

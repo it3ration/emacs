@@ -197,6 +197,13 @@
    '(default ((t (:height 160 :width normal :family "Menlo"))))))
 
 ;;
+;; text-mode
+;;
+
+;; Wrap words in text mode please.
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;;
 ;; c / c++
 ;;
 

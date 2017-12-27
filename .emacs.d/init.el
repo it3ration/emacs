@@ -293,6 +293,13 @@
     (setq exec-path (-distinct (-concat paths exec-path)))))
 
 ;;
+;; text-mode
+;;
+
+;; Wrap words in text mode please.
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
+;;
 ;; uniquify
 ;;
 

@@ -595,19 +595,20 @@
 ;; clojure-mode
 ;;
 
-;; TODO
-;; * Customize these packages.
-
 ;; The clojure language.
 (use-package clojure-mode
   :ensure t
-  :mode "\\.clj$"
+  :mode "\\.clj$")
+
+;;
+;; cider
+;;
+
+;; This is -the- clojure ide.
+(use-package cider
+  :ensure t
   :config
   (progn
-    ;; This mode adds a clojure repl.
-    (use-package cider
-      :ensure t)
-
     ;; Helm integration? Yes please!
     (use-package helm-cider
       :ensure t

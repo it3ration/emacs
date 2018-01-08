@@ -640,6 +640,7 @@
   :ensure t
   :mode ("\\.js$"
          "\\.jsx$"
+         "\\.json$"
          "\\.css$"
          "\\.scss$"
          "\\.html"

@@ -929,8 +929,7 @@
   (">" sp-backward-barf-sexp "sp-backward-barf-sexp")
   ("<" sp-forward-barf-sexp "sp-forward-barf-sexp")
 
-  ;; ("RET" nil "cancel")
-  )
+  ("q" nil "cancel"))
 
 ;; ;; Bind the various hydras.
 ;; (global-set-key (kbd "C-c j") 'hydra-paredit/body)

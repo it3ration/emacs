@@ -305,51 +305,6 @@
 ;; Customize the look of duplicate values.
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
-;; ;;
-;; ;; paredit
-;; ;;
-
-;; (use-package paredit
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     ;; Turn it on for all lisp modes.
-;;     (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-;;     (add-hook 'clojure-mode-hook 'paredit-mode)
-;;     (add-hook 'clojurescript-mode-hook 'paredit-mode)
-;;     (add-hook 'clojurec-mode-hook 'paredit-mode)
-;;     (add-hook 'cider-repl-mode-hook 'paredit-mode)
-;;   :config
-;;   (progn
-;;     ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
-;;     (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
-
-;; ;;
-;; ;; paxedit
-;; ;;
-
-;; (use-package paxedit
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     ;; Turn it on for all lisp modes.
-;;     (add-hook 'emacs-lisp-mode-hook 'paxedit-mode)
-;;     (add-hook 'clojure-mode-hook 'paxedit-mode)
-;;     (add-hook 'clojurescript-mode-hook 'paxedit-mode)
-;;     (add-hook 'clojurec-mode-hook 'paxedit-mode)
-;;     (add-hook 'cider-repl-mode-hook 'paxedit-mode)
-
-;;
-;; lispy
-;;
-
-;; (use-package lispy
-;;   :ensure t
-;;   :config
-;;   (progn
-;;     ;; Use paredit keybindings.
-;;     (lispy-set-key-theme '(special paredit c-digits))))
-
 ;;
 ;; smartparens
 ;;
@@ -881,23 +836,6 @@
 (use-package hydra
   :ensure t)
 
-;; ;; For editing with paredit / paxedit.
-;; (defhydra hydra-paredit
-;;   (:columns 6)
-;;   "paredit / paxedit"
-;;   ("(" paredit-backward-slurp-sexp "slurp-left")
-;;   (")" paredit-forward-slurp-sexp "slurp-right")
-;;   ("{" paredit-backward-barf-sexp "barf-left")
-;;   ("}" paredit-forward-barf-sexp "barf-right")
-;;   ("f" paredit-forward "forward")
-;;   ("b" paredit-backward "backward")
-;;   ("d" paredit-forward-down "forward-down")
-;;   ("u" paredit-backward-up "backward-up")
-;;   ("n" paredit-forward-up "forward-up")
-;;   ("p" paredit-backward-down "backward-down")
-
-;;   ("RET" nil "cancel"))
-
 ;; For editing with smartparens.
 (defhydra hydra-smartparens
   (:columns 6)
@@ -932,7 +870,6 @@
   ("q" nil "cancel"))
 
 ;; ;; Bind the various hydras.
-;; (global-set-key (kbd "C-c j") 'hydra-paredit/body)
 (global-set-key (kbd "C-c j") 'hydra-smartparens/body)
 
 ;; (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)

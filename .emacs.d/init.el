@@ -903,21 +903,27 @@
   (:columns 6)
   "smartparens"
 
+  ;; Forward / backward.
   ("f" sp-forward-sexp "sp-forward-sexp")
   ("b" sp-backward-sexp "sp-backward-sexp")
-  
+
+  ;; Down / up.
   ("d" sp-down-sexp "sp-down-sexp")
   ("u" sp-backward-up-sexp "sp-backward-up-sexp")
 
+  ;; Down / up (backwards).
   ("D" sp-backward-down-sexp "sp-backward-down-sexp")
   ("U" sp-up-sexp "sp-up-sexp")
-  
+
+  ;; Next / previous.
   ("n" sp-next-sexp "sp-next-sexp")
   ("p" sp-previous-sexp "sp-previous-sexp")
 
+  ;; Beginning / end.
   ("a" sp-beginning-of-sexp "sp-beginning-of-sexp")
   ("e" sp-end-of-sexp "sp-end-of-sexp")
-  
+
+  ;; Slurping / barfing.
   ("(" sp-backward-slurp-sexp "sp-backward-slurp-sexp")
   (")" sp-forward-slurp-sexp "sp-forward-slurp-sexp")
   (">" sp-backward-barf-sexp "sp-backward-barf-sexp")

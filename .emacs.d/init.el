@@ -305,71 +305,60 @@
 ;; Customize the look of duplicate values.
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
-;; ;;
-;; ;; paredit
-;; ;;
-
-;; (use-package paredit
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     ;; Turn it on for all lisp modes.
-;;     (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
-;;     (add-hook 'clojure-mode-hook 'paredit-mode)
-;;     (add-hook 'clojurescript-mode-hook 'paredit-mode)
-;;     (add-hook 'clojurec-mode-hook 'paredit-mode)
-;;     (add-hook 'cider-repl-mode-hook 'paredit-mode)
-;;   :config
-;;   (progn
-;;     ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
-;;     (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
-
-;; ;;
-;; ;; paxedit
-;; ;;
-
-;; (use-package paxedit
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     ;; Turn it on for all lisp modes.
-;;     (add-hook 'emacs-lisp-mode-hook 'paxedit-mode)
-;;     (add-hook 'clojure-mode-hook 'paxedit-mode)
-;;     (add-hook 'clojurescript-mode-hook 'paxedit-mode)
-;;     (add-hook 'clojurec-mode-hook 'paxedit-mode)
-;;     (add-hook 'cider-repl-mode-hook 'paxedit-mode)
-
 ;;
-;; lispy
+;; paredit
 ;;
 
-;; (use-package lispy
-;;   :ensure t
-;;   :config
-;;   (progn
-;;     ;; Use paredit keybindings.
-;;     (lispy-set-key-theme '(special paredit c-digits))))
+(use-package paredit
+  :ensure t
+  :init
+  (progn
+    ;; Turn it on for all lisp modes.
+    (add-hook 'emacs-lisp-mode-hook 'paredit-mode)
+    (add-hook 'clojure-mode-hook 'paredit-mode)
+    (add-hook 'clojurescript-mode-hook 'paredit-mode)
+    (add-hook 'clojurec-mode-hook 'paredit-mode)
+    (add-hook 'cider-repl-mode-hook 'paredit-mode))
+  :config
+  (progn
+    ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
+    (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
+
+;;
+;; paxedit
+;;
+
+(use-package paxedit
+  :ensure t
+  :init
+  (progn
+    ;; Turn it on for all lisp modes.
+    (add-hook 'emacs-lisp-mode-hook 'paxedit-mode)
+    (add-hook 'clojure-mode-hook 'paxedit-mode)
+    (add-hook 'clojurescript-mode-hook 'paxedit-mode)
+    (add-hook 'clojurec-mode-hook 'paxedit-mode)
+    (add-hook 'cider-repl-mode-hook 'paxedit-mode)))
 
 ;;
 ;; smartparens
 ;;
 
-(use-package smartparens
-  :ensure t
-  :config
-  (progn
-    ;; Use the default configuration.
-    (use-package smartparens-config)
+;; (use-package smartparens
+;;   :ensure t
+;;   :config
+;;   (progn
+;;     ;; Use the default configuration.
+;;     (use-package smartparens-config)
     
-    ;; Use it everywhere.
-    (smartparens-global-mode 1)
+;;     ;; ;; Use it everywhere.
+;;     ;; (smartparens-global-mode 1)
     
-    ;; Enable strict mode for lisps.
-    (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
-    (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
-    (add-hook 'clojurescript-mode-hook 'smartparens-strict-mode)
-    (add-hook 'clojurec-mode-hook 'smartparens-strict-mode)
-    (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)))
+;;     ;; Enable strict mode for lisps.
+;;     (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
+;;     (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+;;     (add-hook 'clojurescript-mode-hook 'smartparens-strict-mode)
+;;     (add-hook 'clojurec-mode-hook 'smartparens-strict-mode)
+;;     (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)))
 
 ;;
 ;; company
@@ -881,78 +870,128 @@
 (use-package hydra
   :ensure t)
 
-;; ;; For editing with paredit / paxedit.
-;; (defhydra hydra-paredit
-;;   (:columns 6)
-;;   "paredit / paxedit"
-;;   ("(" paredit-backward-slurp-sexp "slurp-left")
-;;   (")" paredit-forward-slurp-sexp "slurp-right")
-;;   ("{" paredit-backward-barf-sexp "barf-left")
-;;   ("}" paredit-forward-barf-sexp "barf-right")
-;;   ("f" paredit-forward "forward")
-;;   ("b" paredit-backward "backward")
-;;   ("d" paredit-forward-down "forward-down")
-;;   ("u" paredit-backward-up "backward-up")
-;;   ("n" paredit-forward-up "forward-up")
-;;   ("p" paredit-backward-down "backward-down")
+(defun paredit-next-sexp ()
+  "Navigate to the beginning of the next sexp."
+  (interactive)
+  (when (thing-at-point 'sexp)
+    (paredit-forward))
+  (paredit-forward)
+  (paredit-backward))
 
-;;   ("RET" nil "cancel"))
+(defun paredit-previous-sexp ()
+  "Navigate to the beginning of the previous sexp."
+  (interactive)
+  (paredit-backward))
 
-;; For editing with smartparens.
-(defhydra hydra-smartparens
+(defun paredit-beginning-sexp ()
+  "Navigate to the beginning of the current sexp."
+  (interactive)
+  (paredit-backward-up)
+  (paredit-forward-down))
+
+(defun paredit-end-sexp ()
+  "Navigate to the end of the current sexp."
+  (interactive)
+  (paredit-forward-up)
+  (paredit-backward-down))
+
+;; For editing with paredit / paxedit.
+(defhydra hydra-paredit
   (:columns 6)
-  "smartparens"
+  "paredit / paxedit"
 
   ;; Forward / backward.
-  ("f" sp-forward-sexp "sp-forward-sexp")
-  ("b" sp-backward-sexp "sp-backward-sexp")
+  ("f" paredit-forward "paredit-forward")
+  ("b" paredit-backward "paredit-backward")
 
   ;; Down / up.
-  ("d" sp-down-sexp "sp-down-sexp")
-  ("u" sp-backward-up-sexp "sp-backward-up-sexp")
+  ("d" paredit-forward-down "paredit-forward-down")
+  ("u" paredit-backward-up "paredit-backward-up")
 
   ;; Down / up (backwards).
-  ("D" sp-backward-down-sexp "sp-backward-down-sexp")
-  ("U" sp-up-sexp "sp-up-sexp")
+  ("D" paredit-backward-down "paredit-backward-down")
+  ("U" paredit-forward-up "paredit-forward-up")
 
-  ;; Next / previous.
-  ("n" sp-next-sexp "sp-next-sexp")
-  ("p" sp-previous-sexp "sp-previous-sexp")
+  ;;   ;; Next / previous.
+  ("n" paredit-next-sexp "paredit-next-sexp")
+  ("p" paredit-previous-sexp "paredit-previous-sexp")
 
   ;; Beginning / end.
-  ("a" sp-beginning-of-sexp "sp-beginning-of-sexp")
-  ("e" sp-end-of-sexp "sp-end-of-sexp")
+  ("a" paredit-beginning-sexp "paredit-beginning-sexp")
+  ("e" paredit-end-sexp "paredit-end-sexp")
 
   ;; Slurping / barfing.
-  ("(" sp-backward-slurp-sexp "sp-backward-slurp-sexp")
-  (")" sp-forward-slurp-sexp "sp-forward-slurp-sexp")
-  (">" sp-backward-barf-sexp "sp-backward-barf-sexp")
-  ("<" sp-forward-barf-sexp "sp-forward-barf-sexp")
+  ("(" paredit-backward-slurp-sexp "paredit-backward-slurp-sexp")
+  (")" paredit-forward-slurp-sexp "paredit-forward-slurp-sexp")
+  (">" paredit-backward-barf-sexp "paredit-backward-barf-sexp")
+  ("<" paredit-forward-barf-sexp "paredit-forward-barf-sexp")
 
+  ;; Cancel.
   ("q" nil "cancel"))
 
+
+
+
+
+
+
+
+
+;; ;; For editing with smartparens.
+;; (defhydra hydra-smartparens
+;;   (:columns 6)
+;;   "smartparens"
+
+;;   ;; Forward / backward.
+;;   ("f" sp-forward-sexp "sp-forward-sexp")
+;;   ("b" sp-backward-sexp "sp-backward-sexp")
+
+;;   ;; Down / up.
+;;   ("d" sp-down-sexp "sp-down-sexp")
+;;   ("u" sp-backward-up-sexp "sp-backward-up-sexp")
+
+;;   ;; Down / up (backwards).
+;;   ("D" sp-backward-down-sexp "sp-backward-down-sexp")
+;;   ("U" sp-up-sexp "sp-up-sexp")
+
+;;   ;; Next / previous.
+;;   ("n" sp-next-sexp "sp-next-sexp")
+;;   ("p" sp-previous-sexp "sp-previous-sexp")
+
+;;   ;; Beginning / end.
+;;   ("a" sp-beginning-of-sexp "sp-beginning-of-sexp")
+;;   ("e" sp-end-of-sexp "sp-end-of-sexp")
+
+;;   ;; Slurping / barfing.
+;;   ("(" sp-backward-slurp-sexp "sp-backward-slurp-sexp")
+;;   (")" sp-forward-slurp-sexp "sp-forward-slurp-sexp")
+;;   (">" sp-backward-barf-sexp "sp-backward-barf-sexp")
+;;   ("<" sp-forward-barf-sexp "sp-forward-barf-sexp")
+
+;;   ("q" nil "cancel"))
+
+;; ;; (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)
+
+;; ;; (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
+;; ;; (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
+
+;; ;; (define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
+;; ;; (define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
+
+;; ;; (define-key smartparens-mode-map (kbd "M-D") 'sp-splice-sexp)
+;; ;; (define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
+;; ;; (define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
+;; ;; (define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
+
+;; ;; (define-key smartparens-mode-map (kbd "C-]") 'sp-select-next-thing-exchange)
+;; ;; (define-key smartparens-mode-map (kbd "C-<left_bracket>") 'sp-select-previous-thing)
+;; ;; (define-key smartparens-mode-map (kbd "C-M-]") 'sp-select-next-thing)
+
+;; ;; (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
+;; ;; (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
+
+;; ;; (define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner)
+
 ;; ;; Bind the various hydras.
-;; (global-set-key (kbd "C-c j") 'hydra-paredit/body)
-(global-set-key (kbd "C-c j") 'hydra-smartparens/body)
-
-;; (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)
-
-;; (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
-;; (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
-
-;; (define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
-;; (define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
-
-;; (define-key smartparens-mode-map (kbd "M-D") 'sp-splice-sexp)
-;; (define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
-;; (define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
-;; (define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
-
-;; (define-key smartparens-mode-map (kbd "C-]") 'sp-select-next-thing-exchange)
-;; (define-key smartparens-mode-map (kbd "C-<left_bracket>") 'sp-select-previous-thing)
-;; (define-key smartparens-mode-map (kbd "C-M-]") 'sp-select-next-thing)
-
-;; (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
-;; (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
-
-;; (define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner)
+(global-set-key (kbd "C-c j") 'hydra-paredit/body)
+;; (global-set-key (kbd "C-c l") 'hydra-smartparens/body)

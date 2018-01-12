@@ -942,6 +942,11 @@
   ("w[" paredit-wrap-square "paredit-wrap-square")
   ("w{" paredit-wrap-curly "paredit-wrap-curly")
   ("w<" paredit-wrap-angled "paredit-wrap-angled")
+
+  ;; Splicing.
+  ("ss" paredit-splice-sexp "paredit-splice-sexp")
+  ("sf" paredit-splice-sexp-killing-forward "paredit-splice-sexp-killing-forward")
+  ("sb" paredit-splice-sexp-killing-backward "paredit-splice-sexp-killing-backward")
   
   ;; Cancel.
   ("q" nil "cancel"))

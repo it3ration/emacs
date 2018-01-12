@@ -941,6 +941,21 @@
   ("ss" paredit-splice-sexp "paredit-splice-sexp")
   ("sf" paredit-splice-sexp-killing-forward "paredit-splice-sexp-killing-forward")
   ("sb" paredit-splice-sexp-killing-backward "paredit-splice-sexp-killing-backward")
+
+  ;; Split / join.
+  ("S" paredit-split-sexp "paredit-split-sexp")
+  ("J" paredit-join-sexps "paredit-join-sexps")
+
+  ;; Raise.
+  ("r" paredit-raise-sexp "paredit-raise-sexp")
+
+  ;; Convolute.
+  ("c" paredit-convolute-sexp "paredit-convolute-sexp")
+
+  ;; Reindent.
+  ("i" paredit-reindent-defun "paredit-reindent-defun")
+  
+  ;; paredit-comment-dwim
   
   ;; Cancel.
   ("q" nil "cancel"))

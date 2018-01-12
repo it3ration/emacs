@@ -902,7 +902,7 @@
 
 ;; For editing with paredit / paxedit.
 (defhydra hydra-paredit
-  (:columns 4)
+  (:columns 3)
   "paredit / paxedit"
 
   ;; Forward / backward.

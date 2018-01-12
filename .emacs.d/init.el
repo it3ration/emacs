@@ -324,6 +324,36 @@
     ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
     (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
 
+(defun inside-sexp-p ()
+  "Returns true if point is on a sexp."
+  (let ((b (bounds-of-thing-at-point 'sexp)))
+    (and b (>= (point) (car b)) (< (point) (cdr b)))))
+
+(defun paredit-next-sexp ()
+  "Navigate to the beginning of the next sexp."
+  (interactive)
+  (when (inside-sexp-p)
+    (paredit-forward))
+  (paredit-forward)
+  (paredit-backward))
+
+(defun paredit-previous-sexp ()
+  "Navigate to the beginning of the previous sexp."
+  (interactive)
+  (paredit-backward))
+
+(defun paredit-beginning-sexp ()
+  "Navigate to the beginning of the current sexp."
+  (interactive)
+  (paredit-backward-up)
+  (paredit-forward-down))
+
+(defun paredit-end-sexp ()
+  "Navigate to the end of the current sexp."
+  (interactive)
+  (paredit-forward-up)
+  (paredit-backward-down))
+
 ;;
 ;; paxedit
 ;;
@@ -870,31 +900,6 @@
 (use-package hydra
   :ensure t)
 
-(defun paredit-next-sexp ()
-  "Navigate to the beginning of the next sexp."
-  (interactive)
-  (when (thing-at-point 'sexp)
-    (paredit-forward))
-  (paredit-forward)
-  (paredit-backward))
-
-(defun paredit-previous-sexp ()
-  "Navigate to the beginning of the previous sexp."
-  (interactive)
-  (paredit-backward))
-
-(defun paredit-beginning-sexp ()
-  "Navigate to the beginning of the current sexp."
-  (interactive)
-  (paredit-backward-up)
-  (paredit-forward-down))
-
-(defun paredit-end-sexp ()
-  "Navigate to the end of the current sexp."
-  (interactive)
-  (paredit-forward-up)
-  (paredit-backward-down))
-
 ;; For editing with paredit / paxedit.
 (defhydra hydra-paredit
   (:columns 6)
@@ -928,14 +933,6 @@
 
   ;; Cancel.
   ("q" nil "cancel"))
-
-
-
-
-
-
-
-
 
 ;; ;; For editing with smartparens.
 ;; (defhydra hydra-smartparens

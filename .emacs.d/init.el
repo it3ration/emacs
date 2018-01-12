@@ -321,6 +321,12 @@
     (add-hook 'cider-repl-mode-hook 'paredit-mode))
   :config
   (progn
+    ;; Enable all wrapping commands.
+    (define-key paredit-mode-map (kbd "M-(") 'paredit-wrap-round)
+    (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
+    (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
+    (define-key paredit-mode-map (kbd "M-<") 'paredit-wrap-angled)
+
     ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
     (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
 
@@ -931,6 +937,12 @@
   (">" paredit-backward-barf-sexp "paredit-backward-barf-sexp")
   ("<" paredit-forward-barf-sexp "paredit-forward-barf-sexp")
 
+  ;; Wrapping.
+  ("w(" paredit-wrap-round "paredit-wrap-round")
+  ("w[" paredit-wrap-square "paredit-wrap-square")
+  ("w{" paredit-wrap-curly "paredit-wrap-curly")
+  ("w<" paredit-wrap-angled "paredit-wrap-angled")
+  
   ;; Cancel.
   ("q" nil "cancel"))
 

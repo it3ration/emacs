@@ -923,7 +923,7 @@
   ("D" paredit-backward-down "paredit-backward-down")
   ("U" paredit-forward-up "paredit-forward-up")
 
-  ;;   ;; Next / previous.
+  ;; Next / previous.
   ("n" paredit-next-sexp "paredit-next-sexp")
   ("p" paredit-previous-sexp "paredit-previous-sexp")
 

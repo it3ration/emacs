@@ -370,27 +370,6 @@
     (add-hook 'cider-repl-mode-hook 'paxedit-mode)))
 
 ;;
-;; smartparens
-;;
-
-;; (use-package smartparens
-;;   :ensure t
-;;   :config
-;;   (progn
-;;     ;; Use the default configuration.
-;;     (use-package smartparens-config)
-    
-;;     ;; ;; Use it everywhere.
-;;     ;; (smartparens-global-mode 1)
-    
-;;     ;; Enable strict mode for lisps.
-;;     (add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
-;;     (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
-;;     (add-hook 'clojurescript-mode-hook 'smartparens-strict-mode)
-;;     (add-hook 'clojurec-mode-hook 'smartparens-strict-mode)
-;;     (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)))
-
-;;
 ;; company
 ;;
 
@@ -960,63 +939,5 @@
   ;; Cancel.
   ("q" nil "cancel"))
 
-;; ;; For editing with smartparens.
-;; (defhydra hydra-smartparens
-;;   (:columns 6)
-;;   "smartparens"
-
-;;   ;; Forward / backward.
-;;   ("f" sp-forward-sexp "sp-forward-sexp")
-;;   ("b" sp-backward-sexp "sp-backward-sexp")
-
-;;   ;; Down / up.
-;;   ("d" sp-down-sexp "sp-down-sexp")
-;;   ("u" sp-backward-up-sexp "sp-backward-up-sexp")
-
-;;   ;; Down / up (backwards).
-;;   ("D" sp-backward-down-sexp "sp-backward-down-sexp")
-;;   ("U" sp-up-sexp "sp-up-sexp")
-
-;;   ;; Next / previous.
-;;   ("n" sp-next-sexp "sp-next-sexp")
-;;   ("p" sp-previous-sexp "sp-previous-sexp")
-
-;;   ;; Beginning / end.
-;;   ("a" sp-beginning-of-sexp "sp-beginning-of-sexp")
-;;   ("e" sp-end-of-sexp "sp-end-of-sexp")
-
-;;   ;; Slurping / barfing.
-;;   ("(" sp-backward-slurp-sexp "sp-backward-slurp-sexp")
-;;   (")" sp-forward-slurp-sexp "sp-forward-slurp-sexp")
-;;   (">" sp-backward-barf-sexp "sp-backward-barf-sexp")
-;;   ("<" sp-forward-barf-sexp "sp-forward-barf-sexp")
-
-;;   ("q" nil "cancel"))
-
-;; ;; (define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)
-
-;; ;; (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
-;; ;; (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
-
-;; ;; (define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
-;; ;; (define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
-
-;; ;; (define-key smartparens-mode-map (kbd "M-D") 'sp-splice-sexp)
-;; ;; (define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
-;; ;; (define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
-;; ;; (define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
-
-;; ;; (define-key smartparens-mode-map (kbd "C-]") 'sp-select-next-thing-exchange)
-;; ;; (define-key smartparens-mode-map (kbd "C-<left_bracket>") 'sp-select-previous-thing)
-;; ;; (define-key smartparens-mode-map (kbd "C-M-]") 'sp-select-next-thing)
-
-;; ;; (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
-;; ;; (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
-
-;; ;; (define-key smartparens-mode-map (kbd "C-\"") 'sp-change-inner)
-
-;; ;; Bind the various hydras.
-(global-set-key (kbd "C-c j") 'hydra-paredit/body)
-;; (global-set-key (kbd "C-c l") 'hydra-smartparens/body)
 ;; Bind all our hydras here.
 (global-set-key (kbd "C-c j") 'hydra-lisp/body)

@@ -900,8 +900,8 @@
 (use-package hydra
   :ensure t)
 
-;; For editing with paredit / paxedit.
-(defhydra hydra-paredit
+;; For editing lisps (paredit / paxedit).
+(defhydra hydra-lisp
   (:columns 3)
   "paredit / paxedit"
 
@@ -1018,3 +1018,5 @@
 ;; ;; Bind the various hydras.
 (global-set-key (kbd "C-c j") 'hydra-paredit/body)
 ;; (global-set-key (kbd "C-c l") 'hydra-smartparens/body)
+;; Bind all our hydras here.
+(global-set-key (kbd "C-c j") 'hydra-lisp/body)

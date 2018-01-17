@@ -12,7 +12,6 @@
 ;; * slime
 ;; * highlight-escape-sequences
 ;; * jump-char
-;; * expand-region
 ;; * gist
 ;; * move-text
 ;; * string-edit

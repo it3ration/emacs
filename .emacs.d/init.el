@@ -305,6 +305,18 @@
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
 ;;
+;; expand-region
+;;
+
+(use-package expand-region
+  :ensure t)
+
+(defun er/reset-region ()
+  "Resets any marked region."
+  (interactive)
+  (er/contract-region 0))
+
+;;
 ;; paredit
 ;;
 
@@ -878,10 +890,24 @@
 (use-package hydra
   :ensure t)
 
+(defvar hydra-stack nil
+  "The current hydra stack.")
+
+(defun hydra-push (expr)
+  "Push a hydra onto the stack."
+  (push `(lambda () ,expr) hydra-stack))
+
+(defun hydra-pop ()
+  "Pop a hydra from the stack and show it."
+  (interactive)
+  (let ((x (pop hydra-stack)))
+    (when x
+      (funcall x))))
+
 ;; For editing lisps (paredit / paxedit).
 (defhydra hydra-lisp
   (:columns 3)
-  "paredit / paxedit"
+  "lisp: paredit / paxedit"
 
   ;; Forward / backward.
   ("f" paredit-forward "paredit-forward")
@@ -932,11 +958,66 @@
 
   ;; Reindent.
   ("i" paredit-reindent-defun "paredit-reindent-defun")
-  
-  ;; paredit-comment-dwim
+
+  ;; Comment.
+  (";" paredit-comment-dwim "paredit-comment-dwim")
+
+  ;; Marking.
+  ("m"
+   (progn
+     (hydra-push '(hydra-lisp/body))
+     (hydra-marking/body))
+   "hydra-marking/body"
+   :exit t)
   
   ;; Cancel.
-  ("q" nil "cancel"))
+  ("q" hydra-pop "quit" :exit t))
+
+;; For expand-region. Note that we 
+(defhydra hydra-marking
+  (:columns 3)
+  "marking: expand-region"
+
+  ;; Words.
+  ("w" er/mark-word "er/mark-word")
+
+  ;; Symbols.
+  ("s" er/mark-symbol "er/mark-symbol")
+  ("S" er/mark-symbol-with-prefix "er/mark-symbol-with-prefix")
+
+  ;; Accessors.
+  ("a" er/mark-next-accessor "er/mark-next-accessor")
+
+  ;; Invocations (method calls).
+  ("i" er/mark-method-call "er/mark-method-call")
+
+  ;; Comments.
+  ("c" er/mark-comment "er/mark-comment")
+
+  ;; Strings.
+  ("<" er/mark-inside-quotes "er/mark-inside-quotes")
+  (">" er/mark-outside-quotes "er/mark-outside-quotes")
+
+  ;; Delimiters.
+  ("(" er/mark-inside-pairs "er/mark-inside-pairs")
+  (")" er/mark-outside-pairs "er/mark-outside-pairs")
+
+  ;; Special.
+  ("u" er/mark-url "er/mark-url")
+  ("e" er/mark-email "er/mark-email")
+
+  ;; Functions.
+  ("d" er/mark-defun "er/mark-defun")
+  ("f" er/mark-defun "er/mark-defun")
+  
+  ;; Expand / contract / reset region.
+  ("k" er/expand-region "er/expand-region")
+  ("j" er/contract-region "er/contract-region")
+  ("0" er/reset-region "er/reset-region")
+
+  ;; Cancel.
+  ("q" hydra-pop "quit" :exit t))
 
 ;; Bind all our hydras here.
 (global-set-key (kbd "C-c j") 'hydra-lisp/body)
+(global-set-key (kbd "C-c m") 'hydra-marking/body)

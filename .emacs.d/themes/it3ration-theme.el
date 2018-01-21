@@ -18,7 +18,7 @@
   ;; The modeline.
   (setq-default
    mode-line-format
-   '((:eval (propertize "%& " 'face '(:foreground "#00cd00" :weight bold)))
+   '((:eval (propertize "%* " 'face '(:foreground "#00cd00" :weight bold)))
      (:eval (propertize "%b " 'face '(:foreground "#ffff87" :weight bold)))
      (:eval (propertize "(%l, %c) " 'face '(:foreground "#ff8700" :weight bold)))
      (:eval (propertize "%m " 'face '(:foreground "#af87ff" :weight bold)))

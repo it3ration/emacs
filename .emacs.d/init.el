@@ -332,6 +332,9 @@
     (add-hook 'cider-repl-mode-hook 'paredit-mode))
   :config
   (progn
+    ;; Make the paredit hydra accessible when paredit is active.
+    (define-key paredit-mode-map (kbd "C-c j") 'hydra-paredit/body)
+
     ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
     (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
 
@@ -904,10 +907,10 @@
     (when x
       (funcall x))))
 
-;; For editing lisps (paredit / paxedit).
-(defhydra hydra-lisp
+;; For editing with paredit.
+(defhydra hydra-paredit
   (:columns 3)
-  "lisp: paredit / paxedit"
+  "paredit"
 
   ;; Forward / backward.
   ("f" paredit-forward "paredit-forward")
@@ -965,7 +968,7 @@
   ;; Marking.
   ("m"
    (progn
-     (hydra-push '(hydra-lisp/body))
+     (hydra-push '(hydra-paredit/body))
      (hydra-marking/body))
    "hydra-marking/body"
    :exit t)
@@ -1018,6 +1021,5 @@
   ;; Cancel.
   ("q" hydra-pop "quit" :exit t))
 
-;; Bind all our hydras here.
-(global-set-key (kbd "C-c j") 'hydra-lisp/body)
+;; Bind all global hydras here.
 (global-set-key (kbd "C-c m") 'hydra-marking/body)

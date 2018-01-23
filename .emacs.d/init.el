@@ -979,7 +979,7 @@
 ;; For expand-region. Note that we 
 (defhydra hydra-marking
   (:columns 3)
-  "marking: expand-region"
+  "marking"
 
   ;; Words.
   ("w" er/mark-word "er/mark-word")

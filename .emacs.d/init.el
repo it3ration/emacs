@@ -628,7 +628,11 @@
 ;; The clojure language.
 (use-package clojure-mode
   :ensure t
-  :mode "\\.clj$")
+  :mode "\\.clj$"
+  :init
+  (progn
+    ;; Align let bindings / maps / etc.
+    (setq clojure-align-forms-automatically t)))
 
 ;;
 ;; cider
@@ -973,6 +977,14 @@
    "hydra-marking/body"
    :exit t)
   
+  ;; Cancel.
+  ("q" hydra-pop "quit" :exit t))
+
+;; For cider-mode commands.
+(defhydra hydra-cider
+  (:columns 3)
+  "cider"
+
   ;; Cancel.
   ("q" hydra-pop "quit" :exit t))
 

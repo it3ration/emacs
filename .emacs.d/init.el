@@ -470,6 +470,16 @@
     ;; Turn it on.
     (helm-mode t)
 
+    ;; Turn on helm-follow for certain sources.
+    (add-hook
+     'helm-before-initialize-hook
+     (lambda ()
+       (let ((sources '(helm-source-occur)))
+         (mapc (lambda (source)
+                 (when (memq source sources)
+                   (helm-attrset 'follow 1 (symbol-value source))))
+               helm-sources))))
+
     ;; For spell checking.
     (use-package helm-flyspell
       :ensure t)

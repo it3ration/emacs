@@ -752,6 +752,9 @@
   :ensure t
   :config
   (progn
+    ;; Why org-journal why.
+    (global-unset-key (kbd "C-c C-j"))
+    
     ;; Various settings.
     (setq org-journal-dir "~/repos/journal")
     (setq org-journal-file-format "%Y-%m-%d.org")

@@ -458,8 +458,10 @@
     ;; Open helm in the current window.
     (setq helm-split-window-in-side-p t)
 
-    ;; Make helm's prefix C-c h.
+    ;; Why helm why.
     (global-unset-key (kbd "C-x c"))
+    
+    ;; Add a global prefix.
     (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
     ;; Add a few extensions to helm's command map.

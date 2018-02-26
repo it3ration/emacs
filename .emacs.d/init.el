@@ -458,7 +458,7 @@
     ;; Open helm in the current window.
     (setq helm-split-window-in-side-p t)
 
-    ;; Why helm why.
+    ;; Stop annoying keybindings.
     (global-unset-key (kbd "C-x c"))
     
     ;; Add a global prefix.
@@ -752,7 +752,7 @@
   :ensure t
   :config
   (progn
-    ;; Why org-journal why.
+    ;; Stop annoying keybindings.
     (global-unset-key (kbd "C-c C-j"))
     
     ;; Various settings.

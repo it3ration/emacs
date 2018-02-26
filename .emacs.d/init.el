@@ -880,7 +880,10 @@
     ;; Automatically join a few channels.
     (setq erc-autojoin-channels-alist
           '(("freenode.net" "#emacs")))
-    
+
+    ;; Stop annoying keybindings.
+    (setq erc-track-enable-keybindings nil)
+
     ;; Let's use a sane prompt please.
     (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))))
 

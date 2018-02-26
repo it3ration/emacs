@@ -15,6 +15,15 @@
       (c-purple "#af87ff")
       (c-brown "#87875f")
       (c-tan "#af875f"))
+  ;; The cider headerline.
+  (add-hook
+   'cider-mode-hook
+   (lambda ()
+     (setq
+      header-line-format
+      '((:eval (propertize "%* " 'face '(:foreground "#00cd00" :weight bold)))
+        (:eval (propertize (cider-current-ns) 'face '(:foreground "#ffff87" :weight bold)))))))
+  
   ;; The modeline.
   (setq-default
    mode-line-format

@@ -965,7 +965,8 @@
   ("w[" paredit-wrap-square "paredit-wrap-square")
   ("w{" paredit-wrap-curly "paredit-wrap-curly")
   ("w<" paredit-wrap-angled "paredit-wrap-angled")
-
+  ("w\"" paredit-meta-doublequote "paredit-meta-doublequote")
+  
   ;; Splicing.
   ("ss" paredit-splice-sexp "paredit-splice-sexp")
   ("sf" paredit-splice-sexp-killing-forward "paredit-splice-sexp-killing-forward")

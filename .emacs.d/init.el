@@ -296,6 +296,13 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;;
+;; hydra
+;;
+
+(use-package hydra
+  :ensure t)
+
+;;
 ;; uniquify
 ;;
 
@@ -309,7 +316,56 @@
 ;;
 
 (use-package expand-region
-  :ensure t)
+  :ensure t
+  :config
+  (progn
+    ;; The hydra.
+    (defhydra hydra-marking
+      (:columns 3)
+      "marking"
+
+      ;; Words.
+      ("w" er/mark-word "er/mark-word")
+
+      ;; Symbols.
+      ("s" er/mark-symbol "er/mark-symbol")
+      ("S" er/mark-symbol-with-prefix "er/mark-symbol-with-prefix")
+
+      ;; Accessors.
+      ("a" er/mark-next-accessor "er/mark-next-accessor")
+
+      ;; Invocations (method calls).
+      ("i" er/mark-method-call "er/mark-method-call")
+
+      ;; Comments.
+      ("c" er/mark-comment "er/mark-comment")
+
+      ;; Strings.
+      ("<" er/mark-inside-quotes "er/mark-inside-quotes")
+      (">" er/mark-outside-quotes "er/mark-outside-quotes")
+
+      ;; Delimiters.
+      ("(" er/mark-inside-pairs "er/mark-inside-pairs")
+      (")" er/mark-outside-pairs "er/mark-outside-pairs")
+
+      ;; Special.
+      ("u" er/mark-url "er/mark-url")
+      ("e" er/mark-email "er/mark-email")
+
+      ;; Functions.
+      ("d" er/mark-defun "er/mark-defun")
+      ("f" er/mark-defun "er/mark-defun")
+      
+      ;; Expand / contract / reset region.
+      ("k" er/expand-region "er/expand-region")
+      ("j" er/contract-region "er/contract-region")
+      ("0" er/reset-region "er/reset-region")
+
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    ;; This should always be bound.
+    (global-set-key (kbd "C-c m") 'hydra-marking/body)))
 
 (defun er/reset-region ()
   "Resets any marked region."
@@ -332,11 +388,73 @@
     (add-hook 'cider-repl-mode-hook 'paredit-mode))
   :config
   (progn
-    ;; Make the paredit hydra accessible when paredit is active.
-    (define-key paredit-mode-map (kbd "C-c j") 'hydra-paredit/body)
-
     ;; Paredit hijacks C-j in lisp-interaction-mode, so fix that.
-    (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)))
+    (define-key lisp-interaction-mode-map [remap paredit-newline] #'eval-print-last-sexp)
+
+    ;; The hydra.
+    (defhydra hydra-paredit
+      (:columns 3)
+      "paredit"
+
+      ;; Forward / backward.
+      ("f" paredit-forward "paredit-forward")
+      ("b" paredit-backward "paredit-backward")
+
+      ;; Down / up.
+      ("d" paredit-forward-down "paredit-forward-down")
+      ("u" paredit-backward-up "paredit-backward-up")
+
+      ;; Down / up (backwards).
+      ("D" paredit-backward-down "paredit-backward-down")
+      ("U" paredit-forward-up "paredit-forward-up")
+
+      ;; Next / previous.
+      ("n" paredit-next-sexp "paredit-next-sexp")
+      ("p" paredit-previous-sexp "paredit-previous-sexp")
+
+      ;; Beginning / end.
+      ("a" paredit-beginning-sexp "paredit-beginning-sexp")
+      ("e" paredit-end-sexp "paredit-end-sexp")
+
+      ;; Slurping / barfing.
+      ("(" paredit-backward-slurp-sexp "paredit-backward-slurp-sexp")
+      (")" paredit-forward-slurp-sexp "paredit-forward-slurp-sexp")
+      (">" paredit-backward-barf-sexp "paredit-backward-barf-sexp")
+      ("<" paredit-forward-barf-sexp "paredit-forward-barf-sexp")
+
+      ;; Wrapping.
+      ("w(" paredit-wrap-round "paredit-wrap-round")
+      ("w[" paredit-wrap-square "paredit-wrap-square")
+      ("w{" paredit-wrap-curly "paredit-wrap-curly")
+      ("w<" paredit-wrap-angled "paredit-wrap-angled")
+      ("w\"" paredit-meta-doublequote "paredit-meta-doublequote")
+      
+      ;; Splicing.
+      ("ss" paredit-splice-sexp "paredit-splice-sexp")
+      ("sf" paredit-splice-sexp-killing-forward "paredit-splice-sexp-killing-forward")
+      ("sb" paredit-splice-sexp-killing-backward "paredit-splice-sexp-killing-backward")
+
+      ;; Split / join.
+      ("S" paredit-split-sexp "paredit-split-sexp")
+      ("J" paredit-join-sexps "paredit-join-sexps")
+
+      ;; Raise.
+      ("r" paredit-raise-sexp "paredit-raise-sexp")
+
+      ;; Convolute.
+      ("c" paredit-convolute-sexp "paredit-convolute-sexp")
+
+      ;; Reindent.
+      ("i" paredit-reindent-defun "paredit-reindent-defun")
+
+      ;; Comment.
+      (";" paredit-comment-dwim "paredit-comment-dwim")
+      
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    ;; Bind when paredit is active.
+    (define-key paredit-mode-map (kbd "C-c j") 'hydra-paredit/body)))
 
 (defun inside-sexp-p ()
   "Returns true if point is on a sexp."
@@ -663,7 +781,15 @@
         ;; Don't snap to the bottom.
         (setq cider-repl-scroll-on-output nil))
       :config
-      (helm-cider-mode 1))))
+      (helm-cider-mode 1))
+
+    ;; The hydra.
+    (defhydra hydra-cider
+      (:columns 3)
+      "cider"
+
+      ;; Cancel.
+      ("q" nil "quit" :exit t))))
 
 ;;
 ;; yaml-mode
@@ -899,150 +1025,3 @@
 
 (use-package 2048-game
   :ensure t)
-
-;;
-;; hydra
-;;
-
-(use-package hydra
-  :ensure t)
-
-(defvar hydra-stack nil
-  "The current hydra stack.")
-
-(defun hydra-push (expr)
-  "Push a hydra onto the stack."
-  (push `(lambda () ,expr) hydra-stack))
-
-(defun hydra-pop ()
-  "Pop a hydra from the stack and show it."
-  (interactive)
-  (let ((x (pop hydra-stack)))
-    (when x
-      (funcall x))))
-
-;; For editing with paredit.
-(defhydra hydra-paredit
-  (:columns 3)
-  "paredit"
-
-  ;; Forward / backward.
-  ("f" paredit-forward "paredit-forward")
-  ("b" paredit-backward "paredit-backward")
-
-  ;; Down / up.
-  ("d" paredit-forward-down "paredit-forward-down")
-  ("u" paredit-backward-up "paredit-backward-up")
-
-  ;; Down / up (backwards).
-  ("D" paredit-backward-down "paredit-backward-down")
-  ("U" paredit-forward-up "paredit-forward-up")
-
-  ;; Next / previous.
-  ("n" paredit-next-sexp "paredit-next-sexp")
-  ("p" paredit-previous-sexp "paredit-previous-sexp")
-
-  ;; Beginning / end.
-  ("a" paredit-beginning-sexp "paredit-beginning-sexp")
-  ("e" paredit-end-sexp "paredit-end-sexp")
-
-  ;; Slurping / barfing.
-  ("(" paredit-backward-slurp-sexp "paredit-backward-slurp-sexp")
-  (")" paredit-forward-slurp-sexp "paredit-forward-slurp-sexp")
-  (">" paredit-backward-barf-sexp "paredit-backward-barf-sexp")
-  ("<" paredit-forward-barf-sexp "paredit-forward-barf-sexp")
-
-  ;; Wrapping.
-  ("w(" paredit-wrap-round "paredit-wrap-round")
-  ("w[" paredit-wrap-square "paredit-wrap-square")
-  ("w{" paredit-wrap-curly "paredit-wrap-curly")
-  ("w<" paredit-wrap-angled "paredit-wrap-angled")
-  ("w\"" paredit-meta-doublequote "paredit-meta-doublequote")
-  
-  ;; Splicing.
-  ("ss" paredit-splice-sexp "paredit-splice-sexp")
-  ("sf" paredit-splice-sexp-killing-forward "paredit-splice-sexp-killing-forward")
-  ("sb" paredit-splice-sexp-killing-backward "paredit-splice-sexp-killing-backward")
-
-  ;; Split / join.
-  ("S" paredit-split-sexp "paredit-split-sexp")
-  ("J" paredit-join-sexps "paredit-join-sexps")
-
-  ;; Raise.
-  ("r" paredit-raise-sexp "paredit-raise-sexp")
-
-  ;; Convolute.
-  ("c" paredit-convolute-sexp "paredit-convolute-sexp")
-
-  ;; Reindent.
-  ("i" paredit-reindent-defun "paredit-reindent-defun")
-
-  ;; Comment.
-  (";" paredit-comment-dwim "paredit-comment-dwim")
-
-  ;; Marking.
-  ("m"
-   (progn
-     (hydra-push '(hydra-paredit/body))
-     (hydra-marking/body))
-   "hydra-marking/body"
-   :exit t)
-  
-  ;; Cancel.
-  ("q" hydra-pop "quit" :exit t))
-
-;; For cider-mode commands.
-(defhydra hydra-cider
-  (:columns 3)
-  "cider"
-
-  ;; Cancel.
-  ("q" hydra-pop "quit" :exit t))
-
-;; For expand-region. Note that we 
-(defhydra hydra-marking
-  (:columns 3)
-  "marking"
-
-  ;; Words.
-  ("w" er/mark-word "er/mark-word")
-
-  ;; Symbols.
-  ("s" er/mark-symbol "er/mark-symbol")
-  ("S" er/mark-symbol-with-prefix "er/mark-symbol-with-prefix")
-
-  ;; Accessors.
-  ("a" er/mark-next-accessor "er/mark-next-accessor")
-
-  ;; Invocations (method calls).
-  ("i" er/mark-method-call "er/mark-method-call")
-
-  ;; Comments.
-  ("c" er/mark-comment "er/mark-comment")
-
-  ;; Strings.
-  ("<" er/mark-inside-quotes "er/mark-inside-quotes")
-  (">" er/mark-outside-quotes "er/mark-outside-quotes")
-
-  ;; Delimiters.
-  ("(" er/mark-inside-pairs "er/mark-inside-pairs")
-  (")" er/mark-outside-pairs "er/mark-outside-pairs")
-
-  ;; Special.
-  ("u" er/mark-url "er/mark-url")
-  ("e" er/mark-email "er/mark-email")
-
-  ;; Functions.
-  ("d" er/mark-defun "er/mark-defun")
-  ("f" er/mark-defun "er/mark-defun")
-  
-  ;; Expand / contract / reset region.
-  ("k" er/expand-region "er/expand-region")
-  ("j" er/contract-region "er/contract-region")
-  ("0" er/reset-region "er/reset-region")
-
-  ;; Cancel.
-  ("q" hydra-pop "quit" :exit t))
-
-;; Bind all global hydras here.
-(global-set-key (kbd "C-c m") 'hydra-marking/body)

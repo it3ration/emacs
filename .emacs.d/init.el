@@ -453,6 +453,9 @@
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
+    ;; Nuke the keymap.
+    (setcdr paredit-mode-map nil)
+
     ;; Bind when paredit is active.
     (define-key paredit-mode-map (kbd "C-c j") 'hydra-paredit/body)))
 

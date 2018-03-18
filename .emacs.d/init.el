@@ -325,41 +325,40 @@
       "marking"
 
       ;; Words.
-      ("w" er/mark-word "er/mark-word")
+      ("w" er/mark-word "mark-word")
 
       ;; Symbols.
-      ("s" er/mark-symbol "er/mark-symbol")
-      ("S" er/mark-symbol-with-prefix "er/mark-symbol-with-prefix")
+      ("s" er/mark-symbol "mark-symbol")
+      ("S" er/mark-symbol-with-prefix "mark-symbol-with-prefix")
 
       ;; Accessors.
-      ("a" er/mark-next-accessor "er/mark-next-accessor")
+      ("a" er/mark-next-accessor "mark-next-accessor")
 
       ;; Invocations (method calls).
-      ("i" er/mark-method-call "er/mark-method-call")
+      ("i" er/mark-method-call "mark-method-call")
 
       ;; Comments.
-      ("c" er/mark-comment "er/mark-comment")
+      ("c" er/mark-comment "mark-comment")
 
       ;; Strings.
-      ("<" er/mark-inside-quotes "er/mark-inside-quotes")
-      (">" er/mark-outside-quotes "er/mark-outside-quotes")
+      ("<" er/mark-inside-quotes "mark-inside-quotes")
+      (">" er/mark-outside-quotes "mark-outside-quotes")
 
       ;; Delimiters.
-      ("(" er/mark-inside-pairs "er/mark-inside-pairs")
-      (")" er/mark-outside-pairs "er/mark-outside-pairs")
+      ("(" er/mark-inside-pairs "mark-inside-pairs")
+      (")" er/mark-outside-pairs "mark-outside-pairs")
 
       ;; Special.
-      ("u" er/mark-url "er/mark-url")
-      ("e" er/mark-email "er/mark-email")
+      ("u" er/mark-url "mark-url")
+      ("e" er/mark-email "mark-email")
 
       ;; Functions.
-      ("d" er/mark-defun "er/mark-defun")
-      ("f" er/mark-defun "er/mark-defun")
+      ("d" er/mark-defun "mark-defun")
       
       ;; Expand / contract / reset region.
-      ("k" er/expand-region "er/expand-region")
-      ("j" er/contract-region "er/contract-region")
-      ("0" er/reset-region "er/reset-region")
+      ("k" er/expand-region "expand-region")
+      ("j" er/contract-region "contract-region")
+      ("0" er/reset-region "reset-region")
 
       ;; Cancel.
       ("q" nil "quit" :exit t))
@@ -397,64 +396,64 @@
       "paredit"
 
       ;; Forward / backward.
-      ("f" paredit-forward "paredit-forward")
-      ("b" paredit-backward "paredit-backward")
+      ("f" paredit-forward "forward")
+      ("b" paredit-backward "backward")
 
       ;; Down / up.
-      ("d" paredit-forward-down "paredit-forward-down")
-      ("u" paredit-backward-up "paredit-backward-up")
+      ("d" paredit-forward-down "forward-down")
+      ("u" paredit-backward-up "backward-up")
 
       ;; Down / up (backwards).
-      ("D" paredit-backward-down "paredit-backward-down")
-      ("U" paredit-forward-up "paredit-forward-up")
+      ("D" paredit-backward-down "backward-down")
+      ("U" paredit-forward-up "forward-up")
 
       ;; Next / previous.
-      ("n" paredit-next-sexp "paredit-next-sexp")
-      ("p" paredit-previous-sexp "paredit-previous-sexp")
+      ("n" paredit-next-sexp "next-sexp")
+      ("p" paredit-previous-sexp "previous-sexp")
 
       ;; Beginning / end.
-      ("a" paredit-beginning-sexp "paredit-beginning-sexp")
-      ("e" paredit-end-sexp "paredit-end-sexp")
+      ("a" paredit-beginning-sexp "beginning-sexp")
+      ("e" paredit-end-sexp "end-sexp")
 
       ;; Slurping / barfing.
-      ("(" paredit-backward-slurp-sexp "paredit-backward-slurp-sexp")
-      (")" paredit-forward-slurp-sexp "paredit-forward-slurp-sexp")
-      (">" paredit-backward-barf-sexp "paredit-backward-barf-sexp")
-      ("<" paredit-forward-barf-sexp "paredit-forward-barf-sexp")
+      ("(" paredit-backward-slurp-sexp "backward-slurp-sexp")
+      (")" paredit-forward-slurp-sexp "forward-slurp-sexp")
+      (">" paredit-backward-barf-sexp "backward-barf-sexp")
+      ("<" paredit-forward-barf-sexp "forward-barf-sexp")
 
       ;; Wrapping.
-      ("w(" paredit-wrap-round "paredit-wrap-round")
-      ("w[" paredit-wrap-square "paredit-wrap-square")
-      ("w{" paredit-wrap-curly "paredit-wrap-curly")
-      ("w<" paredit-wrap-angled "paredit-wrap-angled")
-      ("w\"" paredit-meta-doublequote "paredit-meta-doublequote")
+      ("w(" paredit-wrap-round "wrap-round")
+      ("w[" paredit-wrap-square "wrap-square")
+      ("w{" paredit-wrap-curly "wrap-curly")
+      ("w<" paredit-wrap-angled "wrap-angled")
+      ("w\"" paredit-meta-doublequote "meta-doublequote")
       
       ;; Splicing.
-      ("ss" paredit-splice-sexp "paredit-splice-sexp")
-      ("sf" paredit-splice-sexp-killing-forward "paredit-splice-sexp-killing-forward")
-      ("sb" paredit-splice-sexp-killing-backward "paredit-splice-sexp-killing-backward")
+      ("ss" paredit-splice-sexp "splice-sexp")
+      ("sf" paredit-splice-sexp-killing-forward "splice-sexp-killing-forward")
+      ("sb" paredit-splice-sexp-killing-backward "splice-sexp-killing-backward")
 
       ;; Split / join.
-      ("S" paredit-split-sexp "paredit-split-sexp")
-      ("J" paredit-join-sexps "paredit-join-sexps")
+      ("S" paredit-split-sexp "split-sexp")
+      ("J" paredit-join-sexps "join-sexps")
 
       ;; Raise.
-      ("r" paredit-raise-sexp "paredit-raise-sexp")
+      ("r" paredit-raise-sexp "raise-sexp")
 
       ;; Convolute.
-      ("c" paredit-convolute-sexp "paredit-convolute-sexp")
+      ("c" paredit-convolute-sexp "convolute-sexp")
 
       ;; Reindent.
-      ("i" paredit-reindent-defun "paredit-reindent-defun")
+      ("i" paredit-reindent-defun "reindent-defun")
 
       ;; Comment.
-      (";" paredit-comment-dwim "paredit-comment-dwim")
+      (";" paredit-comment-dwim "comment-dwim")
       
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
-    ;; Nuke the keymap.
-    (setcdr paredit-mode-map nil)
+    ;; Don't pollute the C-c keymap.
+    (define-key paredit-mode-map (kbd "C-c C-M-l") nil)
 
     ;; Bind when paredit is active.
     (define-key paredit-mode-map (kbd "C-c j") 'hydra-paredit/body)))
@@ -765,7 +764,23 @@
   :init
   (progn
     ;; Align let bindings / maps / etc.
-    (setq clojure-align-forms-automatically t)))
+    (setq clojure-align-forms-automatically t))
+  :config
+  (progn
+    ;; The hydra.
+    ;; (defhydra hydra-clojure
+    ;;   (:columns 3)
+    ;;   "clojure"
+      
+    ;;   ;; Cancel.
+    ;;   ("q" nil "quit" :exit t))
+
+    ;; Nuke the keymap.
+    (setcdr clojure-mode-map nil)
+
+    ;; Bind when cider is active.
+    ;; (define-key clojure-mode-map (kbd "C-c y") 'hydra-clojure/body)
+    ))
 
 ;;
 ;; cider
@@ -786,13 +801,111 @@
       :config
       (helm-cider-mode 1))
 
+    ;; The docs hydra.
+    (defhydra hydra-cider-docs
+      (:columns 3)
+      "cider docs"
+
+      ("a" cider-apropos "apropos" :exit t)
+      ("d" cider-apropos-documentation "apropos-documentation" :exit t)
+      ("j" cider-javadoc "javadoc" :exit t)
+
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    ;; The eval hydra.
+    (defhydra hydra-cider-eval
+      (:columns 3)
+      "cider eval"
+
+      ("e" cider-eval-last-sexp "eval-last-sexp" :exit t)
+      ("E" cider-eval-last-sexp-and-replace "eval-last-sexp-and-replace" :exit t)
+      ("r" cider-eval-last-sexp-to-repl "eval-last-sexp-to-repl" :exit t)
+      ("k" cider-eval-defun-at-point "eval-defun-at-point" :exit t)
+      ("s" cider-eval-sexp-at-point "eval-sexp-at-point" :exit t)
+      ("R" cider-eval-region "eval-region" :exit t)
+      ("i" cider-eval-ns-form "eval-ns-form" :exit t)
+      ("n" cider-load-buffer "load-buffer" :exit t)
+      ("N" cider-load-buffer-and-switch-to-repl-buffer "load-buffer-and-switch-to-repl-buffer" :exit t)
+      ("y" cider-repl-set-ns "repl-set-ns")
+      ("f" cider-load-file "load-file" :exit t)
+      ("a" cider-load-all-files "load-all-files" :exit t)
+      ("mm" cider-macroexpand-1 "macroexpand-1" :exit t)
+      ("ma" cider-macroexpand-all "macroexpand-all" :exit t)
+      ("pe" cider-pprint-eval-last-sexp "pprint-eval-last-sexp" :exit t)
+      ("pk" cider-pprint-eval-defun-at-point "pprint-eval-defun-at-point" :exit t)
+
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    ;; The find hydra.
+    (defhydra hydra-cider-find
+      (:columns 3)
+      "cider find"
+
+      ("n" cider-find-ns "find-ns" :exit t)
+      ("v" cider-find-var "find-var" :exit t)
+      ("d" cider-find-dwim "find-dwim" :exit t)
+      ("k" cider-find-keyword "find-keyword" :exit t)
+      ("r" cider-find-resource "find-resource" :exit t)
+      
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    ;; The test hydra.
+    (defhydra hydra-cider-test
+      (:columns 3)
+      "cider test"
+
+      ("t" cider-test-run-test "test-run-test" :exit t)
+      ("r" cider-test-rerun-test "test-rerun-test" :exit t)
+      ("n" cider-test-run-ns-tests "test-run-ns-tests" :exit t)
+      ("l" cider-test-run-loaded-tests "test-run-loaded-tests" :exit t)
+      ("p" cider-test-run-project-tests "test-run-project-tests" :exit t)
+      ("f" cider-test-rerun-failed-tests "test-rerun-failed-tests" :exit t)
+      ("r" cider-test-show-report "test-show-report" :exit t)
+      
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
     ;; The hydra.
     (defhydra hydra-cider
       (:columns 3)
       "cider"
 
+;; cider-insert-last-sexp-in-repl
+;; cider-interrupt
+;; cider-switch-to-repl-buffer
+;; cider-display-connection-info
+;; cider-rotate-default-connection
+;; cider-find-and-clear-repl-output
+;; cider-refresh
+;; cider-inspect
+;; cider-toggle-trace-var
+;; cider-toggle-trace-ns
+;; cider-undef
+;; cider-pop-back
+;; complete-symbol
+;; cider-quit
+      
       ;; Cancel.
-      ("q" nil "quit" :exit t))))
+      ("q" nil "quit" :exit t))
+
+    ;; Nuke the keymaps.
+    ;; (setcdr cider-mode-map nil)
+
+    ;; Unbind keys.
+    (define-key clojure-mode-map (kbd "C-c M-j") nil)
+    (define-key clojure-mode-map (kbd "C-c M-J") nil)
+    (define-key clojure-mode-map (kbd "C-c M-c") nil)
+    (define-key clojure-mode-map (kbd "C-c M-C") nil)
+
+    ;; Bind when cider is active.
+    (define-key cider-mode-map (kbd "C-c u") 'hydra-cider-docs/body)
+    (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)
+    (define-key cider-mode-map (kbd "C-c f") 'hydra-cider-find/body)
+    (define-key cider-mode-map (kbd "C-c t") 'hydra-cider-test/body)
+    (define-key cider-mode-map (kbd "C-c l") 'hydra-cider/body)))
 
 ;;
 ;; yaml-mode

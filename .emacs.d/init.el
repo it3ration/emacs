@@ -827,7 +827,7 @@
       ("i" cider-eval-ns-form "eval-ns-form" :exit t)
       ("n" cider-load-buffer "load-buffer" :exit t)
       ("N" cider-load-buffer-and-switch-to-repl-buffer "load-buffer-and-switch-to-repl-buffer" :exit t)
-      ("y" cider-repl-set-ns "repl-set-ns")
+      ("y" cider-repl-set-ns "repl-set-ns" :exit t)
       ("f" cider-load-file "load-file" :exit t)
       ("a" cider-load-all-files "load-all-files" :exit t)
       ("mm" cider-macroexpand-1 "macroexpand-1" :exit t)

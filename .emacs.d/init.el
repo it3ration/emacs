@@ -822,6 +822,7 @@
       ("E" cider-eval-last-sexp-and-replace "eval-last-sexp-and-replace" :exit t)
       ("r" cider-eval-last-sexp-to-repl "eval-last-sexp-to-repl" :exit t)
       ("k" cider-eval-defun-at-point "eval-defun-at-point" :exit t)
+      ("K" cider-debug-defun-at-point "debug-defun-at-point" :exit t)
       ("s" cider-eval-sexp-at-point "eval-sexp-at-point" :exit t)
       ("R" cider-eval-region "eval-region" :exit t)
       ("i" cider-eval-ns-form "eval-ns-form" :exit t)

@@ -584,6 +584,9 @@
     ;; Add a global prefix.
     (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
+    ;; Up this limit a bit.
+    (setq helm-candidate-number-limit 400)
+    
     ;; Add a few extensions to helm's command map.
     (define-key helm-command-map (kbd "d") 'helm-dash)
     (define-key helm-command-map (kbd "o") 'helm-occur))
@@ -771,7 +774,7 @@
     ;; (defhydra hydra-clojure
     ;;   (:columns 3)
     ;;   "clojure"
-      
+    
     ;;   ;; Cancel.
     ;;   ("q" nil "quit" :exit t))
 
@@ -822,6 +825,7 @@
       ("E" cider-eval-last-sexp-and-replace "eval-last-sexp-and-replace" :exit t)
       ("r" cider-eval-last-sexp-to-repl "eval-last-sexp-to-repl" :exit t)
       ("k" cider-eval-defun-at-point "eval-defun-at-point" :exit t)
+      ("d" cider-eval-defun-to-point "eval-defun-to-point")
       ("K" cider-debug-defun-at-point "debug-defun-at-point" :exit t)
       ("s" cider-eval-sexp-at-point "eval-sexp-at-point" :exit t)
       ("R" cider-eval-region "eval-region" :exit t)
@@ -874,23 +878,236 @@
       (:columns 3)
       "cider"
 
-;; cider-insert-last-sexp-in-repl
-;; cider-interrupt
-;; cider-switch-to-repl-buffer
-;; cider-display-connection-info
-;; cider-rotate-default-connection
-;; cider-find-and-clear-repl-output
-;; cider-refresh
-;; cider-inspect
-;; cider-toggle-trace-var
-;; cider-toggle-trace-ns
-;; cider-undef
-;; cider-pop-back
-;; complete-symbol
-;; cider-quit
       
       ;; Cancel.
       ("q" nil "quit" :exit t))
+
+    ;; complete-symbol
+    ;; cider-run
+    ;; cider-ping
+    ;; cider-quit
+    ;; cider-mode
+    ;; cider-undef
+    ;; cider-refresh
+    ;; cider-scratch
+    ;; cider-version
+    ;; cider-jack-in
+    ;; cider-inspect
+    ;; cider-restart
+    ;; cider-connect
+    ;; cider-pop-back
+    ;; cider-grimoire
+    ;; cider-repl-tab
+    ;; cider-selector
+    ;; cider-interrupt
+    ;; cider-repl-mode
+    ;; cider-eval-file
+    ;; cider-test-jump
+    ;; cider-browse-ns
+    ;; cider-classpath
+    ;; cider-report-bug
+    ;; cider-cheatsheet
+    ;; cider-test-ediff
+    ;; cider--debug-mode
+    ;; cider-drink-a-sip
+    ;; cider-repl-return
+    ;; cider-eval-buffer
+    ;; cider-view-manual
+    ;; cider-browse-spec
+    ;; cider-view-refcard
+    ;; cider-format-defun
+    ;; cider-docview-mode
+    ;; cider-inspect-expr
+    ;; cider-repl-history
+    ;; cider-grimoire-web
+    ;; cider-format-buffer
+    ;; cider-browse-ns-all
+    ;; cider-repl-set-type
+    ;; cider-read-and-eval
+    ;; cider-repl-bol-mark
+    ;; cider-profile-clear
+    ;; cider-format-region
+    ;; cider-inspector-pop
+    ;; cider-profile-toggle
+    ;; cider-repl-mode-menu
+    ;; cider-browse-ns-mode
+    ;; cider-auto-test-mode
+    ;; cider-enlighten-mode
+    ;; cider-eval-all-files
+    ;; cider-docview-source
+    ;; cider-mode-menu-open
+    ;; cider-inspector-mode
+    ;; cider-repl-kill-input
+    ;; cider-debug-move-here
+    ;; cider-repl-next-input
+    ;; cider-toggle-trace-ns
+    ;; cider-profile-samples
+    ;; cider-repl-set-config
+    ;; cider-stacktrace-jump
+    ;; cider-stacktrace-mode
+    ;; cider-docview-javadoc
+    ;; cider-profile-summary
+    ;; cider-test-stacktrace
+    ;; cider-debug-mode-menu
+    ;; cider-browse-spec-all
+    ;; cider--doc-make-xrefs
+    ;; cider-test-report-mode
+    ;; cider-repl-next-prompt
+    ;; cider-browse-spec-mode
+    ;; cider-toggle-trace-var
+    ;; cider-docview-grimoire
+    ;; cider-test-next-result
+    ;; cider-repl-clear-output
+    ;; cider-repl-history-quit
+    ;; cider-format-edn-region
+    ;; cider-repl-history-mode
+    ;; cider-profile-ns-toggle
+    ;; cider-popup-buffer-quit
+    ;; cider-repl-history-save
+    ;; cider-docview-mode-menu
+    ;; cider-popup-buffer-mode
+    ;; cider-inspector-refresh
+    ;; cider-repl-end-of-defun
+    ;; cider-format-edn-buffer
+    ;; cider-inspect-last-sexp
+    ;; cider-repl-history-load
+    ;; cider-repl-clear-buffer
+    ;; cider-test-ediff-cleanup
+    ;; cider-connection-browser
+    ;; cider-repl-forward-input
+    ;; cider-repl-clear-banners
+    ;; cider-visit-error-buffer
+    ;; cider-repl-history-occur
+    ;; cider-repl-closing-return
+    ;; cider-repl-history-update
+    ;; cider-debug-toggle-locals
+    ;; cider-inspect-last-result
+    ;; cider-inspector-next-page
+    ;; cider-load-all-project-ns
+    ;; cider-repl-previous-input
+    ;; cider-close-nrepl-session
+    ;; cider-mode-eval-menu-open
+    ;; cider-profile-var-summary
+    ;; cider-browse-ns-mode-menu
+    ;; cider-repl-shortcuts-help
+    ;; cider-inspector-prev-page
+    ;; cider-repl-backward-input
+    ;; cider-open-classpath-entry
+    ;; cider-docview-grimoire-web
+    ;; cider-debug-defun-at-point
+    ;; cider-test-previous-result
+    ;; cider-eval-print-last-sexp
+    ;; cider-repl-history-forward
+    ;; cider-insert-defun-in-repl
+    ;; cider-replicate-connection
+    ;; cider-repl-previous-prompt
+    ;; cider-repl-handle-shortcut
+    ;; cider-repl-switch-to-other
+    ;; cider-stacktrace-mode-menu
+    ;; cider-insert-region-in-repl
+    ;; cider-debug-mode-send-reply
+    ;; cider-connect-clojurescript
+    ;; cider-stacktrace-next-cause
+    ;; cider-stacktrace-toggle-all
+    ;; cider-browse-spec-view-mode
+    ;; cider-repl-history-previous
+    ;; cider-test-report-mode-menu
+    ;; cider-test-clear-highlights
+    ;; cider-eval-defun-to-comment
+    ;; cider-jack-in-clojurescript
+    ;; cider-stacktrace-toggle-clj
+    ;; cider-switch-to-repl-buffer
+    ;; cider-browse-ns-doc-at-point
+    ;; cider-browse-spec--browse-at
+    ;; cider-browse-ns-handle-mouse
+    ;; cider-inspect-defun-at-point
+    ;; cider-clojure-mode-menu-open
+    ;; cider-stacktrace-toggle-java
+    ;; cider-insert-ns-form-in-repl
+    ;; cider-stacktrace-toggle-repl
+    ;; cider-profile-var-profiled-p
+    ;; cider-find-dwim-other-window
+    ;; cider-describe-nrepl-session
+    ;; cider-repl-clear-help-banner
+    ;; cider-repl-require-repl-utils
+    ;; cider-display-connection-info
+    ;; cider-repl-beginning-of-defun
+    ;; cider-toggle-request-dispatch
+    ;; cider-completion-flush-caches
+    ;; cider-close-ancillary-buffers
+    ;; cider-repl-newline-and-indent
+    ;; cider-inspector-set-page-size
+    ;; cider-browse-ns-find-at-point
+    ;; cider-connections-buffer-mode
+    ;; cider-make-connection-default
+    ;; cider-jump-to-locref-at-point
+    ;; cider-insert-last-sexp-in-repl
+    ;; cider-browse-instrumented-defs
+    ;; cider-stacktrace-cycle-cause-1
+    ;; cider-stacktrace-cycle-cause-2
+    ;; cider-stacktrace-cycle-cause-3
+    ;; cider-stacktrace-cycle-cause-4
+    ;; cider-stacktrace-cycle-cause-5
+    ;; cider-create-sibling-cljs-repl
+    ;; cider-repl-next-matching-input
+    ;; cider-browse-spec-example-mode
+    ;; cider-connections-make-default
+    ;; cider-toggle-buffer-connection
+    ;; cider-refresh-dynamic-font-lock
+    ;; cider-stacktrace-previous-cause
+    ;; cider-stacktrace-toggle-tooling
+    ;; cider-rotate-default-connection
+    ;; cider-jump-to-compilation-error
+    ;; cider-repl-history-mouse-insert
+    ;; cider--connections-make-default
+    ;; cider-eval-last-sexp-in-context
+    ;; cider-repl-history-clear-preview
+    ;; cider-change-buffers-designation
+    ;; cider-popup-buffer-quit-function
+    ;; cider-browse-ns-operate-at-point
+    ;; cider-inspector-operate-on-click
+    ;; cider-find-and-clear-repl-output
+    ;; cider-inspector-operate-on-point
+    ;; cider-repl-toggle-pretty-printing
+    ;; cider-mode-interactions-menu-open
+    ;; cider-repl-history-search-forward
+    ;; cider-stacktrace-cycle-all-causes
+    ;; cider-connections-goto-connection
+    ;; cider-read-and-eval-defun-at-point
+    ;; cider-connections-close-connection
+    ;; cider-repl-history-search-backward
+    ;; cider-stacktrace-toggle-duplicates
+    ;; cider-assoc-buffer-with-connection
+    ;; cider-clear-compilation-highlights
+    ;; cider-pprint-eval-defun-to-comment
+    ;; cider-repl-history-insert-and-quit
+    ;; cider-stacktrace-show-only-project
+    ;; cider-repl-previous-matching-input
+    ;; cider-pprint-eval-last-sexp-to-repl
+    ;; cider--calculate-opening-delimiters
+    ;; cider-eval-sexp-at-point-in-context
+    ;; cider-assoc-project-with-connection
+    ;; cider-switch-to-last-clojure-buffer
+    ;; cider-clear-buffer-local-connection
+    ;; cider-repl-history-undo-other-window
+    ;; cider-stacktrace-cycle-current-cause
+    ;; cider-repl-indent-and-complete-symbol
+    ;; cider-pprint-eval-last-sexp-to-comment
+    ;; cider-inspector-next-inspectable-object
+    ;; cider-enable-on-existing-clojure-buffers
+    ;; cider-disable-on-existing-clojure-buffers
+    ;; cider-browse-spec--print-curr-spec-example
+    ;; cider-inspector-previous-inspectable-object
+    ;; helm-cider-mode
+    ;; helm-cider-spec
+    ;; helm-cider-spec-ns
+    ;; helm-cider-apropos
+    ;; helm-cider-cheatsheet
+    ;; helm-cider-apropos-ns
+    ;; helm-cider-spec-symbol
+    ;; helm-cider-repl-history
+    ;; helm-cider-apropos-symbol
+    ;; helm-cider-apropos-symbol-doc
 
     ;; Nuke the keymaps.
     ;; (setcdr cider-mode-map nil)

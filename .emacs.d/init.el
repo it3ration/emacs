@@ -778,6 +778,44 @@
     ;;   ;; Cancel.
     ;;   ("q" nil "quit" :exit t))
 
+    ;; clojure-mode
+    ;; clojure-align
+    ;; clojurec-mode
+    ;; clojure-unwind
+    ;; clojure-thread
+    ;; clojure-sort-ns
+    ;; clojure-cycle-if
+    ;; clojure-update-ns
+    ;; clojure-mode-menu
+    ;; clojure-cycle-not
+    ;; clojure-view-guide
+    ;; clojure-unwind-all
+    ;; clojurescript-mode
+    ;; clojure-cycle-when
+    ;; clojure-move-to-let
+    ;; clojure-cycle-privacy
+    ;; clojure-introduce-let
+    ;; clojure-view-grimoire
+    ;; clojure-insert-ns-form
+    ;; clojure-view-cheatsheet
+    ;; clojure-mode-report-bug
+    ;; clojure-thread-last-all
+    ;; clojure-thread-first-all
+    ;; clojure-view-style-guide
+    ;; clojure-mode-display-version
+    ;; clojure-forward-logical-sexp
+    ;; clojure-backward-logical-sexp
+    ;; clojure-toggle-keyword-string
+    ;; clojure-view-reference-section
+    ;; clojure-let-forward-slurp-sexp
+    ;; clojure-insert-ns-form-at-point
+    ;; clojure-let-backward-slurp-sexp
+    ;; clojure-convert-collection-to-map
+    ;; clojure-convert-collection-to-set
+    ;; clojure-convert-collection-to-list
+    ;; clojure-convert-collection-to-vector
+    ;; clojure-convert-collection-to-quoted-list
+
     ;; Nuke the keymap.
     (setcdr clojure-mode-map nil)
 
@@ -877,7 +915,6 @@
     (defhydra hydra-cider
       (:columns 3)
       "cider"
-
       
       ;; Cancel.
       ("q" nil "quit" :exit t))

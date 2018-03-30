@@ -345,9 +345,9 @@
       (">" er/mark-outside-quotes "mark-outside-quotes")
 
       ;; Delimiters.
-      ("(" er/mark-inside-pairs "mark-inside-pairs")
-      (")" er/mark-outside-pairs "mark-outside-pairs")
-
+      ("(" er/mark-outside-pairs "mark-outside-pairs")
+      (")" er/mark-inside-pairs "mark-inside-pairs")
+      
       ;; Special.
       ("u" er/mark-url "mark-url")
       ("e" er/mark-email "mark-email")

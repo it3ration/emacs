@@ -328,8 +328,8 @@
       ("w" er/mark-word "mark-word")
 
       ;; Symbols.
-      ("s" er/mark-symbol "mark-symbol")
-      ("S" er/mark-symbol-with-prefix "mark-symbol-with-prefix")
+      ("m" er/mark-symbol "mark-symbol")
+      ("M" er/mark-symbol-with-prefix "mark-symbol-with-prefix")
 
       ;; Accessors.
       ("a" er/mark-next-accessor "mark-next-accessor")

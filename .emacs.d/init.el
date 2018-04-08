@@ -841,6 +841,10 @@
       :config
       (helm-cider-mode 1))
 
+    ;; Refactoring support.
+    (use-package clj-refactor
+      :ensure t)
+    
     ;; The docs hydra.
     (defhydra hydra-cider-docs
       (:columns 3)

@@ -662,7 +662,9 @@
       :ensure t
       :bind (("C-c M-i" . helm-projectile-ag))
       :config
-      (helm-projectile-toggle 1))
+      (progn
+        ;; Turn it on.
+        (helm-projectile-toggle 1)))
     
     ;; For inspecting bindings.
     (use-package helm-descbinds
@@ -813,8 +815,8 @@
     ;; clojure-convert-collection-to-vector
     ;; clojure-convert-collection-to-quoted-list
 
-    ;; Nuke the keymap.
-    (setcdr clojure-mode-map nil)
+    ;; Clear the C-c keymaps.
+    (define-key clojure-mode-map (kbd "C-c") nil)
 
     ;; Bind when cider is active.
     ;; (define-key clojure-mode-map (kbd "C-c y") 'hydra-clojure/body)
@@ -1143,21 +1145,22 @@
     ;; helm-cider-apropos-symbol
     ;; helm-cider-apropos-symbol-doc
 
-    ;; Nuke the keymaps.
-    ;; (setcdr cider-mode-map nil)
+    ;; Clear the C-c keymaps.
+    (define-key clojure-mode-map (kbd "C-c") nil)
+    (define-key cider-mode-map (kbd "C-c") nil)
+    (define-key cider-repl-mode-map (kbd "C-c") nil)
 
-    ;; Unbind keys.
-    (define-key clojure-mode-map (kbd "C-c M-j") nil)
-    (define-key clojure-mode-map (kbd "C-c M-J") nil)
-    (define-key clojure-mode-map (kbd "C-c M-c") nil)
-    (define-key clojure-mode-map (kbd "C-c M-C") nil)
-
-    ;; Bind when cider is active.
-    (define-key cider-mode-map (kbd "C-c u") 'hydra-cider-docs/body)
-    (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)
-    (define-key cider-mode-map (kbd "C-c f") 'hydra-cider-find/body)
-    (define-key cider-mode-map (kbd "C-c t") 'hydra-cider-test/body)
-    (define-key cider-mode-map (kbd "C-c l") 'hydra-cider/body)))
+    ;; Only enable these in cider mode.
+    (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)    
+    
+    ;; Method to add common cider hydras.
+    (-each (list cider-mode-map
+                 cider-repl-mode-map)
+      (lambda (x)
+        (define-key x (kbd "C-c l") 'hydra-cider/body)
+        (define-key x (kbd "C-c f") 'hydra-cider-find/body)
+        (define-key x (kbd "C-c u") 'hydra-cider-docs/body)
+        (define-key x (kbd "C-c t") 'hydra-cider-test/body)))))
 
 ;;
 ;; yaml-mode

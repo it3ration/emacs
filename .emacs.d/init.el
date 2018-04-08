@@ -545,6 +545,27 @@
     (which-key-mode)))
 
 ;;
+;; projectile
+;;
+
+(use-package projectile
+  :ensure t
+  :demand t
+  :commands (projectile-find-file projectile-switch-project)
+  :bind (("C-x p" . projectile-find-file))
+  :init
+  (progn
+    ;; Use helm as projectile's completion system.
+    (setq projectile-completion-system 'helm)
+    
+    ;; Set our indexing mode.
+    (setq projectile-indexing-method 'alien))
+  :config
+  (progn
+    ;; Turn projectile on globally.
+    (projectile-mode)))
+
+;;
 ;; helm
 ;;
 
@@ -616,8 +637,7 @@
     ;; Swoop mode ftw.
     (use-package helm-swoop
       :ensure t
-      :bind (("M-i" . helm-swoop)
-             ("C-c M-i" . helm-multi-swoop))
+      :bind (("M-i" . helm-swoop))
       :init
       (progn
         ;; Start with no search string.
@@ -636,43 +656,22 @@
     ;; Support for the silver searcher.
     (use-package helm-ag
       :ensure t)
-    
-    ;; For inspecting bindings.
-    (use-package helm-descbinds
-      :ensure t
-      :bind ("C-h b" . helm-descbinds)
-      :config
-      (progn
-        ;; Open in the other window please.
-        (setq helm-descbinds-window-style 'split-window)))))
-
-;;
-;; projectile
-;;
-
-(use-package projectile
-  :ensure t
-  :demand t
-  :commands (projectile-find-file projectile-switch-project)
-  :bind
-  (("C-x p" . projectile-find-file))
-  :init
-  (progn
-    ;; Use helm as projectile's completion system.
-    (setq projectile-completion-system 'helm)
-    
-    ;; Set our indexing mode.
-    (setq projectile-indexing-method 'alien))
-  :config
-  (progn
-    ;; Turn projectile on globally.
-    (projectile-mode)
 
     ;; Helm integration? Yes please!
     (use-package helm-projectile
       :ensure t
+      :bind (("C-c M-i" . helm-projectile-ag))
       :config
-      (helm-projectile-toggle 1))))
+      (helm-projectile-toggle 1))
+    
+    ;; For inspecting bindings.
+    (use-package helm-descbinds
+      :ensure t
+      :bind (("C-h b" . helm-descbinds))
+      :config
+      (progn
+        ;; Open in the other window please.
+        (setq helm-descbinds-window-style 'split-window)))))
 
 ;;
 ;; magit
@@ -687,8 +686,7 @@
 ;; The best git interface ever.
 (use-package magit
   :ensure t
-  :bind
-  (("C-x g" . magit-status))
+  :bind (("C-x g" . magit-status))
   :config
   (progn
     ;; Open the status buffer in the current window and select it.
@@ -714,8 +712,7 @@
 
 (use-package undo-tree
   :ensure t
-  :bind
-  (("C-x u" . undo-tree-visualize))
+  :bind (("C-x u" . undo-tree-visualize))
   :config
   (progn
     ;; Let's use this everywhere.

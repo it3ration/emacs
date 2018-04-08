@@ -552,7 +552,6 @@
   :ensure t
   :demand t
   :commands (projectile-find-file projectile-switch-project)
-  :bind (("C-x p" . projectile-find-file))
   :init
   (progn
     ;; Use helm as projectile's completion system.
@@ -590,7 +589,8 @@
    ("C-x b" . helm-mini)
    ("C-x C-b" . helm-buffers-list)
    ("M-y" . helm-show-kill-ring)
-   ("C-h a" . helm-apropos))
+   ("C-h a" . helm-apropos)
+   ("C-x p" . helm-browse-project))
   :init
   (progn
     ;; We need this now.
@@ -664,7 +664,6 @@
     ;; Helm integration? Yes please!
     (use-package helm-projectile
       :ensure t
-      :bind (("C-c M-i" . helm-projectile-ag))
       :config
       (progn
         ;; Turn it on.

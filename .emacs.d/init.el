@@ -653,10 +653,14 @@
         (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
         (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
     
-    ;; Support for the silver searcher.
-    (use-package helm-ag
-      :ensure t)
+    ;; Our specific git grep setup.
+    (use-package helm-grep
+      :bind (("C-c M-i" . helm-grep-do-git-grep)))
 
+    ;; For helm git integration.
+    (use-package helm-ls-git
+      :ensure t)
+    
     ;; Helm integration? Yes please!
     (use-package helm-projectile
       :ensure t

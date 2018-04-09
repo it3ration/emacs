@@ -652,10 +652,6 @@
         (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
         (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
         (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
-    
-    ;; Our specific git grep setup.
-    (use-package helm-grep
-      :bind (("C-c M-i" . helm-grep-do-git-grep)))
 
     ;; For helm git integration.
     (use-package helm-ls-git
@@ -677,6 +673,13 @@
       (progn
         ;; Open in the other window please.
         (setq helm-descbinds-window-style 'split-window)))))
+
+(defun helm-grep-do-git-grep-all ()
+  "Like helm-grep-do-git-grep but searches the entire repository."
+  (interactive)
+  (helm-grep-git-1 default-directory 'all))
+
+(global-set-key (kbd "C-c M-i") 'helm-grep-do-git-grep-all)
 
 ;;
 ;; magit

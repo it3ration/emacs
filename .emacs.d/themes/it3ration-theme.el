@@ -113,11 +113,11 @@
    `(helm-ff-invalid-symlink ((t (:foreground ,c-yellow :bold t))))
    `(helm-ff-prefix ((t (:foreground ,c-white))))
    `(helm-ff-symlink ((t (:foreground ,c-yellow :bold t))))
-   ;; helm-grep-cmd-line
-   ;; helm-grep-file
-   ;; helm-grep-finish
-   ;; helm-grep-lineno
-   ;; helm-grep-match
+   `(helm-grep-cmd-line ((t (:foreground ,c-blue :bold t))))
+   `(helm-grep-file ((t (:foreground ,c-purple :bold t))))
+   `(helm-grep-finish ((t (:foreground ,c-blue :bold t))))
+   `(helm-grep-lineno ((t (:foreground ,c-orange))))
+   `(helm-grep-match ((t (:background ,c-dark-blue))))
    ;; helm-header
    ;; helm-header-line-left-margin
    ;; helm-helper

@@ -94,13 +94,13 @@
    ;; helm-bookmark-info
    ;; helm-bookmark-man
    ;; helm-bookmark-w3m
-   `(helm-buffer-directory ((t :foreground ,c-pink :bold t)))
-   `(helm-buffer-file ((t :foreground ,c-purple :bold t)))
-   ;; helm-buffer-modified
+   `(helm-buffer-directory ((t (:foreground ,c-pink :bold t))))
+   `(helm-buffer-file ((t (:foreground ,c-purple :bold t))))
+   `(helm-buffer-modified ((t (:foreground ,c-green :bold t))))
    ;; helm-buffer-not-saved
-   ;; helm-buffer-process
+   `(helm-buffer-process ((t (:foreground ,c-brown))))
    ;; helm-buffer-saved-out
-   ;; helm-buffer-size
+   `(helm-buffer-size ((t (:foreground ,c-blue))))
    ;; helm-candidate-number
    ;; helm-candidate-number-suspended
    ;; helm-etags-file

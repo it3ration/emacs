@@ -126,6 +126,15 @@
    ;; helm-lisp-completion-info
    ;; helm-lisp-show-completion
    ;; helm-locate-finish
+   `(helm-ls-git-added-copied-face ((t (:foreground ,c-green :bold t))))
+   `(helm-ls-git-added-modified-face ((t (:foreground ,c-green :bold t))))
+   `(helm-ls-git-conflict-face ((t (:foreground ,c-orange :bold t))))
+   `(helm-ls-git-deleted-and-staged-face ((t (:foreground ,c-pink :bold t))))
+   `(helm-ls-git-deleted-not-staged-face ((t (:foreground ,c-pink :bold t))))
+   `(helm-ls-git-modified-and-staged-face ((t (:foreground ,c-green :bold t))))
+   `(helm-ls-git-modified-not-staged-face ((t (:foreground ,c-green :bold t))))
+   `(helm-ls-git-renamed-modified-face ((t (:foreground ,c-green :bold t))))
+   `(helm-ls-git-untracked-face ((t (:foreground ,c-tan :bold t))))
    ;; helm-match
    ;; helm-match-item
    ;; helm-moccur-buffer

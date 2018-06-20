@@ -835,6 +835,10 @@
 ;; This is -the- clojure ide.
 (use-package cider
   :ensure t
+  :init
+  (progn
+    ;; Colorize usages of functions and variables from all namespaces.
+    (setq cider-font-lock-dynamically '(macro core function var)))
   :config
   (progn
     ;; Helm integration? Yes please!

@@ -67,6 +67,7 @@
    ;; font lock
    ;;
 
+   `(font-lock-warning-face ((t (:underline t))))
    `(font-lock-string-face ((t (:foreground ,c-yellow))))
    `(font-lock-comment-face ((t (:foreground ,c-brown))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,c-brown))))
@@ -240,6 +241,47 @@
    ;; magit-signature-revoked
    ;; magit-signature-untrusted
    ;; magit-tag
+
+   ;;
+   ;; cider
+   ;;
+
+   ;; cider-debug-code-overlay-face        
+   ;; cider-debug-prompt-face                 
+   ;; cider-deprecated-face                   
+   ;; cider-docview-emphasis-face             
+   ;; cider-docview-literal-face              
+   ;; cider-docview-strong-face               
+   ;; cider-docview-table-border-face         
+   ;; cider-enlightened-face                  
+   ;; cider-enlightened-local-face            
+   `(cider-error-highlight-face ((t (:underline t))))
+   ;; cider-fragile-button-face               
+   ;; cider-fringe-good-face                  
+   ;; cider-instrumented-face                 
+   ;; cider-reader-conditional-face           
+   ;; cider-repl-input-face                   
+   ;; cider-repl-prompt-face                  
+   ;; cider-repl-result-face                  
+   ;; cider-repl-stderr-face                  
+   ;; cider-repl-stdout-face                  
+   ;; cider-result-overlay-face               
+   ;; cider-stacktrace-error-class-face       
+   ;; cider-stacktrace-error-message-face     
+   ;; cider-stacktrace-face                   
+   ;; cider-stacktrace-filter-active-face     
+   ;; cider-stacktrace-filter-inactive-face   
+   ;; cider-stacktrace-fn-face                
+   ;; cider-stacktrace-ns-face                
+   ;; cider-stacktrace-promoted-button-face   
+   ;; cider-stacktrace-suppressed-button-face 
+   ;; cider-test-error-face                   
+   ;; cider-test-failure-face                 
+   ;; cider-test-success-face                 
+   ;; cider-traced-face
+   `(cider-warning-highlight-face ((t (:underline t))))
+   ;; clojure-character-face                  
+   ;; clojure-keyword-face                    
 
    ;;
    ;; smartparens

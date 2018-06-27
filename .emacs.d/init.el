@@ -701,6 +701,74 @@
     (setq magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)))
 
 ;;
+;; multiple-cursors
+;;
+
+(use-package multiple-cursors
+  :ensure t
+  :config
+  (progn
+    ;; The hydra.
+    (defhydra hydra-multiple-cursors
+      (:columns 3)
+      "multiple-cursors"
+
+      ;; mc/mark-pop
+      ;; mc/mmlte--up
+      ;; mc/edit-lines
+      ;; mc/mmlte--left
+      ;; mc/mmlte--down
+      ;; mc/mmlte--right
+      ;; mc/sort-regions
+      ;; mc/mark-all-dwim
+      ;; mc/cycle-forward
+      ;; mc/keyboard-quit
+      ;; mc/cycle-backward
+      ;; mc/vertical-align
+      ;; mc/insert-letters
+      ;; mc/repeat-command
+      ;; mc/insert-numbers
+      ;; mc/reverse-regions
+      ;; mc/mark-next-lines
+      ;; mc/edit-ends-of-lines
+      ;; mc/mark-all-like-this
+      ;; mc/mark-all-in-region
+      ;; mc/mark-sgml-tag-pair
+      ;; mc/mark-previous-lines
+      ;; mc/mark-next-like-this
+      ;; mc/add-cursor-on-click
+      ;; mc/unmark-next-like-this
+      ;; mc/toggle-cursor-on-click
+      ;; mc/skip-to-next-like-this
+      ;; mc/mark-all-like-this-dwim
+      ;; mc/mark-previous-like-this
+      ;; mc/mark-all-words-like-this
+      ;; mc/mark-next-word-like-this
+      ;; mc/mark-next-like-this-word
+      ;; mc/edit-beginnings-of-lines
+      ;; mc/vertical-align-with-space
+      ;; mc/unmark-previous-like-this
+      ;; mc/mark-all-in-region-regexp
+      ;; mc/skip-to-previous-like-this
+      ;; mc/mark-all-symbols-like-this
+      ;; mc/mark-next-symbol-like-this
+      ;; mc/mark-next-like-this-symbol
+      ;; mc/mark-all-like-this-in-defun
+      ;; mc/mark-previous-word-like-this
+      ;; mc/mark-previous-like-this-word
+      ;; mc/mark-more-like-this-extended
+      ;; mc/mark-previous-symbol-like-this
+      ;; mc/mark-previous-like-this-symbol
+      ;; mc/mark-all-words-like-this-in-defun
+      ;; mc/mark-all-symbols-like-this-in-defun
+      
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    ;; This should always be bound.
+    (global-set-key (kbd "C-c c") 'hydra-multiple-cursors/body)))
+
+;;
 ;; rainbow-mode
 ;;
 

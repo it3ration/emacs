@@ -732,16 +732,17 @@
       ;; mc/mark-next-lines
       ;; mc/edit-ends-of-lines
       ;; mc/mark-all-like-this
+      ("a" mc/mark-all-like-this "mark-all-like-this" :exit t)
       ;; mc/mark-all-in-region
       ;; mc/mark-sgml-tag-pair
       ;; mc/mark-previous-lines
-      ;; mc/mark-next-like-this
+      ("n" mc/mark-next-like-this "mark-next-like-this")
       ;; mc/add-cursor-on-click
       ;; mc/unmark-next-like-this
       ;; mc/toggle-cursor-on-click
       ;; mc/skip-to-next-like-this
       ;; mc/mark-all-like-this-dwim
-      ;; mc/mark-previous-like-this
+      ("p" mc/mark-previous-like-this "mark-previous-like-this")
       ;; mc/mark-all-words-like-this
       ;; mc/mark-next-word-like-this
       ;; mc/mark-next-like-this-word
@@ -766,7 +767,7 @@
       ("q" nil "quit" :exit t))
 
     ;; This should always be bound.
-    (global-set-key (kbd "C-c g") 'hydra-multiple-cursors/body)))
+    (global-set-key (kbd "C-c l") 'hydra-multiple-cursors/body)))
 
 ;;
 ;; rainbow-mode
@@ -992,13 +993,13 @@
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
-    ;; The hydra.
-    (defhydra hydra-cider
-      (:columns 3)
-      "cider"
+    ;; ;; The hydra.
+    ;; (defhydra hydra-cider
+    ;;   (:columns 3)
+    ;;   "cider"
       
-      ;; Cancel.
-      ("q" nil "quit" :exit t))
+    ;;   ;; Cancel.
+    ;;   ("q" nil "quit" :exit t))
 
     ;; complete-symbol
     ;; cider-run
@@ -1239,7 +1240,7 @@
     (-each (list cider-mode-map
                  cider-repl-mode-map)
       (lambda (x)
-        (define-key x (kbd "C-c l") 'hydra-cider/body)
+        ;; (define-key x (kbd "C-c l") 'hydra-cider/body)
         (define-key x (kbd "C-c f") 'hydra-cider-find/body)
         (define-key x (kbd "C-c u") 'hydra-cider-docs/body)
         (define-key x (kbd "C-c t") 'hydra-cider-test/body)))))

@@ -766,7 +766,7 @@
       ("q" nil "quit" :exit t))
 
     ;; This should always be bound.
-    (global-set-key (kbd "C-c c") 'hydra-multiple-cursors/body)))
+    (global-set-key (kbd "C-c g") 'hydra-multiple-cursors/body)))
 
 ;;
 ;; rainbow-mode

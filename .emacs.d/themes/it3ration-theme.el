@@ -156,25 +156,29 @@
    ;; magit
    ;;
 
-   ;; magit-bisect-bad
-   ;; magit-bisect-good
-   ;; magit-bisect-skip
-   ;; magit-blame-date
-   ;; magit-blame-hash
-   ;; magit-blame-heading
-   ;; magit-blame-name
-   ;; magit-blame-summary
-   ;; magit-branch-current
-   ;; magit-branch-local
-   ;; magit-branch-remote
-   ;; magit-cherry-equivalent
+   ;; magit-bisect-bad                         
+   ;; magit-bisect-good                        
+   ;; magit-bisect-skip                        
+   ;; magit-blame-date                         
+   ;; magit-blame-dimmed                       
+   ;; magit-blame-hash                         
+   ;; magit-blame-heading                      
+   ;; magit-blame-highlight                    
+   ;; magit-blame-margin                       
+   ;; magit-blame-name                         
+   ;; magit-blame-summary                      
+   ;; magit-branch-current                     
+   ;; magit-branch-local                       
+   ;; magit-branch-remote                      
+   ;; magit-branch-remote-head                 
+   ;; magit-cherry-equivalent                  
    ;; magit-cherry-unmatched
    `(magit-diff-added ((t (:foreground ,c-green :bold t))))
    `(magit-diff-added-highlight ((t (:foreground ,c-green :bold t))))
-   ;; magit-diff-base
-   ;; magit-diff-base-highlight
-   ;; magit-diff-conflict-heading
-   ;; magit-diff-context
+   ;; magit-diff-base                          
+   ;; magit-diff-base-highlight                
+   ;; magit-diff-conflict-heading              
+   ;; magit-diff-context                       
    ;; magit-diff-context-highlight
    `(magit-diff-file-heading ((t (:foreground ,c-white))))
    `(magit-diff-file-heading-highlight ((t (:foreground ,c-purple :bold t))))
@@ -182,65 +186,71 @@
    `(magit-diff-hunk-heading ((t (:background ,c-mid-gray :foreground ,c-white))))
    `(magit-diff-hunk-heading-highlight ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
    `(magit-diff-hunk-heading-selection ((t (:background ,c-light-gray :foreground ,c-tan :bold t))))
-   ;; magit-diff-hunk-region
-   ;; magit-diff-lines-boundary
-   ;; magit-diff-lines-heading
-   ;; magit-diff-our
+   ;; magit-diff-hunk-region                   
+   ;; magit-diff-lines-boundary                
+   ;; magit-diff-lines-heading                 
+   ;; magit-diff-our                           
    ;; magit-diff-our-highlight
    `(magit-diff-removed ((t (:foreground ,c-pink :bold t))))
    `(magit-diff-removed-highlight ((t (:foreground ,c-pink :bold t))))
-   ;; magit-diff-their
-   ;; magit-diff-their-highlight
-   ;; magit-diff-whitespace-warning
-   ;; magit-diffstat-added
-   ;; magit-diffstat-removed
-   ;; magit-dimmed
-   ;; magit-filename
-   ;; magit-hash
-   ;; magit-head
-   ;; magit-header-line
-   ;; magit-keyword
-   ;; magit-log-author
-   ;; magit-log-date
-   ;; magit-log-graph
-   ;; magit-popup-argument
-   ;; magit-popup-disabled-argument
-   ;; magit-popup-heading
-   ;; magit-popup-key
-   ;; magit-popup-option-value
-   ;; magit-process-ng
-   ;; magit-process-ok
-   ;; magit-reflog-amend
-   ;; magit-reflog-checkout
-   ;; magit-reflog-cherry-pick
-   ;; magit-reflog-commit
-   ;; magit-reflog-merge
-   ;; magit-reflog-other
-   ;; magit-reflog-rebase
-   ;; magit-reflog-remote
-   ;; magit-reflog-reset
-   ;; magit-refname
-   ;; magit-refname-stash
+   ;; magit-diff-their                         
+   ;; magit-diff-their-highlight               
+   ;; magit-diff-whitespace-warning            
+   ;; magit-diffstat-added                     
+   ;; magit-diffstat-removed                   
+   ;; magit-dimmed                             
+   ;; magit-filename                           
+   ;; magit-hash                               
+   ;; magit-head                               
+   ;; magit-header-line                        
+   ;; magit-header-line-key                    
+   ;; magit-header-line-log-select             
+   ;; magit-keyword                            
+   ;; magit-log-author                         
+   ;; magit-log-date                           
+   ;; magit-log-graph                          
+   ;; magit-mode-line-process                  
+   ;; magit-mode-line-process-error            
+   ;; magit-popup-argument                     
+   ;; magit-popup-disabled-argument            
+   ;; magit-popup-heading                      
+   ;; magit-popup-key                          
+   ;; magit-popup-option-value                 
+   ;; magit-process-ng                         
+   ;; magit-process-ok                         
+   ;; magit-reflog-amend                       
+   ;; magit-reflog-checkout                    
+   ;; magit-reflog-cherry-pick                 
+   ;; magit-reflog-commit                      
+   ;; magit-reflog-merge                       
+   ;; magit-reflog-other                       
+   ;; magit-reflog-rebase                      
+   ;; magit-reflog-remote                      
+   ;; magit-reflog-reset                       
+   ;; magit-refname                            
+   ;; magit-refname-pullreq                    
+   ;; magit-refname-stash                      
    ;; magit-refname-wip
    `(magit-section-heading ((t (:foreground ,c-yellow :bold t))))
-   ;; magit-section-heading-selection
-   ;; magit-section-highlight
-   ;; magit-section-secondary-heading
-   ;; magit-sequence-done
-   ;; magit-sequence-drop
-   ;; magit-sequence-head
-   ;; magit-sequence-onto
-   ;; magit-sequence-part
-   ;; magit-sequence-pick
-   ;; magit-sequence-stop
-   ;; magit-signature-bad
-   ;; magit-signature-error
-   ;; magit-signature-expired
-   ;; magit-signature-expired-key
-   ;; magit-signature-good
-   ;; magit-signature-revoked
-   ;; magit-signature-untrusted
-   ;; magit-tag
+   ;; magit-section-heading-selection          
+   ;; magit-section-highlight                  
+   ;; magit-section-secondary-heading          
+   ;; magit-sequence-done                      
+   ;; magit-sequence-drop                      
+   ;; magit-sequence-exec                      
+   ;; magit-sequence-head                      
+   ;; magit-sequence-onto                      
+   ;; magit-sequence-part                      
+   ;; magit-sequence-pick                      
+   ;; magit-sequence-stop                      
+   ;; magit-signature-bad                      
+   ;; magit-signature-error                    
+   ;; magit-signature-expired                  
+   ;; magit-signature-expired-key              
+   ;; magit-signature-good                     
+   ;; magit-signature-revoked                  
+   ;; magit-signature-untrusted                
+   ;; magit-tag                                
 
    ;;
    ;; cider

@@ -186,9 +186,9 @@
    `(magit-diff-hunk-heading ((t (:background ,c-mid-gray :foreground ,c-white))))
    `(magit-diff-hunk-heading-highlight ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
    `(magit-diff-hunk-heading-selection ((t (:background ,c-light-gray :foreground ,c-tan :bold t))))
-   ;; magit-diff-hunk-region                   
-   ;; magit-diff-lines-boundary                
-   ;; magit-diff-lines-heading                 
+   `(magit-diff-hunk-region ((t (:background ,c-black))))
+   `(magit-diff-lines-boundary ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
+   `(magit-diff-lines-heading ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
    ;; magit-diff-our                           
    ;; magit-diff-our-highlight
    `(magit-diff-removed ((t (:foreground ,c-pink :bold t))))

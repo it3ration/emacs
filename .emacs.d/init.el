@@ -712,10 +712,10 @@
     (defhydra hydra-multiple-cursors
       (:columns 3)
       "multiple-cursors"
-
+      
       ;; mc/mark-pop
       ;; mc/mmlte--up
-      ;; mc/edit-lines
+      ("l" mc/edit-lines "edit-lines" :exit t)
       ;; mc/mmlte--left
       ;; mc/mmlte--down
       ;; mc/mmlte--right
@@ -731,16 +731,15 @@
       ;; mc/reverse-regions
       ;; mc/mark-next-lines
       ;; mc/edit-ends-of-lines
-      ;; mc/mark-all-like-this
       ("a" mc/mark-all-like-this "mark-all-like-this" :exit t)
-      ;; mc/mark-all-in-region
+      ("r" mc/mark-all-in-region "mark-all-in-region" :exit t)
       ;; mc/mark-sgml-tag-pair
       ;; mc/mark-previous-lines
       ("n" mc/mark-next-like-this "mark-next-like-this")
       ;; mc/add-cursor-on-click
-      ;; mc/unmark-next-like-this
+      ("M-n" mc/unmark-next-like-this "unmark-next-like-this")
       ;; mc/toggle-cursor-on-click
-      ;; mc/skip-to-next-like-this
+      ("N" mc/skip-to-next-like-this "skip-to-next-like-this")
       ;; mc/mark-all-like-this-dwim
       ("p" mc/mark-previous-like-this "mark-previous-like-this")
       ;; mc/mark-all-words-like-this
@@ -748,9 +747,9 @@
       ;; mc/mark-next-like-this-word
       ;; mc/edit-beginnings-of-lines
       ;; mc/vertical-align-with-space
-      ;; mc/unmark-previous-like-this
-      ;; mc/mark-all-in-region-regexp
-      ;; mc/skip-to-previous-like-this
+      ("M-p" mc/unmark-previous-like-this "unmark-previous-like-this")
+      ("R" mc/mark-all-in-region-regexp "mark-all-in-region-regexp" :exit t)
+      ("P" mc/skip-to-previous-like-this "skip-to-previous-like-this")
       ;; mc/mark-all-symbols-like-this
       ;; mc/mark-next-symbol-like-this
       ;; mc/mark-next-like-this-symbol

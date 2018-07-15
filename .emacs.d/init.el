@@ -905,6 +905,9 @@
   :ensure t
   :init
   (progn
+    ;; Make the scratch buffer empty.
+    (setq cider-scratch-initial-message "")
+    
     ;; Colorize usages of functions and variables from all namespaces.
     (setq cider-font-lock-dynamically '(macro core function var)))
   :config

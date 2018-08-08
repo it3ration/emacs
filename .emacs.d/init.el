@@ -448,6 +448,10 @@
 
       ;; Comment.
       (";" paredit-comment-dwim "comment-dwim")
+
+      ;; Transpose forward / backward.
+      ("M-n" paxedit-transpose-forward "transpose-forward")
+      ("M-p" paxedit-transpose-backward "transpose-backward")
       
       ;; Cancel.
       ("q" nil "quit" :exit t))

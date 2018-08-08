@@ -7,6 +7,7 @@
         hydra-marking/er/expand-region
         hydra-marking/er/mark-symbol
         paredit-backward-kill-word
+        paredit-forward-kill-word
         paredit-semicolon
         ))
 

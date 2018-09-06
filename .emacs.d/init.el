@@ -312,6 +312,18 @@
 (setq uniquify-buffer-name-style 'post-forward uniquify-separator ":")
 
 ;;
+;; wgrep
+;;
+
+;; Makes grep buffers editable.
+(use-package wgrep
+  :ensure t
+  :init
+  (progn
+    ;; Save modified buffers when you exit.
+    (setq wgrep-auto-save-buffer t)))
+
+;;
 ;; expand-region
 ;;
 
@@ -630,6 +642,10 @@
                    (helm-attrset 'follow 1 (symbol-value source))))
                helm-sources))))
 
+    ;; Makes helm-grep buffers editable.
+    (use-package wgrep-helm
+      :ensure t)
+        
     ;; For spell checking.
     (use-package helm-flyspell
       :ensure t)

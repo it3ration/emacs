@@ -81,6 +81,16 @@
    `(font-lock-variable-name-face ((t (:foreground ,c-orange :bold t))))
 
    ;;
+   ;; wgrep
+   ;;
+
+   ;; wgrep-delete-face
+   ;; wgrep-done-face
+   ;; wgrep-face
+   ;; wgrep-file-face
+   ;; wgrep-reject-face
+
+   ;;
    ;; helm
    ;;
 

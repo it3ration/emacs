@@ -6,6 +6,9 @@
         hydra-marking/body
         hydra-marking/er/expand-region
         hydra-marking/er/mark-symbol
+        org-beginning-of-line
+        org-kill-line
+        org-self-insert-command
         paredit-backward-kill-word
         paredit-forward-kill-word
         paredit-semicolon
@@ -21,4 +24,5 @@
         hydra-multiple-cursors/mc/skip-to-previous-like-this
         hydra-multiple-cursors/mc/unmark-next-like-this
         hydra-multiple-cursors/mc/unmark-previous-like-this
+        suspend-frame
         ))

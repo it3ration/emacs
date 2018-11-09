@@ -645,7 +645,7 @@
     ;; Makes helm-grep buffers editable.
     (use-package wgrep-helm
       :ensure t)
-        
+    
     ;; For spell checking.
     (use-package helm-flyspell
       :ensure t)
@@ -1019,7 +1019,7 @@
     ;; (defhydra hydra-cider
     ;;   (:columns 3)
     ;;   "cider"
-      
+    
     ;;   ;; Cancel.
     ;;   ("q" nil "quit" :exit t))
 

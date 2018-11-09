@@ -1478,6 +1478,9 @@
     ;; Stop annoying keybindings.
     (setq erc-track-enable-keybindings nil)
 
+    ;; Don't bring newly-created erc buffers to the foreground.
+    (setq erc-join-buffer 'bury)
+
     ;; Let's use a sane prompt please.
     (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))))
 

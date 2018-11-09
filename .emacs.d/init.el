@@ -1473,7 +1473,7 @@
 
     ;; Automatically join a few channels.
     (setq erc-autojoin-channels-alist
-          '(("freenode.net" "#emacs")))
+          '(("freenode.net" "#emacs" "#lisp")))
 
     ;; Stop annoying keybindings.
     (setq erc-track-enable-keybindings nil)

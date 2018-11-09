@@ -30,6 +30,17 @@
 (setq is-mac (equal system-type 'darwin))
 
 ;;
+;; private
+;;
+
+;; Variables for erc.
+(defvar my-erc-nick nil)
+(defvar my-erc-password nil)
+
+;; Put all private variables here.
+(load "~/.private.el" t)
+
+;;
 ;; custom
 ;;
 
@@ -1484,8 +1495,13 @@
     ;; Let's use a sane prompt please.
     (setq erc-prompt (lambda () (concat "[" (buffer-name) "]")))))
 
-;; Load erc credentials.
-(load "~/.erc" t)
+(defun chat ()
+  "Starts an erc session."
+  (interactive)
+  (erc :server "irc.freenode.net"
+       :port 6667
+       :nick my-erc-nick
+       :password my-erc-password))
 
 ;;
 ;; restclient

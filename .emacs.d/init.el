@@ -19,6 +19,8 @@
 ;; * rainbow-identifiers
 ;; * sexp-fu
 ;; * swiper-helm
+;; * rjsx-mode
+;; * skewer-mode
 
 ;;
 ;; platform

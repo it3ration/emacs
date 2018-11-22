@@ -580,9 +580,11 @@
 (use-package projectile
   :ensure t
   :demand t
-  :commands (projectile-find-file projectile-switch-project)
   :init
   (progn
+    ;; Add a global prefix.
+    (global-set-key (kbd "C-c p") 'projectile-command-map)
+
     ;; Use helm as projectile's completion system.
     (setq projectile-completion-system 'helm)
     

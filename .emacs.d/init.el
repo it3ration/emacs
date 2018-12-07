@@ -235,6 +235,13 @@
    (electric-pair-mode 1)))
 
 ;;
+;; latex
+;;
+
+;; Only use one '%' in comments, please.
+(add-hook 'latex-mode-hook (lambda () (setq-local comment-add 0)))
+
+;;
 ;; packages
 ;;
 

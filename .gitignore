@@ -2,6 +2,7 @@
 *.elc
 .emacs.d/backups
 .emacs.d/elpa
+.emacs.d/elpa.old
 .emacs.d/history
 .emacs.d/eshell
 .emacs.d/auto-save-list

@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        end-of-visual-line
         hydra-marking/body
         hydra-marking/er/expand-region
         hydra-marking/er/mark-symbol

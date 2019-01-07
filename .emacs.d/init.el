@@ -872,6 +872,20 @@
   :mode ("\\.shader$" "\\.cginc$"))
 
 ;;
+;; slime
+;;
+
+(use-package slime
+  :ensure t
+  :init
+  (progn
+    ;; We're using SBCL as our CL runtime.
+    (setq inferior-lisp-program "/usr/local/bin/sbcl")
+
+    ;; Load the most popular contribs.
+    (setq slime-contribs '(slime-fancy))))
+
+;;
 ;; clojure-mode
 ;;
 

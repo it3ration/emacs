@@ -737,6 +737,10 @@
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status))
+  :init
+  (progn
+    ;; Turn these off, they're ugly.
+    (setq magit-section-visibility-indicator nil))
   :config
   (progn
     ;; Open the status buffer in the current window and select it.

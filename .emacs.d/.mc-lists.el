@@ -11,7 +11,9 @@
         org-kill-line
         org-self-insert-command
         paredit-backward-kill-word
+        paredit-forward-delete
         paredit-forward-kill-word
+        paredit-kill
         paredit-semicolon
         ))
 

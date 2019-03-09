@@ -671,10 +671,6 @@
     ;; For spell checking.
     (use-package helm-flyspell
       :ensure t)
-
-    ;; For docsets.
-    (use-package helm-dash
-      :ensure t)
     
     ;; Swoop mode ftw.
     (use-package helm-swoop

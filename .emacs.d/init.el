@@ -344,6 +344,13 @@
     (setq wgrep-auto-save-buffer t)))
 
 ;;
+;; rg
+;;
+
+(use-package rg
+  :ensure t)
+
+;;
 ;; expand-region
 ;;
 

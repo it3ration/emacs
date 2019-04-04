@@ -7,6 +7,7 @@
         c-electric-colon
         c-electric-delete-forward
         c-electric-paren
+        c-indent-line-or-region
         end-of-visual-line
         hydra-marking/body
         hydra-marking/er/expand-region

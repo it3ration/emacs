@@ -3,10 +3,15 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        c-electric-brace
+        c-electric-colon
+        c-electric-delete-forward
+        c-electric-paren
         end-of-visual-line
         hydra-marking/body
         hydra-marking/er/expand-region
         hydra-marking/er/mark-symbol
+        kill-region
         org-beginning-of-line
         org-kill-line
         org-self-insert-command
@@ -19,6 +24,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        c-electric-lt-gt
         hydra-multiple-cursors/mc/edit-lines-and-exit
         hydra-multiple-cursors/mc/mark-all-like-this-and-exit
         hydra-multiple-cursors/mc/mark-next-like-this

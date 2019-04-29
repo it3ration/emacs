@@ -148,9 +148,6 @@
 (when (and is-mac is-gui)
   (set-frame-parameter nil 'fullscreen 'fullboth))
 
-;; Bind C-h to <backspace>.
-(define-key key-translation-map [?\C-h] [?\C-?])
-
 ;; Bind C-M-h to M-<backspace>.
 (define-key key-translation-map [?\C-\M-h] [?\C-\M-?])
 

@@ -29,7 +29,8 @@
 ;; Define some platform-specific variables.
 (setq is-terminal (equal window-system nil))
 (setq is-gui (equal window-system 'ns))
-(setq is-mac (equal system-type 'darwin))
+(setq is-osx (equal system-type 'darwin))
+(setq is-gnu (memq system-type '(gnu gnu/linux gnu/kfreebsd)))
 
 ;;
 ;; private
@@ -145,7 +146,7 @@
 (setq-default cursor-in-non-selected-windows nil)
 
 ;; Start gui emacs fullscreen.
-(when (and is-mac is-gui)
+(when (and is-osx is-gui)
   (set-frame-parameter nil 'fullscreen 'fullboth))
 
 ;; Bind C-M-h to M-<backspace>.
@@ -203,7 +204,7 @@
 ;; font
 ;;
 
-(when (and is-mac is-gui)
+(when (and is-osx is-gui)
   (custom-set-faces
    '(default ((t (:height 160 :width normal :family "Menlo"))))))
 

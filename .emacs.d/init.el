@@ -384,6 +384,26 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;;
+;; clang-format
+;;
+
+(defun my-clang-format-buffer ()
+  "Reformat buffer if .clang-format exists in the projectile root."
+  (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+    (clang-format-buffer)))
+
+(let ((path "~/bin/clang-format.el"))
+  (when (f-exists? path)
+    ;; Load the package.
+    (load path)
+    
+    ;; Format on save for c / c++.
+    (-map
+     (lambda (x)
+       (add-hook x (lambda () (add-hook 'before-save-hook #'my-clang-format-buffer nil 'local))))
+     '(c-mode-hook c++-mode-hook))))
+
+;;
 ;; hydra
 ;;
 

@@ -169,7 +169,27 @@
 (setq vc-make-backup-files t)
 
 ;;
-;; clipboard
+;; copy / paste
+;;
+
+;; Copy / paste on mac.
+(when (and is-osx is-terminal)
+  ;; Copy from the clipboard.
+  (defun mac-copy ()
+    (shell-command-to-string "pbpaste"))
+
+  ;; Paste from the clipboard.
+  (defun mac-paste (text &optional push)
+    (let ((process-connection-type nil)) 
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+
+  ;; Install the commands.
+  (setq interprogram-paste-function 'mac-copy)
+  (setq interprogram-cut-function 'mac-paste))
+
+;; Copy / paste on wsl.
 ;;
 ;; For this I had help from the following sources:
 ;;
@@ -181,33 +201,9 @@
 ;; you also need to have the following extension installed:
 ;;
 ;; https://github.com/mklement0/ClipboardText
-;;
-
-;; Copy / paste on mac.
-;; (when (and is-osx is-terminal)
-;;   ;; Copy from the clipboard.
-;;   (defun mac-copy ()
-;;     (shell-command-to-string "pbpaste"))
-;;
-;;   ;; Paste from the clipboard.
-;;   (defun mac-paste (text &optional push)
-;;     (let ((process-connection-type nil)) 
-;;       (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;;         (process-send-string proc text)
-;;         (process-send-eof proc))))
-;;
-;;   ;; Install the commands.
-;;   (setq interprogram-paste-function 'mac-copy)
-;;   (setq interprogram-cut-function 'mac-paste))
-
-(defun my-clipboard-set (value)
-  "Sets the clipboard value."
-  (cond
-   (is-osx
-    (with-temp-buffer
-      (insert value)
-      (call-process-region (point-min) (point-max) "pbcopy")))
-   (is-gnu
+(when (and is-wsl is-terminal)
+  (defun my-clipboard-set (value)
+    "Sets the clipboard value."
     (let ((program (executable-find "clip.exe")))
       (with-temp-buffer
         (insert value)
@@ -215,16 +211,10 @@
          (program
           (call-process-region (point-min) (point-max) program))
          (t
-          (call-process-region (point-min) (point-max) "xsel" nil nil nil "--clipboard" "--input"))))))))
+          (call-process-region (point-min) (point-max) "xsel" nil nil nil "--clipboard" "--input"))))))
 
-(defun my-clipboard-get ()
-  "Gets the clipboard value."
-  (cond
-   (is-osx
-    (with-output-to-string
-      (with-current-buffer standard-output
-        (call-process "pbpaste" nil t nil "-Prefer" "txt"))))
-   (is-gnu
+  (defun my-clipboard-get ()
+    "Gets the clipboard value."
     (let ((program (executable-find "pwsh.exe")))
       (cond
        (program
@@ -237,21 +227,21 @@
        (t
         (with-output-to-string
           (with-current-buffer standard-output
-            (call-process "xsel" nil t nil "--clipboard" "--output")))))))))
+            (call-process "xsel" nil t nil "--clipboard" "--output")))))))
 
-(defun my-clipboard-copy (start end)
-  "Copy to the clipboard."
-  (interactive "r")
-  (my-clipboard-set (buffer-substring-no-properties start end)))
+  (defun my-clipboard-copy (start end)
+    "Copy to the clipboard."
+    (interactive "r")
+    (my-clipboard-set (buffer-substring-no-properties start end)))
 
-(defun my-clipboard-paste ()
-  "Paste from the clipboard."
-  (interactive)
-  (insert (my-clipboard-get)))
+  (defun my-clipboard-paste ()
+    "Paste from the clipboard."
+    (interactive)
+    (insert (my-clipboard-get)))
 
-;; Keybindings for clipboard copy / paste.
-(global-set-key (kbd "C-c M-w") 'my-clipboard-copy)
-(global-set-key (kbd "C-c C-y") 'my-clipboard-paste)
+  ;; Keybindings for clipboard copy / paste.
+  (global-set-key (kbd "C-c M-w") 'my-clipboard-copy)
+  (global-set-key (kbd "C-c C-y") 'my-clipboard-paste))
 
 ;;
 ;; theme

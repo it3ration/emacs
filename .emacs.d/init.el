@@ -193,7 +193,7 @@
 (when (and is-wsl is-terminal)
   ;; Copy from the clipboard.
   (defun wsl-copy ()
-    (shell-command-to-string "win32yank -o"))
+    (s-replace "" "" (shell-command-to-string "win32yank -o")))
 
   ;; Paste from the clipboard.
   (defun wsl-paste (text &optional push)

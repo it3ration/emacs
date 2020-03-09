@@ -181,7 +181,7 @@
   ;; Paste from the clipboard.
   (defun mac-paste (text &optional push)
     (let ((process-connection-type nil)) 
-      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (let ((proc (start-process "pbcopy" nil "pbcopy")))
         (process-send-string proc text)
         (process-send-eof proc))))
 
@@ -190,58 +190,21 @@
   (setq interprogram-cut-function 'mac-paste))
 
 ;; Copy / paste on wsl.
-;;
-;; For this I had help from the following sources:
-;;
-;; https://github.com/redguardtoo/emacs.d
-;; http://blog.binchen.org/posts/copypaste-in-emacs.html
-;;
-;; For things to work on wsl, you need to have "clip.exe"
-;; and Powershell ("pwsh.exe") in your path. For Powershell,
-;; you also need to have the following extension installed:
-;;
-;; https://github.com/mklement0/ClipboardText
 (when (and is-wsl is-terminal)
-  (defun my-clipboard-set (value)
-    "Sets the clipboard value."
-    (let ((program (executable-find "clip.exe")))
-      (with-temp-buffer
-        (insert value)
-        (cond
-         (program
-          (call-process-region (point-min) (point-max) program))
-         (t
-          (call-process-region (point-min) (point-max) "xsel" nil nil nil "--clipboard" "--input"))))))
+  ;; Copy from the clipboard.
+  (defun wsl-copy ()
+    (shell-command-to-string "win32yank -o"))
 
-  (defun my-clipboard-get ()
-    "Gets the clipboard value."
-    (let ((program (executable-find "pwsh.exe")))
-      (cond
-       (program
-        (substring 
-         (with-output-to-string
-           (with-current-buffer standard-output
-             (let ((coding-system-for-read 'dos))
-               (call-process program nil t nil "-command" "Get-ClipboardText"))))
-         0 -1))
-       (t
-        (with-output-to-string
-          (with-current-buffer standard-output
-            (call-process "xsel" nil t nil "--clipboard" "--output")))))))
+  ;; Paste from the clipboard.
+  (defun wsl-paste (text &optional push)
+    (let ((process-connection-type nil)) 
+      (let ((proc (start-process "win32yank" nil "win32yank" "-i")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
 
-  (defun my-clipboard-copy (start end)
-    "Copy to the clipboard."
-    (interactive "r")
-    (my-clipboard-set (buffer-substring-no-properties start end)))
-
-  (defun my-clipboard-paste ()
-    "Paste from the clipboard."
-    (interactive)
-    (insert (my-clipboard-get)))
-
-  ;; Keybindings for clipboard copy / paste.
-  (global-set-key (kbd "C-c M-w") 'my-clipboard-copy)
-  (global-set-key (kbd "C-c C-y") 'my-clipboard-paste))
+  ;; Install the commands.
+  (setq interprogram-paste-function 'wsl-copy)
+  (setq interprogram-cut-function 'wsl-paste))
 
 ;;
 ;; theme

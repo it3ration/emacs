@@ -169,44 +169,6 @@
 (setq vc-make-backup-files t)
 
 ;;
-;; copy / paste
-;;
-
-;; Copy / paste on mac.
-(when (and is-osx is-terminal)
-  ;; Copy from the clipboard.
-  (defun mac-copy ()
-    (shell-command-to-string "pbpaste"))
-
-  ;; Paste from the clipboard.
-  (defun mac-paste (text &optional push)
-    (let ((process-connection-type nil)) 
-      (let ((proc (start-process "pbcopy" nil "pbcopy")))
-        (process-send-string proc text)
-        (process-send-eof proc))))
-
-  ;; Install the commands.
-  (setq interprogram-paste-function 'mac-copy)
-  (setq interprogram-cut-function 'mac-paste))
-
-;; Copy / paste on wsl.
-(when (and is-wsl is-terminal)
-  ;; Copy from the clipboard.
-  (defun wsl-copy ()
-    (s-replace "" "" (shell-command-to-string "win32yank -o")))
-
-  ;; Paste from the clipboard.
-  (defun wsl-paste (text &optional push)
-    (let ((process-connection-type nil)) 
-      (let ((proc (start-process "win32yank" nil "win32yank" "-i")))
-        (process-send-string proc text)
-        (process-send-eof proc))))
-
-  ;; Install the commands.
-  (setq interprogram-paste-function 'wsl-copy)
-  (setq interprogram-cut-function 'wsl-paste))
-
-;;
 ;; theme
 ;;
 
@@ -304,6 +266,34 @@
 ;; The list library.
 (use-package dash
   :ensure t)
+
+;;
+;; copy / paste
+;;
+
+;; Copy / paste on osx / gnu.
+(when (and (or is-osx is-gnu) is-terminal)
+  (use-package xclip
+    :ensure t
+    :config
+    (progn (xclip-mode 1))))
+
+;; Copy / paste on wsl.
+(when (and is-wsl is-terminal)
+  ;; Copy from the clipboard.
+  (defun wsl-copy ()
+    (s-replace "" "" (shell-command-to-string "win32yank -o")))
+
+  ;; Paste from the clipboard.
+  (defun wsl-paste (text &optional push)
+    (let ((process-connection-type nil)) 
+      (let ((proc (start-process "win32yank" nil "win32yank" "-i")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+
+  ;; Install the commands.
+  (setq interprogram-paste-function 'wsl-copy)
+  (setq interprogram-cut-function 'wsl-paste))
 
 ;;
 ;; paths

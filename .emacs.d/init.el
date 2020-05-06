@@ -272,7 +272,7 @@
 ;;
 
 ;; Copy / paste on osx / gnu.
-(when (and (or is-osx is-gnu) is-terminal)
+(when (and (or is-osx is-gnu) (not is-wsl) is-terminal)
   (use-package xclip
     :ensure t
     :config

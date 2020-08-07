@@ -741,6 +741,10 @@
       (progn
         ;; Turn it on.
         (helm-projectile-toggle 1)))
+
+    ;; For helm rg integration.
+    (use-package helm-rg
+      :ensure t)
     
     ;; For inspecting bindings.
     (use-package helm-descbinds

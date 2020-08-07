@@ -905,6 +905,15 @@
      (lambda ()
        (electric-pair-mode 1)))))
 
+
+;;
+;; rust-mode
+;;
+
+(use-package rust-mode
+  :ensure t
+  :mode "\\.rs$")
+
 ;;
 ;; shader-mode
 ;;

@@ -905,6 +905,19 @@
      (lambda ()
        (electric-pair-mode 1)))))
 
+;;
+;; lsp-mode
+;;
+
+(use-package lsp-mode
+  :ensure t
+  :hook ((csharp-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :config
+  (progn
+    ;; Let's add helm support please.
+    (use-package helm-lsp
+      :ensure t)))
 
 ;;
 ;; rust-mode

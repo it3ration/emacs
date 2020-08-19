@@ -153,6 +153,9 @@
 ;; Bind C-M-h to M-<backspace>.
 (define-key key-translation-map [?\C-\M-h] [?\C-\M-?])
 
+;; Remove trailing whitespace on save.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;;
 ;; backups
 ;;

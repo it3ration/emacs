@@ -179,7 +179,7 @@
 (setq custom-theme-directory (concat user-emacs-directory "themes"))
 
 ;; Use the it3ration theme for now.
-(condition-case nil 
+(condition-case nil
     (load-theme 'it3ration t)
   (wrong-number-of-arguments (load-theme 'it3ration)))
 
@@ -289,7 +289,7 @@
 
   ;; Paste from the clipboard.
   (defun wsl-paste (text &optional push)
-    (let ((process-connection-type nil)) 
+    (let ((process-connection-type nil))
       (let ((proc (start-process "win32yank" nil "win32yank" "-i")))
         (process-send-string proc text)
         (process-send-eof proc))))
@@ -343,7 +343,7 @@
   (when (f-exists? path)
     ;; Load the package.
     (load path)
-    
+
     ;; Format on save for c / c++.
     (-map
      (lambda (x)
@@ -421,14 +421,14 @@
       ;; Delimiters.
       ("(" er/mark-outside-pairs "mark-outside-pairs")
       (")" er/mark-inside-pairs "mark-inside-pairs")
-      
+
       ;; Special.
       ("u" er/mark-url "mark-url")
       ("e" er/mark-email "mark-email")
 
       ;; Functions.
       ("d" er/mark-defun "mark-defun")
-      
+
       ;; Expand / contract / reset region.
       ("k" er/expand-region "expand-region")
       ("j" er/contract-region "contract-region")
@@ -501,7 +501,7 @@
       ("w{" paredit-wrap-curly "wrap-curly")
       ("w<" paredit-wrap-angled "wrap-angled")
       ("w\"" paredit-meta-doublequote "meta-doublequote")
-      
+
       ;; Splicing.
       ("ss" paredit-splice-sexp "splice-sexp")
       ("sf" paredit-splice-sexp-killing-forward "splice-sexp-killing-forward")
@@ -526,7 +526,7 @@
       ;; Transpose forward / backward.
       ("M-n" paxedit-transpose-forward "transpose-forward")
       ("M-p" paxedit-transpose-backward "transpose-backward")
-      
+
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
@@ -601,7 +601,7 @@
 ;; which-key
 ;;
 
-;; The replacement for guide-key. Given a key 
+;; The replacement for guide-key. Given a key
 ;; sequence, shows what commands are available.
 (use-package which-key
   :ensure t
@@ -615,7 +615,7 @@
 
     ;; Allow 50% of the frame to display keys.
     (setq which-key-side-window-max-height 0.5)
-    
+
     ;; Open it at the bottom.
     (which-key-setup-side-window-bottom)
 
@@ -636,7 +636,7 @@
 
     ;; Use helm as projectile's completion system.
     (setq projectile-completion-system 'helm)
-    
+
     ;; Set our indexing mode.
     (setq projectile-indexing-method 'alien))
   :config
@@ -681,13 +681,13 @@
 
     ;; Stop annoying keybindings.
     (global-unset-key (kbd "C-x c"))
-    
+
     ;; Add a global prefix.
     (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
     ;; Up this limit a bit.
     (setq helm-candidate-number-limit 400)
-    
+
     ;; Add a few extensions to helm's command map.
     (define-key helm-command-map (kbd "d") 'helm-dash)
     (define-key helm-command-map (kbd "o") 'helm-occur))
@@ -709,11 +709,11 @@
     ;; Makes helm-grep buffers editable.
     (use-package wgrep-helm
       :ensure t)
-    
+
     ;; For spell checking.
     (use-package helm-flyspell
       :ensure t)
-    
+
     ;; Swoop mode ftw.
     (use-package helm-swoop
       :ensure t
@@ -736,7 +736,7 @@
     ;; For helm git integration.
     (use-package helm-ls-git
       :ensure t)
-    
+
     ;; Helm integration? Yes please!
     (use-package helm-projectile
       :ensure t
@@ -748,7 +748,7 @@
     ;; For helm rg integration.
     (use-package helm-rg
       :ensure t)
-    
+
     ;; For inspecting bindings.
     (use-package helm-descbinds
       :ensure t
@@ -800,7 +800,7 @@
     (defhydra hydra-multiple-cursors
       (:columns 3)
       "multiple-cursors"
-      
+
       ;; mc/mark-pop
       ;; mc/mmlte--up
       ("l" mc/edit-lines "edit-lines" :exit t)
@@ -849,7 +849,7 @@
       ;; mc/mark-previous-like-this-symbol
       ;; mc/mark-all-words-like-this-in-defun
       ;; mc/mark-all-symbols-like-this-in-defun
-      
+
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
@@ -912,15 +912,19 @@
 ;; lsp-mode
 ;;
 
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :hook ((csharp-mode . lsp)
-;;          (lsp-mode . lsp-enable-which-key-integration))
-;;   :config
-;;   (progn
-;;     ;; Let's add helm support please.
-;;     (use-package helm-lsp
-;;       :ensure t)))
+(use-package lsp-mode
+  :ensure t
+  :hook ((csharp-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  (progn
+    ;; Turn off error checking for now.
+    (setq lsp-diagnostics-provider :none))
+  :config
+  (progn
+    ;; Let's add helm support please.
+    (use-package helm-lsp
+      :ensure t)))
 
 ;;
 ;; rust-mode
@@ -971,7 +975,7 @@
     ;; (defhydra hydra-clojure
     ;;   (:columns 3)
     ;;   "clojure"
-    
+
     ;;   ;; Cancel.
     ;;   ("q" nil "quit" :exit t))
 
@@ -1031,7 +1035,7 @@
   (progn
     ;; Make the scratch buffer empty.
     (setq cider-scratch-initial-message "")
-    
+
     ;; Colorize usages of functions and variables from all namespaces.
     (setq cider-font-lock-dynamically '(macro core function var)))
   :config
@@ -1049,7 +1053,7 @@
     ;; Refactoring support.
     (use-package clj-refactor
       :ensure t)
-    
+
     ;; The docs hydra.
     (defhydra hydra-cider-docs
       (:columns 3)
@@ -1099,7 +1103,7 @@
       ("d" cider-find-dwim "find-dwim" :exit t)
       ("k" cider-find-keyword "find-keyword" :exit t)
       ("r" cider-find-resource "find-resource" :exit t)
-      
+
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
@@ -1115,7 +1119,7 @@
       ("p" cider-test-run-project-tests "test-run-project-tests" :exit t)
       ("f" cider-test-rerun-failed-tests "test-rerun-failed-tests" :exit t)
       ("r" cider-test-show-report "test-show-report" :exit t)
-      
+
       ;; Cancel.
       ("q" nil "quit" :exit t))
 
@@ -1123,7 +1127,7 @@
     ;; (defhydra hydra-cider
     ;;   (:columns 3)
     ;;   "cider"
-    
+
     ;;   ;; Cancel.
     ;;   ("q" nil "quit" :exit t))
 
@@ -1360,8 +1364,8 @@
     (define-key cider-repl-mode-map (kbd "C-c") nil)
 
     ;; Only enable these in cider mode.
-    (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)    
-    
+    (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)
+
     ;; Method to add common cider hydras.
     (-each (list cider-mode-map
                  cider-repl-mode-map)
@@ -1438,7 +1442,7 @@
  (lambda ()
    ;; Set a reasonable width.
    (set-fill-column 65)
-   
+
    ;; Auto fill please.
    (turn-on-auto-fill)
 
@@ -1455,7 +1459,7 @@
   (progn
     ;; Stop annoying keybindings.
     (global-unset-key (kbd "C-c C-j"))
-    
+
     ;; Various settings.
     (setq org-journal-dir "~/repos/journal")
     (setq org-journal-file-format "%Y-%m-%d.org")
@@ -1541,7 +1545,7 @@
     ;; Fill chat messages based on window width.
     (make-variable-buffer-local 'erc-fill-column)
     (add-hook
-     'window-configuration-change-hook 
+     'window-configuration-change-hook
      '(lambda ()
         (save-excursion
           (walk-windows
@@ -1568,7 +1572,7 @@
 
     ;; Always show timestamps.
     (setq erc-timestamp-only-if-changed-flag nil)
-    
+
     ;; Show timestamps on the left.
     (setq erc-insert-timestamp-function 'erc-insert-timestamp-left)
 

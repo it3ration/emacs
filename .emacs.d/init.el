@@ -909,12 +909,23 @@
        (electric-pair-mode 1)))))
 
 ;;
+;; yasnippet
+;;
+
+(use-package yasnippet
+  :ensure t)
+
+;;
 ;; lsp-mode
 ;;
 
+(defun setup-lsp-for-csharp ()
+  (yas-minor-mode)
+  (lsp))
+
 (use-package lsp-mode
   :ensure t
-  :hook ((csharp-mode . lsp)
+  :hook ((csharp-mode . setup-lsp-for-csharp)
          (lsp-mode . lsp-enable-which-key-integration))
   :init
   (progn

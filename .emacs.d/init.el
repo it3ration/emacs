@@ -919,23 +919,23 @@
 ;; lsp-mode
 ;;
 
-(defun setup-lsp-for-csharp ()
-  (yas-minor-mode)
-  (lsp))
+;; (defun setup-lsp-for-csharp ()
+;;   (yas-minor-mode)
+;;   (lsp))
 
-(use-package lsp-mode
-  :ensure t
-  :hook ((csharp-mode . setup-lsp-for-csharp)
-         (lsp-mode . lsp-enable-which-key-integration))
-  :init
-  (progn
-    ;; Turn off error checking for now.
-    (setq lsp-diagnostics-provider :none))
-  :config
-  (progn
-    ;; Let's add helm support please.
-    (use-package helm-lsp
-      :ensure t)))
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :hook ((csharp-mode . setup-lsp-for-csharp)
+;;          (lsp-mode . lsp-enable-which-key-integration))
+;;   :init
+;;   (progn
+;;     ;; Turn off error checking for now.
+;;     (setq lsp-diagnostics-provider :none))
+;;   :config
+;;   (progn
+;;     ;; Let's add helm support please.
+;;     (use-package helm-lsp
+;;       :ensure t)))
 
 ;;
 ;; rust-mode

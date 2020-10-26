@@ -750,6 +750,25 @@
     (use-package helm-rg
       :ensure t)
 
+    ;; TODO: Set this up some more using this links:
+    ;; https://github.com/tuhdo/emacs-c-ide-demo/blob/master/custom/setup-helm-gtags.el
+    ;; https://www.emacswiki.org/emacs/GnuGlobal
+    ;; https://gist.github.com/dkruchinin/925042
+    ;; For navigating tags.
+    (use-package helm-gtags
+      :ensure t
+      :config
+      (progn
+
+        ;; Use this for modes that gnu global supports.
+        (add-hook 'c-mode-hook 'helm-gtags-mode)
+        (add-hook 'c++-mode-hook 'helm-gtags-mode)
+        (add-hook 'csharp-mode-hook 'helm-gtags-mode)
+
+        ;; Setup key bindings.
+        (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+        (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+
     ;; For inspecting bindings.
     (use-package helm-descbinds
       :ensure t

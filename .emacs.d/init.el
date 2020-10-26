@@ -203,7 +203,7 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; Style defaults.
-(setq-default c-default-style "k&r")
+;; (setq-default c-default-style "k&r")
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
@@ -212,7 +212,7 @@
 (add-hook
  'c-mode-common-hook
  (lambda ()
-   (setq c-default-style "k&r")
+   ;; (setq c-default-style "k&r")
    (c-set-style "k&r")
    (setq tab-width 4)
    (setq indent-tabs-mode nil)

@@ -689,8 +689,9 @@
     (setq helm-candidate-number-limit 400)
 
     ;; Add a few extensions to helm's command map.
-    (define-key helm-command-map (kbd "d") 'helm-dash)
-    (define-key helm-command-map (kbd "o") 'helm-occur))
+    ;; (define-key helm-command-map (kbd "d") 'helm-dash)
+    ;; (define-key helm-command-map (kbd "o") 'helm-occur)
+    )
   :config
   (progn
     ;; Turn it on.

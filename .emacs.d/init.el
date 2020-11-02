@@ -929,6 +929,22 @@
        (electric-pair-mode 1)))))
 
 ;;
+;; hlsl-mode
+;;
+
+(use-package hlsl-mode
+  :ensure t
+  :mode "\\.hlsl")
+
+;;
+;; protobuf-mode
+;;
+
+(use-package protobuf-mode
+  :ensure t
+  :mode "\\.proto")
+
+;;
 ;; yasnippet
 ;;
 

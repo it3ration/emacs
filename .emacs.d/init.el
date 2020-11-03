@@ -929,14 +929,6 @@
        (electric-pair-mode 1)))))
 
 ;;
-;; hlsl-mode
-;;
-
-(use-package hlsl-mode
-  :ensure t
-  :mode "\\.hlsl")
-
-;;
 ;; protobuf-mode
 ;;
 
@@ -988,7 +980,12 @@
 ;; For editing shaders.
 (use-package shader-mode
   :ensure t
-  :mode ("\\.shader$" "\\.cginc$"))
+  :mode ("\\.shader$"
+         "\\.compute$"
+         "\\.hlsl$"
+         "\\.glsl$"
+         "\\.cg$"
+         "\\.cginc$"))
 
 ;;
 ;; slime

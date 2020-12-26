@@ -30,7 +30,10 @@
 (setq is-terminal (equal window-system nil))
 (setq is-gui (equal window-system 'ns))
 (setq is-osx (equal system-type 'darwin))
-(setq is-wsl (string-match "[Mm]icrosoft" operating-system-release))
+(setq is-wsl
+      (and
+       (equal system-type 'gnu/linux)
+       (string-match "[Mm]icrosoft" operating-system-release)))
 (setq is-gnu (memq system-type '(gnu gnu/linux gnu/kfreebsd)))
 
 ;;

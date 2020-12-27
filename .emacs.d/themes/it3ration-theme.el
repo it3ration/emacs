@@ -23,7 +23,7 @@
       header-line-format
       '((:eval (propertize "%* " 'face '(:foreground "#00cd00" :weight bold)))
         (:eval (propertize (cider-current-ns) 'face '(:foreground "#ffff87" :weight bold)))))))
-  
+
   ;; The modeline.
   (setq-default
    mode-line-format
@@ -80,13 +80,13 @@
    `(font-lock-comment-face ((t (:foreground ,c-brown))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,c-brown))))
    `(font-lock-doc-face ((t (:foreground ,c-brown))))
-   `(font-lock-keyword-face ((t (:foreground ,c-pink :bold t))))
-   `(font-lock-preprocessor-face ((t (:foreground ,c-pink :bold t))))
-   `(font-lock-function-name-face ((t (:foreground ,c-green :bold t))))
-   `(font-lock-constant-face ((t (:foreground ,c-purple :bold t))))
-   `(font-lock-builtin-face ((t (:foreground ,c-purple :bold t))))
-   `(font-lock-type-face ((t (:foreground ,c-blue :bold t))))
-   `(font-lock-variable-name-face ((t (:foreground ,c-orange :bold t))))
+   `(font-lock-keyword-face ((t (:foreground ,c-pink))))
+   `(font-lock-preprocessor-face ((t (:foreground ,c-pink))))
+   `(font-lock-function-name-face ((t (:foreground ,c-green))))
+   `(font-lock-constant-face ((t (:foreground ,c-purple))))
+   `(font-lock-builtin-face ((t (:foreground ,c-purple))))
+   `(font-lock-type-face ((t (:foreground ,c-blue))))
+   `(font-lock-variable-name-face ((t (:foreground ,c-orange))))
 
    ;;
    ;; wgrep
@@ -174,29 +174,29 @@
    ;; magit
    ;;
 
-   ;; magit-bisect-bad                         
-   ;; magit-bisect-good                        
-   ;; magit-bisect-skip                        
-   ;; magit-blame-date                         
-   ;; magit-blame-dimmed                       
-   ;; magit-blame-hash                         
-   ;; magit-blame-heading                      
-   ;; magit-blame-highlight                    
-   ;; magit-blame-margin                       
-   ;; magit-blame-name                         
-   ;; magit-blame-summary                      
-   ;; magit-branch-current                     
-   ;; magit-branch-local                       
-   ;; magit-branch-remote                      
-   ;; magit-branch-remote-head                 
-   ;; magit-cherry-equivalent                  
+   ;; magit-bisect-bad
+   ;; magit-bisect-good
+   ;; magit-bisect-skip
+   ;; magit-blame-date
+   ;; magit-blame-dimmed
+   ;; magit-blame-hash
+   ;; magit-blame-heading
+   ;; magit-blame-highlight
+   ;; magit-blame-margin
+   ;; magit-blame-name
+   ;; magit-blame-summary
+   ;; magit-branch-current
+   ;; magit-branch-local
+   ;; magit-branch-remote
+   ;; magit-branch-remote-head
+   ;; magit-cherry-equivalent
    ;; magit-cherry-unmatched
    `(magit-diff-added ((t (:foreground ,c-green :bold t))))
    `(magit-diff-added-highlight ((t (:foreground ,c-green :bold t))))
-   ;; magit-diff-base                          
-   ;; magit-diff-base-highlight                
-   ;; magit-diff-conflict-heading              
-   ;; magit-diff-context                       
+   ;; magit-diff-base
+   ;; magit-diff-base-highlight
+   ;; magit-diff-conflict-heading
+   ;; magit-diff-context
    ;; magit-diff-context-highlight
    `(magit-diff-file-heading ((t (:foreground ,c-white))))
    `(magit-diff-file-heading-highlight ((t (:foreground ,c-purple :bold t))))
@@ -207,109 +207,109 @@
    `(magit-diff-hunk-region ((t (:background ,c-black))))
    `(magit-diff-lines-boundary ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
    `(magit-diff-lines-heading ((t (:background ,c-light-gray :foreground ,c-purple :bold t))))
-   ;; magit-diff-our                           
+   ;; magit-diff-our
    ;; magit-diff-our-highlight
    `(magit-diff-removed ((t (:foreground ,c-pink :bold t))))
    `(magit-diff-removed-highlight ((t (:foreground ,c-pink :bold t))))
-   ;; magit-diff-their                         
-   ;; magit-diff-their-highlight               
-   ;; magit-diff-whitespace-warning            
-   ;; magit-diffstat-added                     
-   ;; magit-diffstat-removed                   
-   ;; magit-dimmed                             
-   ;; magit-filename                           
-   ;; magit-hash                               
-   ;; magit-head                               
-   ;; magit-header-line                        
-   ;; magit-header-line-key                    
-   ;; magit-header-line-log-select             
-   ;; magit-keyword                            
-   ;; magit-log-author                         
-   ;; magit-log-date                           
-   ;; magit-log-graph                          
-   ;; magit-mode-line-process                  
-   ;; magit-mode-line-process-error            
-   ;; magit-popup-argument                     
-   ;; magit-popup-disabled-argument            
-   ;; magit-popup-heading                      
-   ;; magit-popup-key                          
-   ;; magit-popup-option-value                 
-   ;; magit-process-ng                         
-   ;; magit-process-ok                         
-   ;; magit-reflog-amend                       
-   ;; magit-reflog-checkout                    
-   ;; magit-reflog-cherry-pick                 
-   ;; magit-reflog-commit                      
-   ;; magit-reflog-merge                       
-   ;; magit-reflog-other                       
-   ;; magit-reflog-rebase                      
-   ;; magit-reflog-remote                      
-   ;; magit-reflog-reset                       
-   ;; magit-refname                            
-   ;; magit-refname-pullreq                    
-   ;; magit-refname-stash                      
+   ;; magit-diff-their
+   ;; magit-diff-their-highlight
+   ;; magit-diff-whitespace-warning
+   ;; magit-diffstat-added
+   ;; magit-diffstat-removed
+   ;; magit-dimmed
+   ;; magit-filename
+   ;; magit-hash
+   ;; magit-head
+   ;; magit-header-line
+   ;; magit-header-line-key
+   ;; magit-header-line-log-select
+   ;; magit-keyword
+   ;; magit-log-author
+   ;; magit-log-date
+   ;; magit-log-graph
+   ;; magit-mode-line-process
+   ;; magit-mode-line-process-error
+   ;; magit-popup-argument
+   ;; magit-popup-disabled-argument
+   ;; magit-popup-heading
+   ;; magit-popup-key
+   ;; magit-popup-option-value
+   ;; magit-process-ng
+   ;; magit-process-ok
+   ;; magit-reflog-amend
+   ;; magit-reflog-checkout
+   ;; magit-reflog-cherry-pick
+   ;; magit-reflog-commit
+   ;; magit-reflog-merge
+   ;; magit-reflog-other
+   ;; magit-reflog-rebase
+   ;; magit-reflog-remote
+   ;; magit-reflog-reset
+   ;; magit-refname
+   ;; magit-refname-pullreq
+   ;; magit-refname-stash
    ;; magit-refname-wip
    `(magit-section-heading ((t (:foreground ,c-yellow :bold t))))
-   ;; magit-section-heading-selection          
-   ;; magit-section-highlight                  
-   ;; magit-section-secondary-heading          
-   ;; magit-sequence-done                      
-   ;; magit-sequence-drop                      
-   ;; magit-sequence-exec                      
-   ;; magit-sequence-head                      
-   ;; magit-sequence-onto                      
-   ;; magit-sequence-part                      
-   ;; magit-sequence-pick                      
-   ;; magit-sequence-stop                      
-   ;; magit-signature-bad                      
-   ;; magit-signature-error                    
-   ;; magit-signature-expired                  
-   ;; magit-signature-expired-key              
-   ;; magit-signature-good                     
-   ;; magit-signature-revoked                  
-   ;; magit-signature-untrusted                
-   ;; magit-tag                                
+   ;; magit-section-heading-selection
+   ;; magit-section-highlight
+   ;; magit-section-secondary-heading
+   ;; magit-sequence-done
+   ;; magit-sequence-drop
+   ;; magit-sequence-exec
+   ;; magit-sequence-head
+   ;; magit-sequence-onto
+   ;; magit-sequence-part
+   ;; magit-sequence-pick
+   ;; magit-sequence-stop
+   ;; magit-signature-bad
+   ;; magit-signature-error
+   ;; magit-signature-expired
+   ;; magit-signature-expired-key
+   ;; magit-signature-good
+   ;; magit-signature-revoked
+   ;; magit-signature-untrusted
+   ;; magit-tag
 
    ;;
    ;; cider
    ;;
 
-   ;; cider-debug-code-overlay-face        
-   ;; cider-debug-prompt-face                 
-   ;; cider-deprecated-face                   
-   ;; cider-docview-emphasis-face             
-   ;; cider-docview-literal-face              
-   ;; cider-docview-strong-face               
-   ;; cider-docview-table-border-face         
-   ;; cider-enlightened-face                  
-   ;; cider-enlightened-local-face            
+   ;; cider-debug-code-overlay-face
+   ;; cider-debug-prompt-face
+   ;; cider-deprecated-face
+   ;; cider-docview-emphasis-face
+   ;; cider-docview-literal-face
+   ;; cider-docview-strong-face
+   ;; cider-docview-table-border-face
+   ;; cider-enlightened-face
+   ;; cider-enlightened-local-face
    `(cider-error-highlight-face ((t (:underline t))))
-   ;; cider-fragile-button-face               
-   ;; cider-fringe-good-face                  
-   ;; cider-instrumented-face                 
-   ;; cider-reader-conditional-face           
-   ;; cider-repl-input-face                   
-   ;; cider-repl-prompt-face                  
-   ;; cider-repl-result-face                  
-   ;; cider-repl-stderr-face                  
-   ;; cider-repl-stdout-face                  
-   ;; cider-result-overlay-face               
-   ;; cider-stacktrace-error-class-face       
-   ;; cider-stacktrace-error-message-face     
-   ;; cider-stacktrace-face                   
-   ;; cider-stacktrace-filter-active-face     
-   ;; cider-stacktrace-filter-inactive-face   
-   ;; cider-stacktrace-fn-face                
-   ;; cider-stacktrace-ns-face                
-   ;; cider-stacktrace-promoted-button-face   
-   ;; cider-stacktrace-suppressed-button-face 
-   ;; cider-test-error-face                   
-   ;; cider-test-failure-face                 
-   ;; cider-test-success-face                 
+   ;; cider-fragile-button-face
+   ;; cider-fringe-good-face
+   ;; cider-instrumented-face
+   ;; cider-reader-conditional-face
+   ;; cider-repl-input-face
+   ;; cider-repl-prompt-face
+   ;; cider-repl-result-face
+   ;; cider-repl-stderr-face
+   ;; cider-repl-stdout-face
+   ;; cider-result-overlay-face
+   ;; cider-stacktrace-error-class-face
+   ;; cider-stacktrace-error-message-face
+   ;; cider-stacktrace-face
+   ;; cider-stacktrace-filter-active-face
+   ;; cider-stacktrace-filter-inactive-face
+   ;; cider-stacktrace-fn-face
+   ;; cider-stacktrace-ns-face
+   ;; cider-stacktrace-promoted-button-face
+   ;; cider-stacktrace-suppressed-button-face
+   ;; cider-test-error-face
+   ;; cider-test-failure-face
+   ;; cider-test-success-face
    ;; cider-traced-face
    `(cider-warning-highlight-face ((t (:underline t))))
-   ;; clojure-character-face                  
-   ;; clojure-keyword-face                    
+   ;; clojure-character-face
+   ;; clojure-keyword-face
 
    ;;
    ;; smartparens
@@ -317,7 +317,7 @@
 
    `(sp-show-pair-match-face ((t (:background ,c-green))))
    `(sp-show-pair-mismatch-face ((t (:background ,c-green))))
-   
+
    ;;
    ;; erc
    ;;

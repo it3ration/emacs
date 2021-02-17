@@ -969,6 +969,14 @@
 ;;       :ensure t)))
 
 ;;
+;; lua-mode
+;;
+
+(use-package lua-mode
+  :ensure t
+  :mode "\\.lua$")
+
+;;
 ;; rust-mode
 ;;
 

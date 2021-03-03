@@ -106,7 +106,7 @@
 (global-subword-mode 1)
 
 ;; We're not in the 80's anymore.
-(setq gc-cons-threshold 20000000)
+(setq gc-cons-threshold 100000000)
 
 ;; Shoot for an 80 character width.
 (setq fill-column 80)
@@ -758,19 +758,19 @@
     ;; https://www.emacswiki.org/emacs/GnuGlobal
     ;; https://gist.github.com/dkruchinin/925042
     ;; For navigating tags.
-    (use-package helm-gtags
-      :ensure t
-      :config
-      (progn
-
-        ;; Use this for modes that gnu global supports.
-        (add-hook 'c-mode-hook 'helm-gtags-mode)
-        (add-hook 'c++-mode-hook 'helm-gtags-mode)
-        (add-hook 'csharp-mode-hook 'helm-gtags-mode)
-
-        ;; Setup key bindings.
-        (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-        (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+    ;; (use-package helm-gtags
+    ;;   :ensure t
+    ;;   :config
+    ;;   (progn
+    ;;
+    ;;     ;; Use this for modes that gnu global supports.
+    ;;     (add-hook 'c-mode-hook 'helm-gtags-mode)
+    ;;     (add-hook 'c++-mode-hook 'helm-gtags-mode)
+    ;;     (add-hook 'csharp-mode-hook 'helm-gtags-mode)
+    ;;
+    ;;     ;; Setup key bindings.
+    ;;     (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+    ;;     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
 
     ;; For inspecting bindings.
     (use-package helm-descbinds
@@ -947,26 +947,52 @@
   :ensure t)
 
 ;;
+;; flycheck
+;;
+
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode))
+
+;;
 ;; lsp-mode
 ;;
 
-;; (defun setup-lsp-for-csharp ()
-;;   (yas-minor-mode)
-;;   (lsp))
+(defun setup-lsp-for-csharp ()
+  (yas-minor-mode)
+  (lsp))
 
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :hook ((csharp-mode . setup-lsp-for-csharp)
-;;          (lsp-mode . lsp-enable-which-key-integration))
-;;   :init
-;;   (progn
-;;     ;; Turn off error checking for now.
-;;     (setq lsp-diagnostics-provider :none))
-;;   :config
-;;   (progn
-;;     ;; Let's add helm support please.
-;;     (use-package helm-lsp
-;;       :ensure t)))
+(use-package lsp-mode
+  :disabled
+  :ensure t
+  :hook ((csharp-mode . setup-lsp-for-csharp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :init
+  (progn
+    ;; Use the correct completion provider.
+    (setq lsp-completion-provider :capf)
+
+    ;; Reduce the idle delay.
+    (setq lsp-idle-delay 0.0)
+
+    ;; Increase the amount of data emacs reads from the process.
+    (setq read-process-output-max (* 1024 1024))
+
+    ;; Turn off file watching for now.
+    (setq lsp-enable-file-watchers nil)
+
+    ;; Disable lsp logging.
+    (setq lsp-log-io nil)
+
+    ;; (setq lsp-semantic-tokens-warn-on-missing-face t)
+
+    ;; Turn on highlighting please.
+    (setq lsp-semantic-tokens-enable t))
+  :config
+  (progn
+    ;; Let's add helm support please.
+    (use-package helm-lsp
+      :ensure t)))
 
 ;;
 ;; lua-mode
@@ -981,6 +1007,7 @@
 ;;
 
 (use-package rust-mode
+  :disabled
   :ensure t
   :mode "\\.rs$")
 
@@ -1474,6 +1501,7 @@
 ;;
 
 (use-package go-mode
+  :disabled
   :ensure t
   :mode "\\.go$"
   :init
@@ -1505,28 +1533,11 @@
    (org-indent-mode)))
 
 ;;
-;; org-journal
-;;
-
-(use-package org-journal
-  :ensure t
-  :config
-  (progn
-    ;; Stop annoying keybindings.
-    (global-unset-key (kbd "C-c C-j"))
-
-    ;; Various settings.
-    (setq org-journal-dir "~/repos/journal")
-    (setq org-journal-file-format "%Y-%m-%d.org")
-    (setq org-journal-date-format "%F (%A)")
-    (setq org-journal-time-format"%I:%M %p | ")
-    (setq org-journal-find-file 'find-file)))
-
-;;
 ;; haskell-mode
 ;;
 
 (use-package haskell-mode
+  :disabled
   :ensure t
   :mode "\\.hs$"
   :config
@@ -1551,6 +1562,7 @@
 
 ;; The emacs shell.
 (use-package eshell
+  :disabled
   :ensure t
   :commands eshell
   :config

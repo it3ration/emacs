@@ -1100,7 +1100,7 @@
     ;; clojure-convert-collection-to-quoted-list
 
     ;; Clear the C-c keymaps.
-    (define-key clojure-mode-map (kbd "C-c") nil)
+    ;; (define-key clojure-mode-map (kbd "C-c") nil)
 
     ;; Bind when cider is active.
     ;; (define-key clojure-mode-map (kbd "C-c y") 'hydra-clojure/body)
@@ -1441,21 +1441,22 @@
     ;; helm-cider-apropos-symbol-doc
 
     ;; Clear the C-c keymaps.
-    (define-key clojure-mode-map (kbd "C-c") nil)
-    (define-key cider-mode-map (kbd "C-c") nil)
-    (define-key cider-repl-mode-map (kbd "C-c") nil)
+    ;; (define-key clojure-mode-map (kbd "C-c") nil)
+    ;; (define-key cider-mode-map (kbd "C-c") nil)
+    ;; (define-key cider-repl-mode-map (kbd "C-c") nil)
 
     ;; Only enable these in cider mode.
-    (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)
+    ;; (define-key cider-mode-map (kbd "C-c k") 'hydra-cider-eval/body)
 
     ;; Method to add common cider hydras.
-    (-each (list cider-mode-map
-                 cider-repl-mode-map)
-      (lambda (x)
-        ;; (define-key x (kbd "C-c l") 'hydra-cider/body)
-        (define-key x (kbd "C-c f") 'hydra-cider-find/body)
-        (define-key x (kbd "C-c u") 'hydra-cider-docs/body)
-        (define-key x (kbd "C-c t") 'hydra-cider-test/body)))))
+    ;; (-each (list cider-mode-map
+    ;;              cider-repl-mode-map)
+    ;;   (lambda (x)
+    ;;     ;; (define-key x (kbd "C-c l") 'hydra-cider/body)
+    ;;     (define-key x (kbd "C-c f") 'hydra-cider-find/body)
+    ;;     (define-key x (kbd "C-c u") 'hydra-cider-docs/body)
+    ;;     (define-key x (kbd "C-c t") 'hydra-cider-test/body)))
+    ))
 
 ;;
 ;; yaml-mode

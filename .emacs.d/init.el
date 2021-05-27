@@ -178,18 +178,6 @@
 (setq vc-make-backup-files t)
 
 ;;
-;; theme
-;;
-
-;; Setup our theme path.
-(setq custom-theme-directory (concat user-emacs-directory "themes"))
-
-;; Use the it3ration theme for now.
-(condition-case nil
-    (load-theme 'it3ration t)
-  (wrong-number-of-arguments (load-theme 'it3ration)))
-
-;;
 ;; font
 ;;
 
@@ -328,6 +316,34 @@
 
     ;; Setup the path for commands.
     (setq exec-path (-distinct (-concat paths exec-path)))))
+
+;;
+;; theme
+;;
+
+;; Setup our theme path.
+;; (setq custom-theme-directory (concat user-emacs-directory "themes"))
+
+;; Use the it3ration theme for now.
+;; (condition-case nil
+;;     (load-theme 'it3ration t)
+;;   (wrong-number-of-arguments (load-theme 'it3ration)))
+
+;; This package is just awesome, details can be found here:
+;;
+;; http://chriskempson.com/projects/base16/?
+;; https://github.com/belak/base16-emasc
+;;
+;; For this to work, you also have to make sure Alacritty uses 24bit color:
+;;
+;; https://github.com/syl20bnr/spacemacs/wiki/Terminal
+(use-package base16-theme
+  :ensure t
+  :init
+  (when is-terminal
+    (setq base16-theme-256-color-source 'colors))
+  :config
+  (load-theme 'base16-atelier-dune t))
 
 ;;
 ;; text-mode
@@ -1505,7 +1521,6 @@
 ;;
 
 (use-package go-mode
-  :disabled
   :ensure t
   :mode "\\.go$"
   :init

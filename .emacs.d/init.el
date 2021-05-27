@@ -145,6 +145,9 @@
 ;; Don't blink the cursor.
 (setq blink-cursor-mode nil)
 
+;; Don't use a visual bell.
+(setq ring-bell-function 'ignore)
+
 ;; Cursor types.
 (setq-default cursor-type 'box)
 (setq-default cursor-in-non-selected-windows nil)

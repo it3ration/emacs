@@ -979,10 +979,10 @@
   (lsp))
 
 (use-package lsp-mode
-  :disabled
   :ensure t
-  :hook ((csharp-mode . setup-lsp-for-csharp)
+  :hook ((go-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
+  :commands (lsp lsp-deferred)
   :init
   (progn
     ;; Use the correct completion provider.
@@ -1520,6 +1520,8 @@
 (use-package go-mode
   :ensure t
   :mode "\\.go$"
+  :hook ((before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports))
   :init
   (progn
     ;; The style.

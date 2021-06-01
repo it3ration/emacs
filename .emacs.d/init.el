@@ -607,6 +607,12 @@
     ;; No delay please.
     (setq company-idle-delay 0)
 
+	;; Start completing after a single character.
+	(setq company-minimum-prefix-length 1)
+
+	;; Align fields in completions.
+	(setq company-tooltip-align-annotations t)
+
     ;; Turn company on globally.
     (add-hook 'after-init-hook 'global-company-mode)))
 

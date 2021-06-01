@@ -976,8 +976,7 @@
 
 (use-package lsp-mode
   :ensure t
-  :hook ((go-mode . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration))
+  :hook (lsp-mode . lsp-enable-which-key-integration)
   :commands (lsp lsp-deferred)
   :init
   (progn
@@ -1004,7 +1003,8 @@
   (progn
     ;; Let's add helm support please.
     (use-package helm-lsp
-      :ensure t)))
+      :ensure t
+	  :commands helm-lsp-workspace-symbol)))
 
 ;;
 ;; lua-mode
@@ -1516,7 +1516,9 @@
 (use-package go-mode
   :ensure t
   :mode "\\.go$"
-  :hook ((before-save . lsp-format-buffer)
+  :hook ((go-mode . lsp-deferred)
+		 (go-mode . yas-minor-mode)
+         (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :init
   (progn

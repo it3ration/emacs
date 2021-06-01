@@ -974,10 +974,6 @@
 ;; lsp-mode
 ;;
 
-(defun setup-lsp-for-csharp ()
-  (yas-minor-mode)
-  (lsp))
-
 (use-package lsp-mode
   :ensure t
   :hook ((go-mode . lsp-deferred)

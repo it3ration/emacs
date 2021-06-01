@@ -28,7 +28,7 @@
 
 ;; Define some platform-specific variables.
 (setq is-terminal (equal window-system nil))
-(setq is-gui (equal window-system 'ns))
+(setq is-gui (memq window-system '(mac ns x)))
 (setq is-osx (equal system-type 'darwin))
 (setq is-wsl
       (and
@@ -296,26 +296,12 @@
 ;; paths
 ;;
 
-;; If we're in gui emacs, we have to fix our path
-;; variables as they are not lifted from bash.
-(when is-gui
-  (let ((paths '("~/bin"
-                 "/usr/local/bin"
-                 "/usr/local/sbin"
-                 "/usr/bin"
-                 "/usr/sbin"
-                 "/bin"
-                 "/sbin")))
-    ;; Setup the environment variable.
-    (setenv
-     "PATH"
-     (s-join ":" (-distinct
-                  (-concat
-                   paths
-                   (s-split ":" (getenv "PATH"))))))
-
-    ;; Setup the path for commands.
-    (setq exec-path (-distinct (-concat paths exec-path)))))
+;; For gui emacs, loads PATH from ~/.profile.
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (when is-gui
+    (exec-path-from-shell-initialize)))
 
 ;;
 ;; theme

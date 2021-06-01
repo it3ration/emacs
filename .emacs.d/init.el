@@ -1698,9 +1698,6 @@
 ;; restclient
 ;;
 
-;; TODO
-;; * Customize this package.
-
 (use-package restclient
   :ensure t
   :commands restclient-mode)

@@ -1522,17 +1522,7 @@
   :hook ((go-mode . lsp-deferred)
 		 (go-mode . yas-minor-mode)
          (before-save . lsp-format-buffer)
-         (before-save . lsp-organize-imports))
-  :init
-  (progn
-    ;; The style.
-    (add-hook
-     'go-mode-hook
-     (lambda ()
-       (setq-default indent-tabs-mode 1)))
-
-    ;; Reformat the file before saving.
-    (add-hook 'before-save-hook #'gofmt-before-save)))
+         (before-save . lsp-organize-imports)))
 
 ;;
 ;; org-mode

@@ -977,9 +977,13 @@
 (use-package lsp-mode
   :ensure t
   :hook (lsp-mode . lsp-enable-which-key-integration)
+  :bind-keymap ("C-c k" . lsp-command-map)
   :commands (lsp lsp-deferred)
   :init
   (progn
+    ;; Set the which-key prefix.
+    (setq lsp-keymap-prefix "C-c k")
+
     ;; Use the correct completion provider.
     (setq lsp-completion-provider :capf)
 
@@ -995,15 +999,14 @@
     ;; Disable lsp logging.
     (setq lsp-log-io nil)
 
-    ;; (setq lsp-semantic-tokens-warn-on-missing-face t)
-
     ;; Turn on highlighting please.
     (setq lsp-semantic-tokens-enable t))
   :config
   (progn
+    ;; Set custom settings.
 	(lsp-register-custom-settings
 	 '(("gopls.experimentalWorkspaceModule" t t)))
-	
+
     ;; Let's add helm support please.
     (use-package helm-lsp
       :ensure t

@@ -162,6 +162,9 @@
 ;; Remove trailing whitespace on save.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Bind other-frame to a useful hotkey.
+(global-set-key (kbd "C-c o") 'other-frame)
+
 ;;
 ;; backups
 ;;

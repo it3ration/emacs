@@ -1003,10 +1003,6 @@
     (setq lsp-semantic-tokens-enable t))
   :config
   (progn
-    ;; Set custom settings.
-	(lsp-register-custom-settings
-	 '(("gopls.experimentalWorkspaceModule" t t)))
-
     ;; Let's add helm support please.
     (use-package helm-lsp
       :ensure t

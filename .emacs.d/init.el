@@ -1524,7 +1524,27 @@
   :hook ((go-mode . lsp-deferred)
 		 (go-mode . yas-minor-mode)
          (before-save . lsp-format-buffer)
-         (before-save . lsp-organize-imports)))
+         (before-save . lsp-organize-imports))
+  :config
+  (progn
+    ;; Use this for running tests.
+    (use-package gotest
+      :ensure t)
+
+    ;; The hydra for go tests.
+    (defhydra hydra-go-test
+      (:columns 3)
+      "go-test"
+
+      ("t" go-test-current-test "test-current-test" :exit t)
+      ("c" go-test-current-test-cache "test-current-test-cache" :exit t)
+      ("f" go-test-current-file "test-current-file" :exit t)
+      ("p" go-test-current-project "test-current-project" :exit t)
+      
+      ;; Cancel.
+      ("q" nil "quit" :exit t))
+
+    (define-key go-mode-map (kbd "C-c t") 'hydra-go-test/body)))
 
 ;;
 ;; org-mode

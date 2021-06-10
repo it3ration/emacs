@@ -200,7 +200,6 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; Style defaults.
-;; (setq-default c-default-style "k&r")
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
@@ -209,7 +208,6 @@
 (add-hook
  'c-mode-common-hook
  (lambda ()
-   ;; (setq c-default-style "k&r")
    (c-set-style "k&r")
    (setq tab-width 4)
    (setq indent-tabs-mode nil)
@@ -944,11 +942,8 @@
   :mode "\\.cs$"
   :init
   (progn
-    ;; The style.
-    (add-hook
-     'csharp-mode-hook
-     (lambda ()
-       (electric-pair-mode 1)))))
+    ;; Use electric pair mode.
+    (electric-pair-mode 1)))
 
 ;;
 ;; protobuf-mode
@@ -1527,6 +1522,9 @@
          (before-save . lsp-organize-imports))
   :config
   (progn
+    ;; Use electric pair mode.
+    (electric-pair-mode 1)
+             
     ;; Use this for running tests.
     (use-package gotest
       :ensure t)
@@ -1573,6 +1571,7 @@
   :mode "\\.hs$"
   :config
   (progn
+    ;; Use electric pair mode.
     (electric-pair-mode 1)))
 
 ;;

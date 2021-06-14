@@ -37,6 +37,29 @@
 (setq is-gnu (memq system-type '(gnu gnu/linux gnu/kfreebsd)))
 
 ;;
+;; straight
+;;
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; Install use-package.
+(straight-use-package 'use-package)
+
+;; Use straight to install packages.
+(setq straight-use-package-by-default t)
+
+;;
 ;; private
 ;;
 
@@ -254,16 +277,13 @@
 ;;
 
 ;; The string library.
-(use-package s
-  :ensure t)
+(use-package s)
 
 ;; The file library.
-(use-package f
-  :ensure t)
+(use-package f)
 
 ;; The list library.
-(use-package dash
-  :ensure t)
+(use-package dash)
 
 ;;
 ;; copy / paste
@@ -272,7 +292,6 @@
 ;; Copy / paste on osx / gnu.
 (when (and (or is-osx is-gnu) (not is-wsl) is-terminal)
   (use-package xclip
-    :ensure t
     :config
     (progn (xclip-mode 1))))
 
@@ -299,7 +318,6 @@
 
 ;; For gui emacs, loads PATH from ~/.profile.
 (use-package exec-path-from-shell
-  :ensure t
   :config
   (when is-gui
     (exec-path-from-shell-initialize)))
@@ -322,7 +340,6 @@
 ;; You must use a terminal that supports 24bit color:
 ;; * https://github.com/syl20bnr/spacemacs/wiki/Terminal
 (use-package base16-theme
-  :ensure t
   :init
   (when is-terminal
     (setq base16-theme-256-color-source 'colors))
@@ -348,28 +365,27 @@
 ;; clang-format
 ;;
 
-(defun my-clang-format-buffer ()
-  "Reformat buffer if .clang-format exists in the projectile root."
-  (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
-    (clang-format-buffer)))
+;; (defun my-clang-format-buffer ()
+;;   "Reformat buffer if .clang-format exists in the projectile root."
+;;   (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+;;     (clang-format-buffer)))
 
-(let ((path "~/bin/clang-format.el"))
-  (when (f-exists? path)
-    ;; Load the package.
-    (load path)
+;; (let ((path "~/bin/clang-format.el"))
+;;   (when (f-exists? path)
+;;     ;; Load the package.
+;;     (load path)
 
-    ;; Format on save for c / c++.
-    (-map
-     (lambda (x)
-       (add-hook x (lambda () (add-hook 'before-save-hook #'my-clang-format-buffer nil 'local))))
-     '(c-mode-hook c++-mode-hook))))
+;;     ;; Format on save for c / c++.
+;;     (-map
+;;      (lambda (x)
+;;        (add-hook x (lambda () (add-hook 'before-save-hook #'my-clang-format-buffer nil 'local))))
+;;      '(c-mode-hook c++-mode-hook))))
 
 ;;
 ;; hydra
 ;;
 
-(use-package hydra
-  :ensure t)
+(use-package hydra)
 
 ;;
 ;; uniquify
@@ -386,7 +402,6 @@
 
 ;; Makes grep buffers editable.
 (use-package wgrep
-  :ensure t
   :init
   (progn
     ;; Save modified buffers when you exit.
@@ -396,15 +411,13 @@
 ;; rg
 ;;
 
-(use-package rg
-  :ensure t)
+(use-package rg)
 
 ;;
 ;; expand-region
 ;;
 
 (use-package expand-region
-  :ensure t
   :config
   (progn
     ;; The hydra.
@@ -464,7 +477,6 @@
 ;;
 
 (use-package paredit
-  :ensure t
   :init
   (progn
     ;; Turn it on for all lisp modes.
@@ -585,7 +597,6 @@
 ;;
 
 (use-package paxedit
-  :ensure t
   :init
   (progn
     ;; Turn it on for all lisp modes.
@@ -602,7 +613,6 @@
 ;; This mode enables make-
 ;; believe intellisense.
 (use-package company
-  :ensure t
   :init
   (progn
     ;; No delay please.
@@ -624,7 +634,6 @@
 ;; The replacement for guide-key. Given a key
 ;; sequence, shows what commands are available.
 (use-package which-key
-  :ensure t
   :config
   (progn
     ;; No delay please.
@@ -647,7 +656,6 @@
 ;;
 
 (use-package projectile
-  :ensure t
   :demand t
   :init
   (progn
@@ -680,7 +688,6 @@
 ;; is important here due to some global key
 ;; bindings - we start with the config.
 (use-package helm
-  :ensure t
   :demand t
   :bind
   (("C-x C-f" . helm-find-files)
@@ -694,7 +701,7 @@
   :init
   (progn
     ;; We need this now.
-    (use-package helm-config)
+    ;; (use-package helm-config)
 
     ;; Open helm in the current window.
     (setq helm-split-window-in-side-p t)
@@ -728,16 +735,13 @@
                helm-sources))))
 
     ;; Makes helm-grep buffers editable.
-    (use-package wgrep-helm
-      :ensure t)
+    (use-package wgrep-helm)
 
     ;; For spell checking.
-    (use-package helm-flyspell
-      :ensure t)
+    (use-package helm-flyspell)
 
     ;; Swoop mode ftw.
     (use-package helm-swoop
-      :ensure t
       :bind (("M-i" . helm-swoop))
       :init
       (progn
@@ -755,20 +759,17 @@
         (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
 
     ;; For helm git integration.
-    (use-package helm-ls-git
-      :ensure t)
+    (use-package helm-ls-git)
 
     ;; Helm integration? Yes please!
     (use-package helm-projectile
-      :ensure t
       :config
       (progn
         ;; Turn it on.
         (helm-projectile-toggle 1)))
 
     ;; For helm rg integration.
-    (use-package helm-rg
-      :ensure t)
+    (use-package helm-rg)
 
     ;; TODO: Set this up some more using this links:
     ;; https://github.com/tuhdo/emacs-c-ide-demo/blob/master/custom/setup-helm-gtags.el
@@ -776,7 +777,6 @@
     ;; https://gist.github.com/dkruchinin/925042
     ;; For navigating tags.
     ;; (use-package helm-gtags
-    ;;   :ensure t
     ;;   :config
     ;;   (progn
     ;;
@@ -791,7 +791,6 @@
 
     ;; For inspecting bindings.
     (use-package helm-descbinds
-      :ensure t
       :bind (("C-h b" . helm-descbinds))
       :config
       (progn
@@ -817,7 +816,6 @@
 
 ;; The best git interface ever.
 (use-package magit
-  :ensure t
   :bind (("C-x g" . magit-status))
   :init
   (progn
@@ -833,7 +831,6 @@
 ;;
 
 (use-package multiple-cursors
-  :ensure t
   :config
   (progn
     ;; The hydra.
@@ -901,7 +898,6 @@
 ;;
 
 (use-package rainbow-mode
-  :ensure t
   :config
   (progn
     ;; Only style hex colors please.
@@ -915,7 +911,6 @@
 ;;
 
 (use-package undo-tree
-  :ensure t
   :bind (("C-x u" . undo-tree-visualize))
   :config
   (progn
@@ -929,7 +924,7 @@
 ;; Allows you to try packages
 ;; without installing them.
 (use-package try
-  :ensure t
+  :disabled
   :commands (try try-and-refresh))
 
 ;;
@@ -938,7 +933,7 @@
 
 ;; The c# language.
 (use-package csharp-mode
-  :ensure t
+  :disabled
   :mode "\\.cs$"
   :init
   (progn
@@ -950,22 +945,20 @@
 ;;
 
 (use-package protobuf-mode
-  :ensure t
+  :disabled
   :mode "\\.proto")
 
 ;;
 ;; yasnippet
 ;;
 
-(use-package yasnippet
-  :ensure t)
+(use-package yasnippet)
 
 ;;
 ;; flycheck
 ;;
 
 (use-package flycheck
-  :ensure t
   :init (global-flycheck-mode))
 
 ;;
@@ -973,7 +966,6 @@
 ;;
 
 (use-package lsp-mode
-  :ensure t
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :bind-keymap ("C-c k" . lsp-command-map)
   :commands (lsp lsp-deferred)
@@ -1003,7 +995,6 @@
   (progn
     ;; Let's add helm support please.
     (use-package helm-lsp
-      :ensure t
 	  :commands helm-lsp-workspace-symbol)))
 
 ;;
@@ -1011,7 +1002,6 @@
 ;;
 
 (use-package lua-mode
-  :ensure t
   :mode "\\.lua$")
 
 ;;
@@ -1020,7 +1010,6 @@
 
 (use-package rust-mode
   :disabled
-  :ensure t
   :mode "\\.rs$")
 
 ;;
@@ -1029,7 +1018,6 @@
 
 ;; For editing shaders.
 (use-package shader-mode
-  :ensure t
   :mode ("\\.shader$"
          "\\.compute$"
          "\\.hlsl$"
@@ -1042,7 +1030,6 @@
 ;;
 
 (use-package slime
-  :ensure t
   :init
   (progn
     ;; We're using SBCL as our CL runtime.
@@ -1057,7 +1044,7 @@
 
 ;; The clojure language.
 (use-package clojure-mode
-  :ensure t
+  :disabled
   :mode "\\.clj$"
   :init
   (progn
@@ -1124,7 +1111,7 @@
 
 ;; This is -the- clojure ide.
 (use-package cider
-  :ensure t
+  :disabled
   :init
   (progn
     ;; Make the scratch buffer empty.
@@ -1136,7 +1123,6 @@
   (progn
     ;; Helm integration? Yes please!
     (use-package helm-cider
-      :ensure t
       :init
       (progn
         ;; Don't snap to the bottom.
@@ -1145,8 +1131,7 @@
       (helm-cider-mode 1))
 
     ;; Refactoring support.
-    (use-package clj-refactor
-      :ensure t)
+    (use-package clj-refactor)
 
     ;; The docs hydra.
     (defhydra hydra-cider-docs
@@ -1476,7 +1461,6 @@
 
 ;; The yaml language.
 (use-package yaml-mode
-  :ensure t
   :mode "\\.yml$")
 
 ;;
@@ -1488,7 +1472,6 @@
 
 ;; For web-based languages.
 (use-package web-mode
-  :ensure t
   :mode ("\\.js$"
          "\\.jsx$"
          "\\.json$"
@@ -1514,7 +1497,6 @@
 ;;
 
 (use-package go-mode
-  :ensure t
   :mode "\\.go$"
   :hook ((go-mode . lsp-deferred)
 		 (go-mode . yas-minor-mode)
@@ -1526,8 +1508,7 @@
     (electric-pair-mode 1)
              
     ;; Use this for running tests.
-    (use-package gotest
-      :ensure t)
+    (use-package gotest)
 
     ;; The hydra for go tests.
     (defhydra hydra-go-test
@@ -1567,7 +1548,6 @@
 
 (use-package haskell-mode
   :disabled
-  :ensure t
   :mode "\\.hs$"
   :config
   (progn
@@ -1579,7 +1559,6 @@
 ;;
 
 (use-package markdown-mode
-  :ensure t
   :mode "\\.md$")
 
 ;;
@@ -1593,7 +1572,6 @@
 ;; The emacs shell.
 (use-package eshell
   :disabled
-  :ensure t
   :commands eshell
   :config
   (progn
@@ -1636,7 +1614,7 @@
 ;;
 
 (use-package erc
-  :ensure t
+  :disabled
   :init
   (progn
     ;; Fill chat messages based on window width.
@@ -1705,12 +1683,10 @@
 ;;
 
 (use-package restclient
-  :ensure t
   :commands restclient-mode)
 
 ;;
 ;; 2048
 ;;
 
-(use-package 2048-game
-  :ensure t)
+(use-package 2048-game)

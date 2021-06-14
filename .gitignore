@@ -16,3 +16,5 @@
 .emacs.d/.cache
 .emacs.d/.lsp-session-*
 .emacs.d/session\.*
+.emacs.d/straight
+

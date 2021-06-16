@@ -1709,6 +1709,13 @@
   :commands restclient-mode)
 
 ;;
+;; rego
+;;
+
+(use-package rego-mode
+  :ensure t)
+
+;;
 ;; 2048
 ;;
 

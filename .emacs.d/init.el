@@ -1706,7 +1706,16 @@
 
 (use-package restclient
   :ensure t
-  :commands restclient-mode)
+  :mode ("\\.rest$" . restclient-mode)
+  :commands restclient-mode
+  :config
+  (progn
+    ;; Prevent restclient from hijacking our M-x binding.
+    (define-key restclient-mode-map (kbd "C-c n") nil)))
+
+(use-package restclient-helm
+  :ensure t
+  :after restclient)
 
 ;;
 ;; rego

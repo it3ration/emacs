@@ -976,6 +976,8 @@
   :ensure t
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :bind-keymap ("C-c k" . lsp-command-map)
+  :bind (("C-c M-u" . lsp-find-references)
+         ("C-c M-y" . lsp-find-implementation))
   :commands (lsp lsp-deferred)
   :init
   (progn

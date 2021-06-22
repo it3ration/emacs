@@ -67,6 +67,9 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'fringe-mode) (fringe-mode 0))
 
+;; Move as far as possible when scrolling.
+(setq  scroll-error-top-bottom t)
+
 ;; No splash screen / startup message.
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)

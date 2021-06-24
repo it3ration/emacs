@@ -1523,13 +1523,14 @@
   :mode "\\.go$"
   :hook ((go-mode . lsp-deferred)
 		 (go-mode . yas-minor-mode)
+         (go-mode . toggle-truncate-lines)
          (before-save . lsp-format-buffer)
          (before-save . lsp-organize-imports))
   :config
   (progn
     ;; Use electric pair mode.
     (electric-pair-mode 1)
-             
+    
     ;; Use this for running tests.
     (use-package gotest
       :ensure t)

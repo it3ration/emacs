@@ -169,6 +169,17 @@
 (global-set-key (kbd "C-c o") 'other-frame)
 
 ;;
+;; completion
+;;
+
+;; Set this to helm or ivy.
+(setq completion-system 'helm)
+
+;; Helper variables.
+(setq use-helm (eq completion-system 'helm))
+(setq use-ivy (eq completion-system 'ivy))
+
+;;
 ;; backups
 ;;
 
@@ -660,6 +671,9 @@
     ;; Use helm as projectile's completion system.
     (setq projectile-completion-system 'helm)
 
+    ;; Setup the completion system.
+    (setq projectile-completion-system completion-system)
+
     ;; Set our indexing mode.
     (setq projectile-indexing-method 'alien))
   :config
@@ -682,131 +696,245 @@
 ;; humble opinion. The initialization order
 ;; is important here due to some global key
 ;; bindings - we start with the config.
-(use-package helm
-  :ensure t
-  :demand t
-  :bind
-  (("C-x C-f" . helm-find-files)
-   ("M-x" . helm-M-x)
-   ("C-c n" . helm-M-x)
-   ("C-x b" . helm-mini)
-   ("C-x C-b" . helm-buffers-list)
-   ("M-y" . helm-show-kill-ring)
-   ("C-h a" . helm-apropos)
-   ("C-x p" . helm-browse-project))
-  :init
-  (progn
-    ;; We need this now.
-    (use-package helm-config)
+(when use-helm
+  (use-package helm
+    :ensure t
+    :demand t
+    :bind
+    (("C-x C-f" . helm-find-files)
+     ("M-x" . helm-M-x)
+     ("C-c n" . helm-M-x)
+     ("C-x b" . helm-mini)
+     ("C-x C-b" . helm-buffers-list)
+     ("M-y" . helm-show-kill-ring)
+     ("C-h a" . helm-apropos)
+     ("C-x p" . helm-browse-project))
+    :init
+    (progn
+      ;; We need this now.
+      (use-package helm-config)
 
-    ;; Open helm in the current window.
-    (setq helm-split-window-in-side-p t)
+      ;; Open helm in the current window.
+      (setq helm-split-window-in-side-p t)
 
-    ;; Stop annoying keybindings.
-    (global-unset-key (kbd "C-x c"))
+      ;; Stop annoying keybindings.
+      (global-unset-key (kbd "C-x c"))
 
-    ;; Add a global prefix.
-    (global-set-key (kbd "C-c h") 'helm-command-prefix)
+      ;; Add a global prefix.
+      (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
-    ;; Up this limit a bit.
-    (setq helm-candidate-number-limit 400)
+      ;; Up this limit a bit.
+      (setq helm-candidate-number-limit 400)
 
-    ;; Add a few extensions to helm's command map.
-    ;; (define-key helm-command-map (kbd "d") 'helm-dash)
-    ;; (define-key helm-command-map (kbd "o") 'helm-occur)
+      ;; Add a few extensions to helm's command map.
+      ;; (define-key helm-command-map (kbd "d") 'helm-dash)
+      ;; (define-key helm-command-map (kbd "o") 'helm-occur)
+      )
+    :config
+    (progn
+      ;; Turn it on.
+      (helm-mode t)
+
+      ;; Turn on helm-follow for certain sources.
+      (add-hook
+       'helm-before-initialize-hook
+       (lambda ()
+         (let ((sources '(helm-source-occur)))
+           (mapc (lambda (source)
+                   (when (memq source sources)
+                     (helm-attrset 'follow 1 (symbol-value source))))
+                 helm-sources))))
+
+      ;; Makes helm-grep buffers editable.
+      (use-package wgrep-helm
+        :ensure t)
+
+      ;; For spell checking.
+      (use-package helm-flyspell
+        :ensure t)
+
+      ;; Swoop mode ftw.
+      (use-package helm-swoop
+        :ensure t
+        :bind (("M-i" . helm-swoop))
+        :init
+        (progn
+          ;; Start with no search string.
+          (setq helm-swoop-pre-input-function (lambda () ""))
+
+          ;; Split vertically please.
+          (setq helm-swoop-split-direction 'split-window-horizontally))
+        :config
+        (progn
+          ;; Move up and down using isearch keys.
+          (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+          (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+          (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
+          (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
+
+      ;; For helm git integration.
+      (use-package helm-ls-git
+        :ensure t)
+
+      ;; Helm integration? Yes please!
+      (use-package helm-projectile
+        :ensure t
+        :config
+        (progn
+          ;; Turn it on.
+          (helm-projectile-toggle 1)))
+
+      ;; For helm rg integration.
+      (use-package helm-rg
+        :ensure t)
+
+      ;; TODO: Set this up some more using this links:
+      ;; https://github.com/tuhdo/emacs-c-ide-demo/blob/master/custom/setup-helm-gtags.el
+      ;; https://www.emacswiki.org/emacs/GnuGlobal
+      ;; https://gist.github.com/dkruchinin/925042
+      ;; For navigating tags.
+      ;; (use-package helm-gtags
+      ;;   :ensure t
+      ;;   :config
+      ;;   (progn
+      ;;
+      ;;     ;; Use this for modes that gnu global supports.
+      ;;     (add-hook 'c-mode-hook 'helm-gtags-mode)
+      ;;     (add-hook 'c++-mode-hook 'helm-gtags-mode)
+      ;;     (add-hook 'csharp-mode-hook 'helm-gtags-mode)
+      ;;
+      ;;     ;; Setup key bindings.
+      ;;     (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+      ;;     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+
+      ;; For inspecting bindings.
+      (use-package helm-descbinds
+        :ensure t
+        :bind (("C-h b" . helm-descbinds))
+        :config
+        (progn
+          ;; Open in the other window please.
+          (setq helm-descbinds-window-style 'split-window)))))
+
+  (defun helm-grep-do-git-grep-all ()
+    "Like helm-grep-do-git-grep but searches the entire repository."
+    (interactive)
+    (helm-grep-git-1 default-directory 'all))
+
+  (global-set-key (kbd "C-c M-i") 'helm-grep-do-git-grep-all))
+
+;;
+;; ivy
+;;
+
+(when use-ivy
+  (defun ivy-display-function-other-window (text)
+    "Show ivy results in other window."
+    (let ((buffer (get-buffer-create "*ivy-candidate-window*"))
+          (str (with-current-buffer (get-buffer-create " *Minibuf-1*")
+                 (let ((point (point))
+                       (string (concat (buffer-string) "  " text)))
+                   (add-face-text-property
+                    (- point 1) point 'ivy-cursor t string)
+                   string))))
+      (with-current-buffer buffer
+        (let ((inhibit-read-only t))
+          (erase-buffer)
+          (insert str)))
+      (with-ivy-window
+        (display-buffer
+         buffer
+         `((display-buffer-reuse-window
+            (lambda (buffer alist)
+              (other-window 1)
+              (switch-to-buffer buffer))))))))
+
+  (defun my-swiper (&optional initial-input)
+    "Opens swiper in a vertical buffer."
+    (interactive)
+    (let ((position (point)))
+      (save-window-excursion
+        (let* ((buffer (current-buffer))
+               (window (get-buffer-window))
+               (should-swap
+                (and
+                 (not (window-at-side-p window 'left))
+                 (window-at-side-p window 'right)))
+               (ivy-height (1- (window-height window))))
+          (delete-other-windows)
+          (split-window-horizontally)
+          (when should-swap
+            (other-window 1)
+            (switch-to-buffer buffer))
+          (setq position (swiper initial-input))))
+      (goto-char position)))
+
+  (use-package counsel
+    :ensure t
+    :demand t
+    :bind
+    (("C-s" . swiper-isearch)
+     ("M-x" . counsel-M-x)
+     ("C-c n" . counsel-M-x)
+     ("C-x C-f" . counsel-find-file)
+     ("M-y" . counsel-yank-pop)
+     ("C-h f" . counsel-describe-function)
+     ("C-h v" . counsel-describe-variable)
+     ("C-x b" . counsel-switch-buffer)
+     ("C-h a" . counsel-apropos)
+     ("C-h b" . counsel-descbinds)
+     ("M-i" . my-swiper)
+     ("C-x p" . counsel-git))
+    :init
+    (setq ivy-display-functions-alist
+          '((swiper . ivy-display-function-other-window)))
+
+    ;; Show recent files / bookmarks.
+    (setq ivy-use-virtual-buffers t)
+
+    ;; Show the count format.
+    (setq ivy-count-format "(%d/%d) ")
+
+    ;; Make highlight extend all the way to the right.
+    (setq ivy-format-function 'ivy-format-function-line)
+
+    ;; Increase the height.
+    (setq ivy-height 16)
+
+    ;; Always stay the same height.
+    ;; (setq ivy-fixed-height-minibuffer t)
+
+    ;; Visually separate things in the kill ring.
+    (setq counsel-yank-pop-separator
+          (concat "\n" (make-string 24 ?-) "\n"))
+
+    ;; Ignore order in completing read.
+    (setq ivy-re-builders-alist
+          '((t . ivy--regex-ignore-order)))
+    :config
+    ;; Enable everywhere.
+    (ivy-mode 1)
+
+    ;; Customize the default input for various commands.
+    ;; (setcdr (assoc 'swiper ivy-initial-inputs-alist) "")
     )
-  :config
-  (progn
-    ;; Turn it on.
-    (helm-mode t)
 
-    ;; Turn on helm-follow for certain sources.
-    (add-hook
-     'helm-before-initialize-hook
-     (lambda ()
-       (let ((sources '(helm-source-occur)))
-         (mapc (lambda (source)
-                 (when (memq source sources)
-                   (helm-attrset 'follow 1 (symbol-value source))))
-               helm-sources))))
+  (use-package ivy-hydra
+    :ensure t
+    :after (ivy hydra))
 
-    ;; Makes helm-grep buffers editable.
-    (use-package wgrep-helm
-      :ensure t)
+  (use-package ivy-rich
+    :ensure t
+    :after ivy
+    :config
+    (ivy-rich-mode 1)
 
-    ;; For spell checking.
-    (use-package helm-flyspell
-      :ensure t)
+    ;; Highlight the entire line in the minibuffer.
+    (setcdr (assoc t ivy-format-functions-alist) #'ivy-format-function-line))
 
-    ;; Swoop mode ftw.
-    (use-package helm-swoop
-      :ensure t
-      :bind (("M-i" . helm-swoop))
-      :init
-      (progn
-        ;; Start with no search string.
-        (setq helm-swoop-pre-input-function (lambda () ""))
-
-        ;; Split vertically please.
-        (setq helm-swoop-split-direction 'split-window-horizontally))
-      :config
-      (progn
-        ;; Move up and down using isearch keys.
-        (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
-        (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
-        (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
-        (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
-
-    ;; For helm git integration.
-    (use-package helm-ls-git
-      :ensure t)
-
-    ;; Helm integration? Yes please!
-    (use-package helm-projectile
-      :ensure t
-      :config
-      (progn
-        ;; Turn it on.
-        (helm-projectile-toggle 1)))
-
-    ;; For helm rg integration.
-    (use-package helm-rg
-      :ensure t)
-
-    ;; TODO: Set this up some more using this links:
-    ;; https://github.com/tuhdo/emacs-c-ide-demo/blob/master/custom/setup-helm-gtags.el
-    ;; https://www.emacswiki.org/emacs/GnuGlobal
-    ;; https://gist.github.com/dkruchinin/925042
-    ;; For navigating tags.
-    ;; (use-package helm-gtags
-    ;;   :ensure t
-    ;;   :config
-    ;;   (progn
-    ;;
-    ;;     ;; Use this for modes that gnu global supports.
-    ;;     (add-hook 'c-mode-hook 'helm-gtags-mode)
-    ;;     (add-hook 'c++-mode-hook 'helm-gtags-mode)
-    ;;     (add-hook 'csharp-mode-hook 'helm-gtags-mode)
-    ;;
-    ;;     ;; Setup key bindings.
-    ;;     (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-    ;;     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
-
-    ;; For inspecting bindings.
-    (use-package helm-descbinds
-      :ensure t
-      :bind (("C-h b" . helm-descbinds))
-      :config
-      (progn
-        ;; Open in the other window please.
-        (setq helm-descbinds-window-style 'split-window)))))
-
-(defun helm-grep-do-git-grep-all ()
-  "Like helm-grep-do-git-grep but searches the entire repository."
-  (interactive)
-  (helm-grep-git-1 default-directory 'all))
-
-(global-set-key (kbd "C-c M-i") 'helm-grep-do-git-grep-all)
+  ;; (use-package counsel-projectile
+  ;;   :after (ivy counsel projectile))
+  )
 
 ;;
 ;; magit
@@ -1530,7 +1658,7 @@
   (progn
     ;; Use electric pair mode.
     (electric-pair-mode 1)
-    
+
     ;; Use this for running tests.
     (use-package gotest
       :ensure t)
@@ -1544,7 +1672,7 @@
       ("c" go-test-current-test-cache "test-current-test-cache" :exit t)
       ("f" go-test-current-file "test-current-file" :exit t)
       ("p" go-test-current-project "test-current-project" :exit t)
-      
+
       ;; Cancel.
       ("q" nil "quit" :exit t))
 

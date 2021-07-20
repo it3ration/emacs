@@ -173,7 +173,7 @@
 ;;
 
 ;; Set this to helm or ivy.
-(setq completion-system 'helm)
+(setq completion-system 'ivy)
 
 ;; Helper variables.
 (setq use-helm (eq completion-system 'helm))
@@ -828,46 +828,46 @@
 ;;
 
 (when use-ivy
-  (defun ivy-display-function-other-window (text)
-    "Show ivy results in other window."
-    (let ((buffer (get-buffer-create "*ivy-candidate-window*"))
-          (str (with-current-buffer (get-buffer-create " *Minibuf-1*")
-                 (let ((point (point))
-                       (string (concat (buffer-string) "  " text)))
-                   (add-face-text-property
-                    (- point 1) point 'ivy-cursor t string)
-                   string))))
-      (with-current-buffer buffer
-        (let ((inhibit-read-only t))
-          (erase-buffer)
-          (insert str)))
-      (with-ivy-window
-        (display-buffer
-         buffer
-         `((display-buffer-reuse-window
-            (lambda (buffer alist)
-              (other-window 1)
-              (switch-to-buffer buffer))))))))
+;;   (defun ivy-display-function-other-window (text)
+;;     "Show ivy results in other window."
+;;     (let ((buffer (get-buffer-create "*ivy-candidate-window*"))
+;;           (str (with-current-buffer (get-buffer-create " *Minibuf-1*")
+;;                  (let ((point (point))
+;;                        (string (concat (buffer-string) "  " text)))
+;;                    (add-face-text-property
+;;                     (- point 1) point 'ivy-cursor t string)
+;;                    string))))
+;;       (with-current-buffer buffer
+;;         (let ((inhibit-read-only t))
+;;           (erase-buffer)
+;;           (insert str)))
+;;       (with-ivy-window
+;;         (display-buffer
+;;          buffer
+;;          `((display-buffer-reuse-window
+;;             (lambda (buffer alist)
+;;               (other-window 1)
+;;               (switch-to-buffer buffer))))))))
 
-  (defun my-swiper (&optional initial-input)
-    "Opens swiper in a vertical buffer."
-    (interactive)
-    (let ((position (point)))
-      (save-window-excursion
-        (let* ((buffer (current-buffer))
-               (window (get-buffer-window))
-               (should-swap
-                (and
-                 (not (window-at-side-p window 'left))
-                 (window-at-side-p window 'right)))
-               (ivy-height (1- (window-height window))))
-          (delete-other-windows)
-          (split-window-horizontally)
-          (when should-swap
-            (other-window 1)
-            (switch-to-buffer buffer))
-          (setq position (swiper initial-input))))
-      (goto-char position)))
+;;   (defun my-swiper (&optional initial-input)
+;;     "Opens swiper in a vertical buffer."
+;;     (interactive)
+;;     (let ((position (point)))
+;;       (save-window-excursion
+;;         (let* ((buffer (current-buffer))
+;;                (window (get-buffer-window))
+;;                (should-swap
+;;                 (and
+;;                  (not (window-at-side-p window 'left))
+;;                  (window-at-side-p window 'right)))
+;;                (ivy-height (1- (window-height window))))
+;;           (delete-other-windows)
+;;           (split-window-horizontally)
+;;           (when should-swap
+;;             (other-window 1)
+;;             (switch-to-buffer buffer))
+;;           (setq position (swiper initial-input))))
+;;       (goto-char position)))
 
   (use-package counsel
     :ensure t
@@ -883,11 +883,13 @@
      ("C-x b" . counsel-switch-buffer)
      ("C-h a" . counsel-apropos)
      ("C-h b" . counsel-descbinds)
-     ("M-i" . my-swiper)
+     ;; ("M-i" . my-swiper)
+     ("M-i" . swiper)
+     ("C-c M-i" . counsel-git-grep)
      ("C-x p" . counsel-git))
     :init
-    (setq ivy-display-functions-alist
-          '((swiper . ivy-display-function-other-window)))
+    ;; (setq ivy-display-functions-alist
+    ;;       '((swiper . ivy-display-function-other-window)))
 
     ;; Show recent files / bookmarks.
     (setq ivy-use-virtual-buffers t)
@@ -899,10 +901,10 @@
     (setq ivy-format-function 'ivy-format-function-line)
 
     ;; Increase the height.
-    (setq ivy-height 16)
+    (setq ivy-height 18)
 
     ;; Always stay the same height.
-    ;; (setq ivy-fixed-height-minibuffer t)
+    (setq ivy-fixed-height-minibuffer t)
 
     ;; Visually separate things in the kill ring.
     (setq counsel-yank-pop-separator
